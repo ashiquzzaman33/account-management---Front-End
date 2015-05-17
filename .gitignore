@@ -58,6 +58,3 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 .nb-gradle/
-build.xml
-manifest.mf
-nbproject/
