@@ -44,3 +44,20 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
+/JavaFXApplication13/nbproject/private/
+/Account_management/nbproject/private/
+/dist/
+/build/
+
+#GIT IGNORE FOR NETBEANS
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+build.xml
+manifest.mf
+nbproject/
