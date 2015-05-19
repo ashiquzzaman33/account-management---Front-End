@@ -6,20 +6,19 @@
 package account.management.controller;
 
 import account.management.model.Account;
+import account.management.model.Location;
 import account.management.model.MetaData;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.async.Callback;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,9 +51,9 @@ public class CreateAccountController implements Initializable {
     private ComboBox<String> select_dr_cr;
     
     private Collection<Account> account;
-    private Collection<String> location;
+    private Collection<Location> location;
     @FXML
-    private ComboBox<String> select_location;
+    private ComboBox<Location> select_location;
     @FXML
     private ImageView parent_preloader;
     @FXML
@@ -65,8 +64,34 @@ public class CreateAccountController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         parent_preloader.setImage(new Image("/pre_loader.gif",true));
-        location = FXCollections.observableArrayList("dhaka", "khulna");
-        select_location.getItems().addAll(location);
+        location_preloader.setImage(new Image("/pre_loader.gif",true));
+        location = FXCollections.observableArrayList();
+        
+        /*
+        *   add location to combo box
+        */
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/locations").asJson();
+                    JSONArray locationArray = response.getBody().getArray();
+                    for(int i=0; i<locationArray.length(); i++){
+                        JSONObject obj = locationArray.getJSONObject(i);
+                        int id = Integer.parseInt(obj.get("id").toString());
+                        String name = obj.get("name").toString();
+                        String details = obj.get("details").toString();
+                        // if the location is not "none" then add it
+                        if(id != 1) location.add(new Location(id, name,details));
+                    }
+                    select_location.getItems().addAll(location);
+                    location_preloader.setVisible(false);
+                } catch (UnirestException ex) {
+                    
+                }
+            }
+        }).start();
         
         new Thread(new Runnable() {
             @Override
@@ -121,22 +146,24 @@ public class CreateAccountController implements Initializable {
         this.button_submit.setDisable(true);
         
         String name = input_account_name.getText();
-        int parent = select_parent.getSelectionModel().getSelectedItem().getParent();
+        int parent = select_parent.getSelectionModel().getSelectedItem().getId();
         float opening_balance = Float.parseFloat(input_opening_balance.getText());
         String desc = input_description.getText();
+        int location_id = this.select_location.getSelectionModel().getSelectedItem().getId();
+        
         
         if(select_dr_cr.getSelectionModel().getSelectedItem().equals("Cr")){
             opening_balance *= -1f;
         }
         Account account = new Account(0, name, parent, desc, opening_balance);
-        System.out.println(String.valueOf(account.getParent()));
+        
         Unirest.post(MetaData.baseUrl + "add/account")
                 .header("accept", "application/json")
                 .field("name", account.getName())
-                .field("parent", String.valueOf(account.getId()))
+                .field("parent", String.valueOf(account.getParent()))
                 .field("description", account.getDescription())
                 .field("opening_balance", String.valueOf(account.getOpeningBalance()))
-                .field("location", select_location.getSelectionModel().getSelectedItem().toString())
+                .field("location_id", String.valueOf(location_id))
                 .asJsonAsync(new Callback<JsonNode>() {
                     
                     @Override
@@ -155,6 +182,8 @@ public class CreateAccountController implements Initializable {
                         System.err.println("cancelled");
                     }
                 });
+
+        
         
         
    }

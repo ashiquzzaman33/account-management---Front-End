@@ -17,7 +17,7 @@
       <TextField fx:id="input_opening_balance" layoutX="107.0" layoutY="148.0" promptText="opening balance" />
       <ComboBox fx:id="select_dr_cr" layoutX="270.0" layoutY="148.0" prefHeight="25.0" prefWidth="99.0" promptText="select one" />
       <ComboBox fx:id="select_location" layoutX="399.0" layoutY="66.0" prefWidth="150.0" promptText="select location" />
-      <ImageView fx:id="parent_preloader" fitHeight="56.0" fitWidth="86.0" layoutX="313.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="parent_preloader" fitHeight="56.0" fitWidth="86.0" layoutX="307.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="location_preloader" fitHeight="56.0" fitWidth="86.0" layoutX="527.0" layoutY="51.0" pickOnBounds="true" />
    </children>
 </AnchorPane>
