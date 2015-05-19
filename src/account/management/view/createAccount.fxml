@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.MainController">
+   <children>
+      <TextField fx:id="input_account_name" layoutX="107.0" layoutY="72.0" promptText="Account name" />
+      <TextArea fx:id="input_description" layoutX="107.0" layoutY="186.0" prefHeight="101.0" prefWidth="367.0" promptText="description" />
+      <ComboBox fx:id="select_parent" layoutX="107.0" layoutY="111.0" prefHeight="25.0" prefWidth="223.0" promptText="select immediate parent" />
+      <Button fx:id="button_submit" layoutX="420.0" layoutY="304.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit" />
+      <TextField fx:id="input_opening_balance" layoutX="107.0" layoutY="148.0" promptText="opening balance" />
+      <ComboBox fx:id="select_dr_cr" layoutX="270.0" layoutY="148.0" prefHeight="25.0" prefWidth="99.0" promptText="select one" />
+      <ComboBox fx:id="select_location" layoutX="399.0" layoutY="66.0" prefWidth="150.0" promptText="select location" />
+      <ImageView fx:id="parent_preloader" fitHeight="56.0" fitWidth="86.0" layoutX="313.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="location_preloader" fitHeight="56.0" fitWidth="86.0" layoutX="527.0" layoutY="51.0" pickOnBounds="true" />
+   </children>
+</AnchorPane>
