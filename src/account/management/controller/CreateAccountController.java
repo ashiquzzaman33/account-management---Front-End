@@ -37,7 +37,7 @@ import org.json.JSONObject;
  *
  * @author mohar
  */
-public class MainController implements Initializable {
+public class CreateAccountController implements Initializable {
     @FXML
     private TextField input_account_name;
     @FXML
