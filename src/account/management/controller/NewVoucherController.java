@@ -10,6 +10,7 @@ import account.management.model.Location;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -19,6 +20,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -44,6 +46,8 @@ public class NewVoucherController implements Initializable {
     private ComboBox<String> select_voucher_type;
     @FXML
     private Button button_submit;
+    @FXML
+    private Button button_delete_row;
     
 
     @Override
@@ -62,6 +66,7 @@ public class NewVoucherController implements Initializable {
         TextField dr        = new TextField();
         TextField cr        = new TextField();
         TextField remarks   = new TextField();
+        Button del_row = new Button("Delete");
         
         row.setSpacing(field_row.getSpacing());
         
@@ -81,13 +86,27 @@ public class NewVoucherController implements Initializable {
         remarks.setPrefWidth(tf.getPrefWidth());
         remarks.setPromptText("remarks");
         
-        row.getChildren().addAll(select_account, dr, cr, remarks);
+        row.getChildren().addAll(select_account, dr, cr, remarks, del_row);
         field_container.getChildren().add(row);
+        
+        del_row.setOnMouseClicked(new EventHandler<MouseEvent>(){
+
+            @Override
+            public void handle(MouseEvent event) {
+                field_container.getChildren().removeAll(row);
+            }
+            
+        });
         
     }
 
     @FXML
     private void onSubmitButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void onDeleteRowButtonClick(MouseEvent event) {
+        field_container.getChildren().removeAll(field_row);
     }
     
 }

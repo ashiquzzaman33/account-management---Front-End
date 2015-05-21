@@ -21,6 +21,7 @@
                   <TextField layoutX="230.0" layoutY="245.0" prefHeight="25.0" prefWidth="78.0" promptText="Dr" />
                   <TextField layoutX="328.0" layoutY="245.0" prefHeight="25.0" prefWidth="86.0" promptText="Cr" />
                   <TextField layoutX="437.0" layoutY="245.0" promptText="remarks" />
+                  <Button fx:id="button_delete_row" mnemonicParsing="false" onMouseClicked="#onDeleteRowButtonClick" text="Delete" />
                </children>
             </HBox>
          </children>
