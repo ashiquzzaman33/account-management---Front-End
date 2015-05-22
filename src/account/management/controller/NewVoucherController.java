@@ -14,15 +14,11 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.net.URL;
 import java.util.Collection;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -74,38 +70,27 @@ public class NewVoucherController implements Initializable {
         *   init locations in select_location combobox
         */
         locations = FXCollections.observableArrayList();
-        new Thread(new Runnable(){
-
-            @Override
-            public void run() {
-                try {
-                    HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/locations").asJson();
-                    JSONArray location_array = response.getBody().getArray();
-                    for(int i=0; i<location_array.length()-1; i++){
-                        String name = location_array.getJSONObject(i).getString("name");
-                        String details = location_array.getJSONObject(i).getString("details");
-                        int id = location_array.getJSONObject(i).getInt("id");
-                        locations.add(new Location(id,name,details));
-                    }
-                    select_location.getItems().addAll(locations);
-                    
-                } catch (UnirestException ex) {
-                    System.out.println("exception in UNIREST");
+        new Thread(() -> {
+            try {
+                HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/locations").asJson();
+                JSONArray location_array = response.getBody().getArray();
+                for(int i=0; i<location_array.length()-1; i++){
+                    String name = location_array.getJSONObject(i).getString("name");
+                    String details = location_array.getJSONObject(i).getString("details");
+                    int id = location_array.getJSONObject(i).getInt("id");
+                    locations.add(new Location(id,name,details));
                 }
+                select_location.getItems().addAll(locations);
+                
+            } catch (UnirestException ex) {
+                System.out.println("exception in UNIREST");
             }
-            
         }).start();
         
         this.button_submit.setDisable(true);
         
-        field_container.setOnKeyReleased(new EventHandler<KeyEvent>(){
-
-            @Override
-            public void handle(KeyEvent event) {
-                validateFields();
-                
-            }
-            
+        field_container.setOnKeyReleased((KeyEvent event)->{
+            validateFields();
         });
         
         
@@ -116,7 +101,7 @@ public class NewVoucherController implements Initializable {
         
         HBox row = new HBox();
         row.setId("field_row");
-        ComboBox<Account> select_account = new ComboBox<Account>();
+        ComboBox<Account> select_account = new ComboBox<>();
         TextField dr        = new TextField();
         TextField cr        = new TextField();
         TextField remarks   = new TextField();
@@ -143,14 +128,9 @@ public class NewVoucherController implements Initializable {
         row.getChildren().addAll(select_account, dr, cr, remarks, del_row);
         field_container.getChildren().add(row);
         
-        del_row.setOnMouseClicked(new EventHandler<MouseEvent>(){
-
-            @Override
-            public void handle(MouseEvent event) {
-                field_container.getChildren().removeAll(row);
-                validateFields();
-            }
-            
+        del_row.setOnMouseClicked((MouseEvent event1) -> {
+            field_container.getChildren().removeAll(row);
+            validateFields();
         });
         
         validateFields();
@@ -189,12 +169,12 @@ public class NewVoucherController implements Initializable {
             *   regular expression check
             */
             Pattern pattern = Pattern.compile("^[0-9]*\\.?[0-9]+$");
-            Matcher match = pattern.matcher(dr.getText().toString());
+            Matcher match = pattern.matcher(dr.getText());
             if(!dr.getText().equals("") && !match.find()){
                 this.button_submit.setDisable(true);
                 return;
             }
-            match = pattern.matcher(cr.getText().toString());
+            match = pattern.matcher(cr.getText());
             if(!cr.getText().equals("") && !match.find()){
                 this.button_submit.setDisable(true);
                 return;
@@ -203,11 +183,11 @@ public class NewVoucherController implements Initializable {
             
             if(!dr.getText().equals("")){
                 dr_counter++;
-                total_dr += Float.parseFloat(dr.getText().toString());
+                total_dr += Float.parseFloat(dr.getText());
             }
             if(!cr.getText().equals("")){
                 cr_counter++;
-                total_cr += Float.parseFloat(cr.getText().toString());
+                total_cr += Float.parseFloat(cr.getText());
             }
                 
         }
