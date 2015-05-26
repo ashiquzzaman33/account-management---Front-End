@@ -1,1 +1,29 @@
 1. location combobox
+
+
+
+
+
+features:
+===================
+login
+
+create new account
+view accounts
+edit accounts
+
+add location
+view locations
+edit locations
+
+new voucher
+view voucher
+edit/delete(according to permission) voucher
+
+report
+=========
+all ledgers reports
+trial balance
+profit and loss statement
+trading account
+

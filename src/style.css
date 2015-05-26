@@ -1,0 +1,97 @@
+.login_anchorPane{
+	-fx-background-color:#00aba9;
+}
+
+.logo_text{
+	-fx-font-size:50px;
+	-fx-font-weight:bold;
+}
+
+.logo_text .text{
+	-fx-fill:#fff;
+}
+
+.username_label{
+	
+}
+
+.login Label .text{
+	-fx-fill:#fff;
+	-fx-font-size:14px;
+	-fx-font-weight:bold;
+}
+
+.login TextField{
+	-fx-pref-width:200px;
+	-fx-font-weight:bold;
+}
+
+
+/*
+*	Button
+*/
+.button{
+	-fx-background-color:#fff;
+	-fx-padding:5px 20px;
+}
+.button .text{
+	-fx-fill:#222;
+	-fx-font-weight:bold;
+}
+.button:hover{
+	-fx-background-color:#00ABA9;
+	-fx-cursor:hand;
+}
+.button:hover .text{
+	-fx-fill:#fff;
+	-fx-font-weight:bold;
+}
+.button:focused{
+	-fx-background-color:#00ABA9;
+}
+.button:focused .text{
+	-fx-fill:#fff;
+	-fx-font-weight:bold;
+}
+
+.login_box{
+	-fx-background-color:#00A2A1;
+	-fx-padding:20px;
+}
+
+
+
+.navigation_vbox{
+	-fx-background-color:#333;
+}
+
+.title_anchorPane{
+	-fx-background-color:#666;
+}
+.title_label{
+	-fx-font-size:25px;
+	-fx-font-weight:bold;
+}
+.title_label .text{
+	-fx-fill:#ccc;
+}
+.container_anchorPane{
+	-fx-background-color:#e1e1e1;
+}
+.logo_label{
+	-fx-font-size:40px;
+	-fx-font-weight:bold;
+	-fx-text-fill:#e1e1e1;
+}
+.menu_item{
+	-fx-text-fill:#ccc;
+}
+
+.vertical_nav .button{
+	-fx-pref-width:260px;
+	-fx-background-radius:0,0,0;
+	-fx-padding:10px 20px;
+	-fx-alignment:top_left;
+}
+
+

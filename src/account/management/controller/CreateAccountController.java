@@ -68,73 +68,65 @@ public class CreateAccountController implements Initializable {
         /*
         *   add location to combo box
         */
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/locations").asJson();
-                    JSONArray locationArray = response.getBody().getArray();
-                    for(int i=0; i<locationArray.length(); i++){
-                        JSONObject obj = locationArray.getJSONObject(i);
-                        int id = Integer.parseInt(obj.get("id").toString());
-                        String name = obj.get("name").toString();
-                        String details = obj.get("details").toString();
-                        // if the location is not "none" then add it
-                        if(id != 1) location.add(new Location(id, name,details));
-                    }
-                    select_location.getItems().addAll(location);
-                    location_preloader.setVisible(false);
-                } catch (UnirestException ex) {
-                    
+        new Thread(() -> {
+            try {
+                HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/locations").asJson();
+                JSONArray locationArray = response.getBody().getArray();
+                for(int i=0; i<locationArray.length(); i++){
+                    JSONObject obj = locationArray.getJSONObject(i);
+                    int id = Integer.parseInt(obj.get("id").toString());
+                    String name = obj.get("name").toString();
+                    String details = obj.get("details").toString();
+                    // if the location is not "none" then add it
+                    if(id != 1) location.add(new Location(id, name,details));
                 }
+                select_location.getItems().addAll(location);
+                location_preloader.setVisible(false);
+            } catch (UnirestException ex) {
+                
             }
         }).start();
         
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        new Thread(() -> {
+            account = FXCollections.observableArrayList();
+            /*
+            *   add dr/cr options in select_dr_cr combobox
+            */
+            select_dr_cr.setItems(FXCollections.observableArrayList("Dr","Cr"));
+            Unirest.get(MetaData.baseUrl +"get/accounts").asJsonAsync(new Callback<JsonNode>(){
                 
-                account = FXCollections.observableArrayList();
-                /*
-                *   add dr/cr options in select_dr_cr combobox
-                */
-                select_dr_cr.setItems(FXCollections.observableArrayList("Dr","Cr"));
-                Unirest.get(MetaData.baseUrl +"get/accounts").asJsonAsync(new Callback<JsonNode>(){
-
-                    @Override
-                    public void completed(HttpResponse<JsonNode> response) {
-                        parent_preloader.setVisible(false);
-                        JSONArray array = response.getBody().getArray();
-                        for(int i=0; i<array.length();i++){
-
-                            JSONObject obj = array.getJSONObject(i);
-                            int id = Integer.parseInt(obj.get("id").toString());
-                            String name = obj.get("name").toString();
-                            int parent = Integer.parseInt(obj.get("parent").toString());
-                            String desc = obj.get("description").toString();
-
-                            account.add(new Account(id, name, parent, desc,0f));
-                        }
-
-                        select_parent.getItems().addAll(account);
+                @Override
+                public void completed(HttpResponse<JsonNode> response) {
+                    parent_preloader.setVisible(false);
+                    JSONArray array = response.getBody().getArray();
+                    for(int i=0; i<array.length();i++){
                         
-                    }
-
-                    @Override
-                    public void failed(UnirestException ue) {
-                        System.err.println("Failed to get Account lists");
+                        JSONObject obj = array.getJSONObject(i);
+                        int id = Integer.parseInt(obj.get("id").toString());
+                        String name = obj.get("name").toString();
+                        int parent = Integer.parseInt(obj.get("parent").toString());
+                        String desc = obj.get("description").toString();
                         
+                        account.add(new Account(id, name, parent, desc,0f));
                     }
-
-                    @Override
-                    public void cancelled() {
-                        System.err.println("Cancelled when getting Account lists");
-                        
-                    }
-
-                });
-            }
+                    
+                    select_parent.getItems().addAll(account);
+                    
+                }
+                
+                @Override
+                public void failed(UnirestException ue) {
+                    System.err.println("Failed to get Account lists");
+                    
+                }
+                
+                @Override
+                public void cancelled() {
+                    System.err.println("Cancelled when getting Account lists");
+                    
+                }
+                
+            });
         }).start();
     }
     

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.EditAccountController">
+   <children>
+      <ComboBox fx:id="account_select" layoutX="102.0" layoutY="60.0" onAction="#onAccountSelect" prefWidth="150.0" promptText="select account" />
+      <ComboBox fx:id="parent_select" layoutX="236.0" layoutY="188.0" prefWidth="150.0" promptText="select parent" />
+      <TextField fx:id="name_input" layoutX="73.0" layoutY="188.0" promptText="name" />
+      <TextArea fx:id="description_input" layoutX="394.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" promptText="descriptions" />
+      <Button fx:id="update_button" layoutX="434.0" layoutY="312.0" mnemonicParsing="false" onAction="#onUpdateButtonClick" text="Update" />
+   </children>
+</AnchorPane>

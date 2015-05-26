@@ -68,4 +68,5 @@ public class Account {
     public void setOpeningBalance(float openingBalance) {
         this.openingBalance = openingBalance;
     }
+    
 }
