@@ -6,9 +6,9 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?> 
+<?import javafx.scene.layout.*?>
 
-                        <Accordion xmlns:fx="http://javafx.com/fxml/1" fx:id="sidenav_container">
+<Accordion fx:id="sidenav_container" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
                           <panes>
                             <TitledPane animated="false" text="untitled 1">
                               <content>
@@ -17,7 +17,7 @@
                                           <VBox prefHeight="180.0" prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
                                                 <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Button" />
-                                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Button fuck" />
+                                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Button" />
                                                 <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Button" />
                                              </children>
                                           </VBox>
@@ -36,4 +36,3 @@
                             </TitledPane>
                           </panes>
                         </Accordion>
-

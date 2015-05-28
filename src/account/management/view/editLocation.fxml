@@ -36,7 +36,7 @@
                      <content>
                         <AnchorPane fx:id="main_container">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="423.0" spacing="10.0" style="-fx-background-color: #ccc;" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+                              <VBox prefHeight="200.0" prefWidth="423.0" spacing="10.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-width: 3px;" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
                                  <children>
                                     <HBox prefHeight="27.0" prefWidth="423.0" spacing="40.0">
                                        <children>

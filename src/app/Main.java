@@ -15,7 +15,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/style.css");
         stage.setScene(scene);
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.setFullScreen(true);
         stage.show();
         stage.setTitle("Login- Account Management (UniTech4U)");

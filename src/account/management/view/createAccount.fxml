@@ -36,7 +36,7 @@
                      <content>
                         <AnchorPane fx:id="main_container">
                            <children>
-                              <VBox prefHeight="344.0" prefWidth="546.0" spacing="10.0" style="-fx-background-color: #ccc;" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+                              <VBox prefHeight="344.0" prefWidth="546.0" spacing="10.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-width: 3px;" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
                                  <children>
                                     <HBox spacing="90.0">
                                        <children>
@@ -57,7 +57,7 @@
                                     </HBox>
                                     <HBox layoutX="40.0" layoutY="40.0" spacing="40.0">
                                        <children>
-                                          <Label text="Select Immediate Parent">
+                                          <Label prefHeight="17.0" prefWidth="152.0" text="Select Immediate Parent">
                                              <HBox.margin>
                                                 <Insets top="8.0" />
                                              </HBox.margin>
@@ -65,7 +65,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Label>
-                                          <ComboBox fx:id="select_parent" prefHeight="35.0" prefWidth="317.0" promptText="select">
+                                          <ComboBox fx:id="select_parent" prefHeight="35.0" prefWidth="317.0" promptText="select" translateX="-10.0">
                                              <HBox.margin>
                                                 <Insets left="-12.0" />
                                              </HBox.margin>
@@ -74,7 +74,7 @@
                                     </HBox>
                                     <HBox layoutX="40.0" layoutY="85.0" spacing="40.0">
                                        <children>
-                                          <Label text="Select Location">
+                                          <Label prefHeight="17.0" prefWidth="106.0" text="Select Location">
                                              <HBox.margin>
                                                 <Insets top="8.0" />
                                              </HBox.margin>
@@ -82,7 +82,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Label>
-                                          <ComboBox fx:id="select_location" prefHeight="35.0" prefWidth="317.0" promptText="select">
+                                          <ComboBox fx:id="select_location" prefHeight="35.0" prefWidth="317.0" promptText="select" translateX="-12.0">
                                              <HBox.margin>
                                                 <Insets left="41.0" />
                                              </HBox.margin>
@@ -130,6 +130,8 @@
                                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                  </padding>
                               </VBox>
+                              <ImageView fx:id="parent_preloader" fitHeight="68.0" fitWidth="90.0" layoutX="14.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="location_preloader" fitHeight="68.0" fitWidth="90.0" layoutX="24.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true" />
                            </children></AnchorPane>
                      </content>
                   </ScrollPane>

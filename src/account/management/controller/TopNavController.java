@@ -36,7 +36,7 @@ public class TopNavController implements Initializable{
 
     @FXML
     private void onLogoutMenuClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "login.fxml"));
         Scene scene = top_navbar.getScene();
         Stage stage = (Stage)top_navbar.getScene().getWindow();
         scene.setRoot(root);
@@ -55,7 +55,7 @@ public class TopNavController implements Initializable{
 
     @FXML
     private void onEditLocationMenuClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "EditLocation.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "editLocation.fxml"));
         Scene scene = top_navbar.getScene();
         Stage stage = (Stage)top_navbar.getScene().getWindow();
         scene.setRoot(root);
@@ -64,7 +64,7 @@ public class TopNavController implements Initializable{
 
     @FXML
     private void onCreateAccountMenuClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "CreateAccount.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "createAccount.fxml"));
         Scene scene = top_navbar.getScene();
         Stage stage = (Stage)top_navbar.getScene().getWindow();
         scene.setRoot(root);
@@ -73,7 +73,7 @@ public class TopNavController implements Initializable{
 
     @FXML
     private void onEditAccountMenuClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "EditAccount.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "editAccount.fxml"));
         Scene scene = top_navbar.getScene();
         Stage stage = (Stage)top_navbar.getScene().getWindow();
         scene.setRoot(root);
@@ -83,7 +83,7 @@ public class TopNavController implements Initializable{
 
     @FXML
     private void onNewVoucherMenuClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "NewVoucher.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "newVoucher.fxml"));
         Scene scene = top_navbar.getScene();
         Stage stage = (Stage)top_navbar.getScene().getWindow();
         scene.setRoot(root);
