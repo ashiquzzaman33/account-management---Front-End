@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import account.management.view.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="590.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.NewVoucherController">
+   <children>
+      <DatePicker fx:id="input_date" layoutX="51.0" layoutY="91.0" promptText="date" />
+      <ComboBox fx:id="select_location" layoutX="537.0" layoutY="66.0" prefWidth="150.0" promptText="voucher location" />
+      <TextField fx:id="input_voucher_no" editable="false" layoutX="538.0" layoutY="98.0" promptText="voucher number" />
+      <TextArea fx:id="input_narration" layoutX="51.0" layoutY="131.0" prefHeight="43.0" prefWidth="640.0" promptText="Narration" />
+      <VBox fx:id="field_container" layoutX="194.0" layoutY="244.0" spacing="10.0">
+         <children>
+            <HBox fx:id="field_row" layoutX="194.0" layoutY="244.0" spacing="10.0">
+               <children>
+                  <ComboBox layoutX="51.0" layoutY="245.0" prefWidth="150.0" promptText="Account" />
+                  <TextField layoutX="230.0" layoutY="245.0" prefHeight="25.0" prefWidth="78.0" promptText="Dr" />
+                  <TextField layoutX="328.0" layoutY="245.0" prefHeight="25.0" prefWidth="86.0" promptText="Cr" />
+                  <TextField layoutX="437.0" layoutY="245.0" promptText="remarks" />
+                  <Button fx:id="button_delete_row" mnemonicParsing="false" onMouseClicked="#onDeleteRowButtonClick" text="Delete" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="button_add_new_field" layoutX="51.0" layoutY="202.0" mnemonicParsing="false" onAction="#onAddNewFieldButtonClick" text="Add new" />
+      <ComboBox fx:id="select_voucher_type" layoutX="239.0" layoutY="91.0" prefWidth="150.0" promptText="Voucher type" />
+      <Button fx:id="button_submit" layoutX="635.0" layoutY="493.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></Button>
+   </children>
+</AnchorPane>

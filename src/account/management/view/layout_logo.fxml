@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>          
+            <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" styleClass="left_sidebar" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="logo_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true" style="-fx-scale-x: 0.9; -fx-scale-y: 0.6;">
+                           <image>
+                              <Image url="@../../../unitech4u.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+                  <ScrollPane fx:id="sidenav_pane" fitToWidth="true" layoutY="200.0" maxHeight="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                     <content>
+                        <fx:include source="layout_sidenav.fxml" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>

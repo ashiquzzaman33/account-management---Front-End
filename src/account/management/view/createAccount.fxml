@@ -1,23 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.CreateAccountController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.CreateAccountController">
    <children>
-      <TextField fx:id="input_account_name" layoutX="107.0" layoutY="72.0" promptText="Account name" />
-      <TextArea fx:id="input_description" layoutX="107.0" layoutY="186.0" prefHeight="101.0" prefWidth="367.0" promptText="description" />
-      <ComboBox fx:id="select_parent" layoutX="107.0" layoutY="111.0" prefHeight="25.0" prefWidth="223.0" promptText="select immediate parent" />
-      <Button fx:id="button_submit" layoutX="420.0" layoutY="304.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit" />
-      <TextField fx:id="input_opening_balance" layoutX="107.0" layoutY="148.0" promptText="opening balance" />
-      <ComboBox fx:id="select_dr_cr" layoutX="270.0" layoutY="148.0" prefHeight="25.0" prefWidth="99.0" promptText="select one" />
-      <ComboBox fx:id="select_location" layoutX="399.0" layoutY="66.0" prefWidth="150.0" promptText="select location" />
-      <ImageView fx:id="parent_preloader" fitHeight="56.0" fitWidth="86.0" layoutX="307.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="location_preloader" fitHeight="56.0" fitWidth="86.0" layoutX="527.0" layoutY="51.0" pickOnBounds="true" />
+      <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+<fx:include source="layouts/layout_logo.fxml" />
+         </left>
+         <top>
+<fx:include source="layouts/layout_topnav.fxml" />
+         </top>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Pane fx:id="title_pane" prefHeight="101.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="title_label" prefHeight="100.0" prefWidth="600.0" styleClass="title_label" text="Create Account">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+               </top>
+               <center>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <AnchorPane fx:id="main_container">
+                           <children>
+                              <VBox prefHeight="344.0" prefWidth="546.0" spacing="10.0" style="-fx-background-color: #ccc;" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <HBox spacing="90.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="103.0" text="Account Name">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="input_account_name" prefHeight="35.0" prefWidth="320.0">
+                                             <HBox.margin>
+                                                <Insets left="-15.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="40.0" layoutY="40.0" spacing="40.0">
+                                       <children>
+                                          <Label text="Select Immediate Parent">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="select_parent" prefHeight="35.0" prefWidth="317.0" promptText="select">
+                                             <HBox.margin>
+                                                <Insets left="-12.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="40.0" layoutY="85.0" spacing="40.0">
+                                       <children>
+                                          <Label text="Select Location">
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="select_location" prefHeight="35.0" prefWidth="317.0" promptText="select">
+                                             <HBox.margin>
+                                                <Insets left="41.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="40.0" layoutY="40.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="143.0" text="Opening Balance">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="input_opening_balance" prefHeight="35.0" prefWidth="202.0">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <ComboBox fx:id="select_dr_cr" prefHeight="35.0" prefWidth="108.0" promptText="select Dr/Cr" />
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="40.0" layoutY="40.0" spacing="65.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="103.0" text="Description">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="8.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextArea fx:id="input_description" prefHeight="82.0" prefWidth="322.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox nodeOrientation="RIGHT_TO_LEFT">
+                                       <children>
+                                          <Button fx:id="button_submit" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                                 </padding>
+                              </VBox>
+                           </children></AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>
