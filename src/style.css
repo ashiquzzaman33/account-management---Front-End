@@ -61,37 +61,58 @@
 
 
 
-.navigation_vbox{
-	-fx-background-color:#333;
-}
 
-.title_anchorPane{
-	-fx-background-color:#666;
-}
+/*
+*	Base styles
+*/
 .title_label{
-	-fx-font-size:25px;
-	-fx-font-weight:bold;
-}
-.title_label .text{
-	-fx-fill:#ccc;
-}
-.container_anchorPane{
-	-fx-background-color:#e1e1e1;
-}
-.logo_label{
 	-fx-font-size:40px;
 	-fx-font-weight:bold;
-	-fx-text-fill:#e1e1e1;
+	-fx-text-fill:#fff;
 }
-.menu_item{
-	-fx-text-fill:#ccc;
+#sidenav_pane TitledPane .title{
+	-fx-padding:10px;
 }
-
-.vertical_nav .button{
-	-fx-pref-width:260px;
-	-fx-background-radius:0,0,0;
-	-fx-padding:10px 20px;
-	-fx-alignment:top_left;
+#sidenav_pane TitledPane .title:hover{
+	-fx-background-color:#00aba9;
 }
 
+#sidenav_pane TitledPane .title:hover .text{
+	-fx-fill:#fff;
+}
+#sidenav_pane TitledPane .title .text{
+	-fx-fill:#e1e1e1;
+	-fx-font-size:14px;
+	-fx-font-weight:bold;
+}
+
+
+#sidenav_container TitledPane AnchorPane{
+	-fx-background-color:#555;
+}
+
+#sidenav_pane .titled-pane:expanded .title{
+	-fx-background-color:#00aba9;
+}
+#sidenav_pane .titled-pane:collapsed .title, #sidenav_pane, #sidenav_pane .viewport,.left_sidebar,#title_pane{
+	-fx-background-color:#444;
+}
+#sidenav_pane .viewport .button{
+	-fx-background-color:#555555;
+	-fx-padding:10px;
+}
+#sidenav_pane .viewport .button:hover{
+	-fx-background-color:#666;
+}
+#sidenav_pane .viewport .button .text{
+	-fx-fill:#fff;
+}
+
+#main_container{
+	-fx-background-color:#e1e1e1;
+}
+
+#field_container HBox{
+	-fx-padding:5px;
+}
 

@@ -22,10 +22,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -56,6 +59,12 @@ public class CreateAccountController implements Initializable {
     private ImageView parent_preloader;
     @FXML
     private ImageView location_preloader;
+    @FXML
+    private Pane title_pane;
+    @FXML
+    private Label title_label;
+    @FXML
+    private AnchorPane main_container;
     
 
     @Override

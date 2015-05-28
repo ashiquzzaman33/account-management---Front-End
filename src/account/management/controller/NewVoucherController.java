@@ -26,10 +26,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import org.json.JSONArray;
 
 /**
@@ -43,23 +46,27 @@ public class NewVoucherController implements Initializable {
     @FXML
     private HBox field_row;
     @FXML
-    private Button button_add_new_field;
-    @FXML
-    private DatePicker input_date;
-    @FXML
     private ComboBox<Location> select_location;
-    @FXML
-    private TextField input_voucher_no;
-    @FXML
-    private TextArea input_narration;
     @FXML
     private ComboBox<String> select_voucher_type;
     @FXML
     private Button button_submit;
-    @FXML
-    private Button button_delete_row;
     
     private Collection<Location> locations;
+    @FXML
+    private Pane title_pane;
+    @FXML
+    private Label title_label;
+    @FXML
+    private AnchorPane main_container;
+    @FXML
+    private DatePicker input_date;
+    @FXML
+    private TextArea input_narration;
+    @FXML
+    private Button button_add_new_field;
+    @FXML
+    private Button button_delete_row;
     
 
     @Override
@@ -137,13 +144,11 @@ public class NewVoucherController implements Initializable {
         
     }
 
-    @FXML
-    private void onSubmitButtonClick(ActionEvent event) {
-    }
 
     @FXML
     private void onDeleteRowButtonClick(MouseEvent event) {
         field_container.getChildren().removeAll(field_row);
+        System.out.println("ccccc");
         validateFields();
     }
     
@@ -199,6 +204,10 @@ public class NewVoucherController implements Initializable {
         
         this.button_submit.setDisable(false);
         
+    }
+
+    @FXML
+    private void onSubmitButtonClick(ActionEvent event) {
     }
     
 }
