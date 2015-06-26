@@ -6,6 +6,7 @@
 package account.management.controller;
 
 import account.management.model.Account;
+import account.management.model.AccountType;
 import account.management.model.Location;
 import account.management.model.MetaData;
 import com.mashape.unirest.http.HttpResponse;
@@ -65,6 +66,8 @@ public class CreateAccountController implements Initializable {
     private Label title_label;
     @FXML
     private AnchorPane main_container;
+    @FXML
+    private ComboBox<AccountType> select_account_type;
     
 
     @Override

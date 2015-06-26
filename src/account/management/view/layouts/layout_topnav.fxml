@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<MenuBar fx:id="top_navbar" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.TopNavController">
+<MenuBar fx:id="top_navbar" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.TopNavController">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
@@ -18,11 +18,15 @@
             <MenuItem mnemonicParsing="false" onAction="#onCreateAccountMenuClick" text="create account" />
             <MenuItem mnemonicParsing="false" onAction="#onEditAccountMenuClick" text="edit account" />
             <MenuItem mnemonicParsing="false" onAction="#onNewVoucherMenuClick" text="new voucher" />
+            <MenuItem fx:id="depositVoucher" mnemonicParsing="false" onAction="#onDepositVoucherClick" text="Joma voucher" />
+            <MenuItem fx:id="expense_voucher" mnemonicParsing="false" onAction="#onExpenseVoucherClick" text="খরচের ভাউচার" />
+            <MenuItem fx:id="depositVoucher1" mnemonicParsing="false" onAction="#onCreateAccountTypeClick" text="create account type" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Delete" />
+            <MenuItem mnemonicParsing="false" onAction="#onCreateProjectMenuClick" text="Create Project" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">

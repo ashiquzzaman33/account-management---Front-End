@@ -30,26 +30,26 @@
 /*
 *	Button
 */
-.button{
+.login_button{
 	-fx-background-color:#fff;
 	-fx-padding:5px 20px;
 }
-.button .text{
+.login_button .text{
 	-fx-fill:#222;
 	-fx-font-weight:bold;
 }
-.button:hover{
+.login_button:hover{
 	-fx-background-color:#00ABA9;
 	-fx-cursor:hand;
 }
-.button:hover .text{
+.login_button:hover .text{
 	-fx-fill:#fff;
 	-fx-font-weight:bold;
 }
-.button:focused{
+.login_button:focused{
 	-fx-background-color:#00ABA9;
 }
-.button:focused .text{
+.login_button:focused .text{
 	-fx-fill:#fff;
 	-fx-font-weight:bold;
 }

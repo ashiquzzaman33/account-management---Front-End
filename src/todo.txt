@@ -1,6 +1,6 @@
 1. location combobox
 
-
+photo, unauth notify
 
 
 
@@ -8,9 +8,9 @@ features:
 ===================
 login
 
-create new account
+create new account *****
 view accounts
-edit accounts
+edit accounts		/*****   some fields needs to be added, see create accounts fields   *****/
 
 add location
 view locations
@@ -26,4 +26,58 @@ all ledgers reports
 trial balance
 profit and loss statement
 trading account
+
+
+
+**************************
+problem in new voucher location
+
+Login
+=========
+Login
+Create user account with preveleges
+View User Account
+Edit User account
+
+Location
+==============
+Add location		************* Done
+Edit location		************* Done
+
+Account Type
+==============
+Create account type		************* Done
+
+Account
+=========
+Create Account	******account type
+Edit account
+View Account
+
+Vouchers
+=============
+Dr/Cr voucher
+Deposit voucher
+Expense Voucher
+LC voucher
+View vouchers
+
+Voucher type
+==============
+Add voucher type(JV,CV)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

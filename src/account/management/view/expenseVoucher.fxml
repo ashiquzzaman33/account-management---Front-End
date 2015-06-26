@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.expenseVoucherController">
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+<fx:include source="layouts/layout_logo.fxml" />
+         </left>
+         <top>
+<fx:include source="layouts/layout_topnav.fxml" />
+         </top>
+         <center>
+            <BorderPane prefHeight="441.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Pane fx:id="title_pane" prefWidth="600.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="title_label" prefHeight="100.0" prefWidth="600.0" styleClass="title_label" text="খরচের ভাউচার">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+               </top>
+               <center>
+                  <ScrollPane fitToWidth="true" style="-fx-background-color: #e0e0e0;" BorderPane.alignment="CENTER">
+                     <content>
+                        <AnchorPane fx:id="main_container" prefHeight="516.0" prefWidth="927.0">
+                           <children>
+                              <AnchorPane layoutX="6.0" layoutY="6.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-width: 3px;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox fillHeight="false" layoutX="39.0" layoutY="33.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="48.0" text="তারিখ" />
+                                          <DatePicker fx:id="input_date" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fillHeight="false" layoutX="40.205078125" layoutY="73.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="150.0" text="প্রাপকের নাম/হিসাবের নাম" />
+                                          <TextField fx:id="input_name" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fillHeight="false" layoutX="378.205078125" layoutY="74.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="52.0" text="ঠিকানা" />
+                                          <TextField fx:id="input_address" prefHeight="25.0" prefWidth="195.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fillHeight="false" layoutX="378.205078125" layoutY="116.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="52.0" text="ঠিকানা" />
+                                          <TextField fx:id="input_via_address" prefHeight="25.0" prefWidth="195.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fillHeight="false" layoutX="42.205078125" layoutY="114.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="150.0" text="মারফত" />
+                                          <TextField fx:id="input_via_name" />
+                                       </children>
+                                    </HBox>
+                                    <ComboBox fx:id="select_location" layoutX="289.0" layoutY="33.0" prefWidth="150.0" promptText="Select Location" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </AnchorPane>
+                              <AnchorPane layoutY="187.0" prefWidth="940.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-width: 3px;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
+                                 <padding>
+                                    <Insets bottom="150.0" left="30.0" right="30.0" top="30.0" />
+                                 </padding>
+                                 <children>
+                                    <Button fx:id="button_add_row" layoutX="29.0" layoutY="14.0" mnemonicParsing="false" onAction="#onAddRowButtonClick" text="Add row" />
+                                    <VBox fx:id="vbox_container" layoutY="32.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                       <children>
+                                          <HBox spacing="200.0">
+                                             <children>
+                                                <Label text="ক্রমিক নং" />
+                                                <Label text="খরচের বিবরণ" />
+                                                <Label layoutX="63.0" layoutY="10.0" text="টাকার পরিমাণ" />
+                                             </children>
+                                          </HBox>
+                                          <HBox fx:id="hbox_row" layoutX="10.0" layoutY="10.0">
+                                             <children>
+                                                <TextField fx:id="sl_no" prefHeight="25.0" prefWidth="66.0" />
+                                                <TextField fx:id="input_expense_desc" prefHeight="25.0" prefWidth="292.0" translateX="100.0" />
+                                                <TextField fx:id="input_amount" translateX="150.0" />
+                                                <Button fx:id="button_delete_row" mnemonicParsing="false" onAction="#onDeleteRowButtonClick" text="Delete" translateX="170.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="button_submit" layoutX="118.0" layoutY="14.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit" AnchorPane.bottomAnchor="-130.0" AnchorPane.leftAnchor="600.0" />
+                                    <HBox spacing="20.0" AnchorPane.bottomAnchor="-50.0" AnchorPane.leftAnchor="465.0">
+                                       <children>
+                                          <Label text="মোট" />
+                                          <TextField fx:id="input_total_amount" editable="false" prefHeight="25.0" prefWidth="150.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="66.0" layoutY="194.0" spacing="20.0" AnchorPane.bottomAnchor="-90.0" AnchorPane.leftAnchor="0.0">
+                                       <children>
+                                          <Label text="টাকা (কথায়)" />
+                                          <TextField fx:id="input_amount_word" prefHeight="25.0" prefWidth="575.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                     </content>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

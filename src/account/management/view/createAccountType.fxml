@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.createAccountTypeController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -43,14 +43,14 @@
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="196.0" layoutY="53.0" prefHeight="25.0" prefWidth="245.0" />
+                                    <TextField fx:id="input_account_type_name" layoutX="196.0" layoutY="53.0" prefHeight="25.0" prefWidth="245.0" />
                                     <Label layoutX="137.0" layoutY="96.0" text="Note">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextArea layoutX="196.0" layoutY="96.0" prefHeight="71.0" prefWidth="246.0" />
-                                    <Button layoutX="388.0" layoutY="181.0" mnemonicParsing="false" text="Submit" />
+                                    <TextArea fx:id="input_note" layoutX="196.0" layoutY="96.0" prefHeight="71.0" prefWidth="246.0" />
+                                    <Button layoutX="388.0" layoutY="181.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit" />
                                  </children>
                               </AnchorPane>
                            </children></AnchorPane>

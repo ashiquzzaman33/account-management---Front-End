@@ -148,7 +148,6 @@ public class NewVoucherController implements Initializable {
     @FXML
     private void onDeleteRowButtonClick(MouseEvent event) {
         field_container.getChildren().removeAll(field_row);
-        System.out.println("ccccc");
         validateFields();
     }
     

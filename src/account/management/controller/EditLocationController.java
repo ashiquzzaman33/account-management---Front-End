@@ -74,6 +74,20 @@ public class EditLocationController implements Initializable {
 
     @FXML
     private void onUpdateButtonClick(ActionEvent event) {
+        int id = this.location_select.getSelectionModel().getSelectedItem().getId();
+        String name = this.name_input.getText();
+        String details = this.details_input.getText();
+        
+        try {
+            JSONArray response = Unirest.post(MetaData.baseUrl + "edit/location")
+                    .queryString("id", id)
+                    .queryString("name", name)
+                    .queryString("details", details)
+                    .asJson().getBody().getArray();
+        } catch (UnirestException ex) {
+            Logger.getLogger(EditLocationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
     }
     
 }

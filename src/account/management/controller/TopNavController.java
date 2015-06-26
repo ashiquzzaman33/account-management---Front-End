@@ -28,6 +28,12 @@ public class TopNavController implements Initializable{
     private MenuItem logout;
     @FXML
     private MenuBar top_navbar;
+    @FXML
+    private MenuItem depositVoucher;
+    @FXML
+    private MenuItem expense_voucher;
+    @FXML
+    private MenuItem depositVoucher1;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -84,6 +90,42 @@ public class TopNavController implements Initializable{
     @FXML
     private void onNewVoucherMenuClick(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "newVoucher.fxml"));
+        Scene scene = top_navbar.getScene();
+        Stage stage = (Stage)top_navbar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    private void onDepositVoucherClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "depositVoucher.fxml"));
+        Scene scene = top_navbar.getScene();
+        Stage stage = (Stage)top_navbar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    private void onExpenseVoucherClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "expenseVoucher.fxml"));
+        Scene scene = top_navbar.getScene();
+        Stage stage = (Stage)top_navbar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    private void onCreateAccountTypeClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "createAccountType.fxml"));
+        Scene scene = top_navbar.getScene();
+        Stage stage = (Stage)top_navbar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    private void onCreateProjectMenuClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "createProject.fxml"));
         Scene scene = top_navbar.getScene();
         Stage stage = (Stage)top_navbar.getScene().getWindow();
         scene.setRoot(root);
