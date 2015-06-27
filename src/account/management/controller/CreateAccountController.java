@@ -17,6 +17,8 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -77,6 +79,22 @@ public class CreateAccountController implements Initializable {
         location_preloader.setImage(new Image("/pre_loader.gif",true));
         location = FXCollections.observableArrayList();
         
+        // account type
+        new Thread(() -> {
+            try {
+                HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/account_type").asJson();
+                JSONArray account_type = response.getBody().getArray();
+                for(int i = 1; i < account_type.length(); i++){
+                    JSONObject obj = account_type.getJSONObject(i);
+                    select_account_type.getItems().add(new AccountType(Integer.parseInt(obj.get("id").toString()), obj.get("type_name").toString(), obj.get("details").toString()));
+                }
+            } catch (UnirestException ex) {
+                
+            }
+        }).start();
+        
+        
+        
         /*
         *   add location to combo box
         */
@@ -100,94 +118,60 @@ public class CreateAccountController implements Initializable {
         }).start();
         
         new Thread(() -> {
-            account = FXCollections.observableArrayList();
-            /*
-            *   add dr/cr options in select_dr_cr combobox
-            */
-            select_dr_cr.setItems(FXCollections.observableArrayList("Dr","Cr"));
-            Unirest.get(MetaData.baseUrl +"get/accounts").asJsonAsync(new Callback<JsonNode>(){
-                
-                @Override
-                public void completed(HttpResponse<JsonNode> response) {
-                    parent_preloader.setVisible(false);
-                    JSONArray array = response.getBody().getArray();
-                    for(int i=0; i<array.length();i++){
-                        
-                        JSONObject obj = array.getJSONObject(i);
-                        int id = Integer.parseInt(obj.get("id").toString());
-                        String name = obj.get("name").toString();
-                        int parent = Integer.parseInt(obj.get("parent").toString());
-                        String desc = obj.get("description").toString();
-                        
-                        account.add(new Account(id, name, parent, desc,0f));
-                    }
+            try {
+                account = FXCollections.observableArrayList();
+                /*
+                *   add dr/cr options in select_dr_cr combobox
+                */
+                select_dr_cr.setItems(FXCollections.observableArrayList("Dr","Cr"));
+                HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl +"get/accounts").asJson();
+                parent_preloader.setVisible(false);
+                JSONArray array = response.getBody().getArray();
+                for(int i=0; i<array.length();i++){
                     
-                    select_parent.getItems().addAll(account);
+                    JSONObject obj = array.getJSONObject(i);
+                    int id = Integer.parseInt(obj.get("id").toString());
+                    String name = obj.get("name").toString();
+                    int parent = Integer.parseInt(obj.get("parent").toString());
+                    String desc = obj.get("description").toString();
                     
+                    account.add(new Account(id, name, parent, desc,0f));
                 }
                 
-                @Override
-                public void failed(UnirestException ue) {
-                    System.err.println("Failed to get Account lists");
-                    
-                }
-                
-                @Override
-                public void cancelled() {
-                    System.err.println("Cancelled when getting Account lists");
-                    
-                }
-                
-            });
+                select_parent.getItems().addAll(account);
+            } catch (UnirestException ex) {
+                Logger.getLogger(CreateAccountController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }).start();
     }
     
     @FXML
     private void onSubmitButtonClick(ActionEvent event) {
-        
-        this.button_submit.setDisable(true);
-        
-        String name = input_account_name.getText();
-        int parent = select_parent.getSelectionModel().getSelectedItem().getId();
-        float opening_balance = Float.parseFloat(input_opening_balance.getText());
-        String desc = input_description.getText();
-        int location_id = this.select_location.getSelectionModel().getSelectedItem().getId();
-        
-        
-        if(select_dr_cr.getSelectionModel().getSelectedItem().equals("Cr")){
-            opening_balance *= -1f;
+        try {
+            String name, parent, type, desc, loc, dr_cr;
+            float balance;
+            name = this.input_account_name.getText();
+            parent = String.valueOf(this.select_parent.getSelectionModel().getSelectedItem().getId());
+            type = String.valueOf(this.select_account_type.getSelectionModel().getSelectedItem().getId());
+            desc = this.input_description.getText();
+            balance = Float.parseFloat(this.input_opening_balance.getText());
+            dr_cr = this.select_dr_cr.getSelectionModel().getSelectedItem();
+            if(dr_cr.equals("Cr")){
+                balance *= -1.0f;
+            }   loc = String.valueOf(this.select_location.getSelectionModel().getSelectedItem().getId());
+            
+            Unirest.post(MetaData.baseUrl + "add/account")
+                    .field("name", name)
+                    .field("parent", parent)
+                    .field("account_type", type)
+                    .field("description", desc)
+                    .field("opening_balance", String.valueOf(balance))
+                    .field("location", loc).asString();
+            
+        } catch (UnirestException ex) {
+            Logger.getLogger(CreateAccountController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Account account = new Account(0, name, parent, desc, opening_balance);
         
-        Unirest.post(MetaData.baseUrl + "add/account")
-                .header("accept", "application/json")
-                .field("name", account.getName())
-                .field("parent", String.valueOf(account.getParent()))
-                .field("description", account.getDescription())
-                .field("opening_balance", String.valueOf(account.getOpeningBalance()))
-                .field("location_id", String.valueOf(location_id))
-                .asJsonAsync(new Callback<JsonNode>() {
-                    
-                    @Override
-                    public void completed(HttpResponse<JsonNode> hr) {
-                        button_submit.setDisable(false);
-                        System.out.println(hr.getBody());
-                    }
-                    
-                    @Override
-                    public void failed(UnirestException ue) {
-                        System.err.println("failed");
-                    }
-                    
-                    @Override
-                    public void cancelled() {
-                        System.err.println("cancelled");
-                    }
-                });
-
-        
-        
-        
-   }
+    }
 
 }

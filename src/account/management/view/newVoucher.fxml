@@ -57,9 +57,9 @@
                                  <children>
                                     <HBox prefHeight="40.0" prefWidth="558.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Button fx:id="button_add_new_field" mnemonicParsing="false" onAction="#onAddNewFieldButtonClick" text="Button">
+                                          <Button fx:id="button_add_new_field" mnemonicParsing="false" onAction="#onAddNewFieldButtonClick" text="Add">
                                              <HBox.margin>
-                                                <Insets top="3.0" />
+                                                <Insets left="10.0" top="5.0" />
                                              </HBox.margin>
                                           </Button>
                                           <CheckBox mnemonicParsing="false" text="Project">
@@ -82,6 +82,11 @@
                                                 <Insets top="8.0" />
                                              </HBox.margin>
                                           </CheckBox>
+                                          <ComboBox fx:id="select_type" prefWidth="150.0">
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
                                        </children>
                                     </HBox>
                                  </children>

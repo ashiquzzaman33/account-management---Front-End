@@ -207,6 +207,10 @@ public class NewVoucherController implements Initializable {
 
     @FXML
     private void onSubmitButtonClick(ActionEvent event) {
+        
+        
+        
+        
     }
     
 }
