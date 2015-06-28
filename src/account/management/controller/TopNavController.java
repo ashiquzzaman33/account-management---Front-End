@@ -125,11 +125,15 @@ public class TopNavController implements Initializable{
 
     @FXML
     private void onCreateProjectMenuClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "createProject.fxml"));
-        Scene scene = top_navbar.getScene();
-        Stage stage = (Stage)top_navbar.getScene().getWindow();
-        scene.setRoot(root);
-        stage.setScene(scene);
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "CreateProject.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Add New Project");
+            stage.setScene(scene);
+            stage.showAndWait();
     }
     
 }
