@@ -18,6 +18,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * FXML Controller class
@@ -35,7 +37,7 @@ public class AddLocationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }    
 
     @FXML

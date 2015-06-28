@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="247.0" prefWidth="367.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.ReportLedgerController">
+   <children>
+      <Label layoutX="14.0" layoutY="23.0" text="Show Report">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="66.0" prefHeight="4.0" prefWidth="341.0" />
+      <Label layoutX="30.0" layoutY="85.0" text="Select Account" />
+      <ComboBox fx:id="account" layoutX="125.0" layoutY="81.0" prefHeight="25.0" prefWidth="217.0" />
+      <Label layoutX="30.0" layoutY="123.0" text="Start Date" />
+      <DatePicker fx:id="start" layoutX="125.0" layoutY="119.0" prefHeight="25.0" prefWidth="217.0" />
+      <Label layoutX="30.0" layoutY="159.0" text="End Date" />
+      <DatePicker fx:id="end" layoutX="125.0" layoutY="155.0" prefHeight="25.0" prefWidth="217.0" />
+      <Button layoutX="258.0" layoutY="203.0" mnemonicParsing="false" onAction="#onShowReportButtonClick" text="Show Report" />
+   </children>
+</AnchorPane>

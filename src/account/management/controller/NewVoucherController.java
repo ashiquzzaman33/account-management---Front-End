@@ -8,13 +8,19 @@ package account.management.controller;
 import account.management.model.Account;
 import account.management.model.Location;
 import account.management.model.MetaData;
+import account.management.model.Project;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
@@ -27,13 +33,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * FXML Controller class
@@ -67,10 +76,19 @@ public class NewVoucherController implements Initializable {
     private Button button_add_new_field;
     @FXML
     private Button button_delete_row;
-    
+    @FXML
+    private RadioButton project;
+    @FXML
+    private RadioButton lc;
+    @FXML
+    private RadioButton cnf;
+    @FXML
+    private ComboBox<Project> select_type;
+    private List<Account> account_list;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        account_list = FXCollections.observableArrayList();
         select_voucher_type.getItems().addAll("JV","CV","PV","SV");
         
         /*
@@ -101,6 +119,40 @@ public class NewVoucherController implements Initializable {
         });
         
         
+        ToggleGroup tg = new ToggleGroup();
+        this.project.setToggleGroup(tg);
+        this.lc.setToggleGroup(tg);
+        this.cnf.setToggleGroup(tg);
+       
+        /*
+        *   init account name
+        */
+        new Thread(()->{
+            try {
+
+                HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/accounts").asJson();
+                JSONArray account = response.getBody().getArray();
+                for(int i=0; i<account.length(); i++){
+                    JSONObject obj = account.getJSONObject(i);
+                    int id = Integer.parseInt(obj.get("id").toString());
+                    String name = obj.get("name").toString();
+                    String desc = obj.get("description").toString();
+                    int parent_id = Integer.parseInt(obj.get("parent").toString());
+
+                    account_list.add(new Account(id,name,parent_id,desc,0f));
+                }
+                
+                ComboBox<Account> a = (ComboBox<Account>) this.field_row.getChildren().get(0);
+                a.getItems().addAll(account_list);
+                
+            } catch (UnirestException ex) {
+                Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
+        
+        
+        
+        
     }    
 
     @FXML
@@ -109,6 +161,7 @@ public class NewVoucherController implements Initializable {
         HBox row = new HBox();
         row.setId("field_row");
         ComboBox<Account> select_account = new ComboBox<>();
+        select_account.getItems().addAll(this.account_list);
         TextField dr        = new TextField();
         TextField cr        = new TextField();
         TextField remarks   = new TextField();
@@ -208,9 +261,117 @@ public class NewVoucherController implements Initializable {
     @FXML
     private void onSubmitButtonClick(ActionEvent event) {
         
+        try {
+            String loc, project_id = "0", date, narration;
+            JSONObject transaction;
+            loc = String.valueOf(this.select_location.getSelectionModel().getSelectedItem().getId());
+            if(this.select_type.getSelectionModel().isEmpty()){
+                project_id = "0";
+            }else{
+                project_id = this.select_type.getSelectionModel().getSelectedItem().getId();
+            }   
+            date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.input_date.getValue().toString())) + " 00:00:00";
+            narration = this.input_narration.getText();
+            
+            transaction = new JSONObject();
+            JSONArray transactionArray = new JSONArray();
+            
+            for(int i=0; i<this.field_container.getChildren().size(); i++){
+                HBox row = (HBox) this.field_container.getChildren().get(i);
+               JSONObject inner = new JSONObject();
+               ComboBox<Account> acc = (ComboBox<Account>) row.getChildren().get(0);
+               TextField dr =  (TextField) row.getChildren().get(1);
+               TextField cr =  (TextField) row.getChildren().get(2);
+               TextField remarks =  (TextField) row.getChildren().get(3);
+               int acc_id;
+               float amount;
+               String remark;
+               acc_id = acc.getSelectionModel().getSelectedItem().getId();
+               if(!dr.getText().equals("")){
+                   amount = Float.parseFloat(dr.getText());
+               }else{
+                   amount = Float.parseFloat(cr.getText());
+                   amount *= -1;
+               }
+               remark = remarks.getText();
+               
+               inner.put("amount", String.valueOf(amount));
+               inner.put("account_id", String.valueOf(acc_id));
+               inner.put("remark", remark);
+               transactionArray.put(inner);
+            }
+            transaction.put("transaction", transactionArray);
+            System.out.println(transaction);
+            try {
+                Unirest.post(MetaData.baseUrl + "add/voucher")
+                        .field("location_id", loc)
+                        .field("projectOrCnf", project_id)
+                        .field("date", date)
+                        .field("narration", narration)
+                        .field("transaction", transaction)
+                        .asString();
+            } catch (UnirestException ex) {
+                Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @FXML
+    private void onProjectSelect(ActionEvent event) {
+        new Thread(()->{
+            this.select_type.getItems().clear();
+            try {
+                HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/project/all").asJson();
+                JSONArray projects = response.getBody().getArray();
+                for(int i=0; i<projects.length(); i++){
+                    JSONObject obj = projects.getJSONObject(i);
+                    this.select_type.getItems().add(new Project(obj.get("id").toString(),obj.get("name").toString()));
+                }
+            } catch (UnirestException ex) {
+                Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
+    }
+
+    @FXML
+    private void onLcSelect(ActionEvent event) {
         
+        new Thread(()->{
+            this.select_type.getItems().clear();
+            try {
+                HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/lc/all").asJson();
+                JSONArray projects = response.getBody().getArray();
+                for(int i=0; i<projects.length(); i++){
+                    JSONObject obj = projects.getJSONObject(i);
+                    this.select_type.getItems().add(new Project(obj.get("lc_number").toString(),obj.get("lc_number").toString() + " -- " + obj.get("party_name").toString()));
+                }
+            } catch (UnirestException ex) {
+                Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
         
-        
+    }
+
+    @FXML
+    private void onCNFSelect(ActionEvent event) {
+        new Thread(()->{
+            this.select_type.getItems().clear();
+            try {
+                HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/cnf/all").asJson();
+                JSONArray projects = response.getBody().getArray();
+                for(int i=0; i<projects.length(); i++){
+                    JSONObject obj = projects.getJSONObject(i);
+                    this.select_type.getItems().add(new Project(obj.get("id").toString(),obj.get("party_name").toString()));
+                }
+            } catch (UnirestException ex) {
+                Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
     }
     
 }

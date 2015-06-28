@@ -62,26 +62,21 @@
                                                 <Insets left="10.0" top="5.0" />
                                              </HBox.margin>
                                           </Button>
-                                          <CheckBox mnemonicParsing="false" text="Project">
+                                          <RadioButton fx:id="project" mnemonicParsing="false" onAction="#onProjectSelect" text="Project">
                                              <HBox.margin>
-                                                <Insets top="8.0" />
+                                                <Insets top="10.0" />
                                              </HBox.margin>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="LC">
+                                          </RadioButton>
+                                          <RadioButton fx:id="lc" mnemonicParsing="false" onAction="#onLcSelect" text="LC">
                                              <HBox.margin>
-                                                <Insets top="8.0" />
+                                                <Insets top="10.0" />
                                              </HBox.margin>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="C &amp; F">
+                                          </RadioButton>
+                                          <RadioButton fx:id="cnf" mnemonicParsing="false" onAction="#onCNFSelect" text="C&amp;F">
                                              <HBox.margin>
-                                                <Insets top="8.0" />
+                                                <Insets top="10.0" />
                                              </HBox.margin>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Others">
-                                             <HBox.margin>
-                                                <Insets top="8.0" />
-                                             </HBox.margin>
-                                          </CheckBox>
+                                          </RadioButton>
                                           <ComboBox fx:id="select_type" prefWidth="150.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
@@ -97,7 +92,7 @@
                                        <children>
                                           <HBox fx:id="field_row" layoutX="194.0" layoutY="244.0" spacing="10.0">
                                              <children>
-                                                <ComboBox layoutX="51.0" layoutY="245.0" prefHeight="25.0" prefWidth="275.0" promptText="Account" />
+                                                <ComboBox layoutX="51.0" layoutY="245.0" prefHeight="25.0" prefWidth="275.0" promptText="Select Account" />
                                                 <TextField layoutX="230.0" layoutY="245.0" prefHeight="25.0" prefWidth="115.0" promptText="Dr" />
                                                 <TextField layoutX="328.0" layoutY="245.0" prefHeight="25.0" prefWidth="115.0" promptText="Cr" />
                                                 <TextField layoutX="437.0" layoutY="245.0" prefHeight="25.0" prefWidth="245.0" promptText="remarks" />
@@ -106,7 +101,7 @@
                                           </HBox>
                                        </children>
                                     </VBox>
-                                    <Button fx:id="button_submit" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Button" translateY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="715.0" />
+                                    <Button fx:id="button_submit" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit" translateY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="715.0" />
                                  </children>
                                  <padding>
                                     <Insets bottom="70.0" />
