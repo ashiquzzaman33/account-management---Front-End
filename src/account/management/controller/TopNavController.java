@@ -148,5 +148,18 @@ public class TopNavController implements Initializable{
             stage.setScene(scene);
             stage.showAndWait();
     }
+
+    @FXML
+    private void onCreateCNFMenuClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "CreateCNF.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Add New C&F");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
     
 }

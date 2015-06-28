@@ -28,6 +28,7 @@
                     <MenuItem mnemonicParsing="false" text="Delete" />
             <MenuItem mnemonicParsing="false" onAction="#onCreateProjectMenuClick" text="Create Project" />
             <MenuItem mnemonicParsing="false" onAction="#onCreateLCMenuClick" text="Create LC" />
+            <MenuItem mnemonicParsing="false" onAction="#onCreateCNFMenuClick" text="Create CNF" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
