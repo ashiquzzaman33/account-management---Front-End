@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="422.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.CreateLCController">
+   <children>
+      <Label layoutX="20.0" layoutY="14.0" text="Create LC">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="60.0" prefHeight="2.0" prefWidth="423.0" />
+      <Label layoutX="20.0" layoutY="70.0" text="LC No." />
+      <TextField fx:id="lc_no" layoutX="151.0" layoutY="66.0" prefHeight="25.0" prefWidth="268.0" />
+      <TextField fx:id="party_name" layoutX="151.0" layoutY="97.0" prefHeight="25.0" prefWidth="268.0" />
+      <Label layoutX="20.0" layoutY="101.0" text="Party name" />
+      <TextField fx:id="party_bank" layoutX="151.0" layoutY="128.0" prefHeight="25.0" prefWidth="268.0" />
+      <Label layoutX="20.0" layoutY="132.0" text="Party Bank" />
+      <TextField fx:id="party_address" layoutX="151.0" layoutY="159.0" prefHeight="25.0" prefWidth="268.0" />
+      <Label layoutX="20.0" layoutY="163.0" text="Party address" />
+      <TextField fx:id="our_bank" layoutX="151.0" layoutY="189.0" prefHeight="25.0" prefWidth="268.0" />
+      <Label layoutX="20.0" layoutY="193.0" text="Our Bank name" />
+      <TextField fx:id="amount" layoutX="151.0" layoutY="219.0" prefHeight="25.0" prefWidth="268.0" />
+      <Label layoutX="20.0" layoutY="223.0" text="LC Amount" />
+      <Label layoutX="20.0" layoutY="254.0" text="Initializing date" />
+      <DatePicker fx:id="init_date" layoutX="151.0" layoutY="250.0" prefHeight="25.0" prefWidth="268.0" />
+      <Label layoutX="20.0" layoutY="285.0" text="Starting date" />
+      <DatePicker fx:id="start_date" layoutX="151.0" layoutY="281.0" prefHeight="25.0" prefWidth="268.0" />
+      <Label layoutX="20.0" layoutY="316.0" text="Dimilish date" />
+      <DatePicker fx:id="dimilish_date" layoutX="151.0" layoutY="312.0" prefHeight="25.0" prefWidth="268.0" />
+      <Label layoutX="20.0" layoutY="346.0" text="Type" />
+      <TextField fx:id="type" layoutX="151.0" layoutY="342.0" prefHeight="25.0" prefWidth="268.0" />
+      <Button fx:id="save" layoutX="310.0" layoutY="383.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save" />
+      <Button fx:id="cancel" layoutX="367.0" layoutY="383.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
+   </children>
+</AnchorPane>
