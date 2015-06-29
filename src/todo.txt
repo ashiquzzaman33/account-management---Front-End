@@ -67,6 +67,10 @@ Voucher type
 Add voucher type(JV,CV)
 
 
+--------------------
+edit account
+voucher type on "new voucher"
+
 
 
 

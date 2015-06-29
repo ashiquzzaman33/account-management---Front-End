@@ -84,7 +84,7 @@ public class CreateAccountController implements Initializable {
             try {
                 HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/account_type").asJson();
                 JSONArray account_type = response.getBody().getArray();
-                for(int i = 1; i < account_type.length(); i++){
+                for(int i = 0; i < account_type.length(); i++){
                     JSONObject obj = account_type.getJSONObject(i);
                     select_account_type.getItems().add(new AccountType(Integer.parseInt(obj.get("id").toString()), obj.get("type_name").toString(), obj.get("details").toString()));
                 }
@@ -127,7 +127,7 @@ public class CreateAccountController implements Initializable {
                 HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl +"get/accounts").asJson();
                 parent_preloader.setVisible(false);
                 JSONArray array = response.getBody().getArray();
-                for(int i=0; i<array.length();i++){
+                for(int i=6; i<array.length();i++){
                     
                     JSONObject obj = array.getJSONObject(i);
                     int id = Integer.parseInt(obj.get("id").toString());

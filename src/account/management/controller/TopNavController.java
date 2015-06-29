@@ -5,13 +5,19 @@
  */
 package account.management.controller;
 
-import account.management.model.Ledger;
+import account.management.model.BS;
 import account.management.model.MetaData;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +28,8 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import report.Report;
 
 /**
@@ -178,17 +186,34 @@ public class TopNavController implements Initializable{
             stage.setTitle("Show Ledger");
             stage.setScene(scene);
             stage.showAndWait();
-//        HashMap params = new HashMap();
-//        params.put("ledger_name", "Ledger of Cash Account");
-//        params.put("date", "From 22-06-20215 to 23-06-2015");
-//        Vector v = new Vector();
-//        v.add(new Ledger("25-06-2015", "3", "Cash", "narr test", "20", "", "20"));
-//        v.add(new Ledger("25-06-2015", "3", "Cash", "narr ", "20", "", "20"));
-//        v.add(new Ledger("25-06-2015", "3", "Cash", "narr ", "20", "", "20"));
-//        
-//        Report report = new Report();
-//        report.getReport("src\\report\\ledger.jrxml", new JRBeanCollectionDataSource(v), params);
+
         
+    }
+
+    @FXML
+    private void onCreateVoucherType(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "VoucherType.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Create Voucher Type");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onBsReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "ReportBs.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Show Balance Sheet");
+            stage.setScene(scene);
+            stage.showAndWait();
     }
     
 }

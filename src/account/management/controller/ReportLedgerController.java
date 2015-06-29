@@ -89,8 +89,8 @@ public class ReportLedgerController implements Initializable {
                     .asJson();
             JSONArray array = res.getBody().getArray();
             
-            for(int i=array.length()-1; i>=0; i--){
-                if(i == array.length()-1) continue;
+            for(int i=0; i<array.length(); i++){
+                if(i == 0) continue;
                 JSONObject obj = array.getJSONObject(i);
                 v.add(new Ledger(obj.get("date").toString(),obj.get("voucher_id").toString(),getAccountName(Integer.parseInt(obj.get("against_account_id").toString())),obj.get("remark").toString(),obj.get("dr").toString(),obj.get("cr").toString(),obj.get("balance").toString()));
             }

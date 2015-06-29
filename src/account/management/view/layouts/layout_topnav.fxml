@@ -29,11 +29,13 @@
             <MenuItem mnemonicParsing="false" onAction="#onCreateProjectMenuClick" text="Create Project" />
             <MenuItem mnemonicParsing="false" onAction="#onCreateLCMenuClick" text="Create LC" />
             <MenuItem mnemonicParsing="false" onAction="#onCreateCNFMenuClick" text="Create CNF" />
+            <MenuItem mnemonicParsing="false" onAction="#onCreateVoucherType" text="Create Voucher type" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Report">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#onLedgerReportClick" text="Ledger" />
+            <MenuItem mnemonicParsing="false" onAction="#onBsReportClick" text="BS" />
                   </items>
                 </Menu>
               </menus>

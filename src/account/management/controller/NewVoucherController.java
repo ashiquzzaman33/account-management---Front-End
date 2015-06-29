@@ -9,6 +9,7 @@ import account.management.model.Account;
 import account.management.model.Location;
 import account.management.model.MetaData;
 import account.management.model.Project;
+import account.management.model.VoucherType;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -57,7 +58,7 @@ public class NewVoucherController implements Initializable {
     @FXML
     private ComboBox<Location> select_location;
     @FXML
-    private ComboBox<String> select_voucher_type;
+    private ComboBox<VoucherType> select_voucher_type;
     @FXML
     private Button button_submit;
     
@@ -89,7 +90,24 @@ public class NewVoucherController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         account_list = FXCollections.observableArrayList();
-        select_voucher_type.getItems().addAll("JV","CV","PV","SV");
+        /*
+        *   voucher type
+        */
+        new Thread(()->{
+            try {
+                HttpResponse<JsonNode> res = Unirest.get(MetaData.baseUrl + "get/voucher/type").asJson();
+                JSONArray type = res.getBody().getArray();
+                for(int i=0; i<type.length(); i++){
+                    JSONObject obj = type.getJSONObject(i);
+                    int id = Integer.parseInt(obj.get("id").toString());
+                    String name = obj.get("type_name").toString();
+                    String note = obj.get("details").toString();
+                    this.select_voucher_type.getItems().add(new VoucherType(id,name,note));
+                }
+            } catch (UnirestException ex) {
+                Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
         
         /*
         *   init locations in select_location combobox
@@ -132,7 +150,7 @@ public class NewVoucherController implements Initializable {
 
                 HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/accounts").asJson();
                 JSONArray account = response.getBody().getArray();
-                for(int i=0; i<account.length(); i++){
+                for(int i=57; i<account.length(); i++){
                     JSONObject obj = account.getJSONObject(i);
                     int id = Integer.parseInt(obj.get("id").toString());
                     String name = obj.get("name").toString();
@@ -277,7 +295,7 @@ public class NewVoucherController implements Initializable {
             JSONArray transactionArray = new JSONArray();
             
             for(int i=0; i<this.field_container.getChildren().size(); i++){
-                HBox row = (HBox) this.field_container.getChildren().get(i);
+               HBox row = (HBox) this.field_container.getChildren().get(i);
                JSONObject inner = new JSONObject();
                ComboBox<Account> acc = (ComboBox<Account>) row.getChildren().get(0);
                TextField dr =  (TextField) row.getChildren().get(1);
@@ -305,6 +323,7 @@ public class NewVoucherController implements Initializable {
             try {
                 Unirest.post(MetaData.baseUrl + "add/voucher")
                         .field("location_id", loc)
+                        .field("voucher_type", this.select_voucher_type.getSelectionModel().getSelectedItem().getId())
                         .field("projectOrCnf", project_id)
                         .field("date", date)
                         .field("narration", narration)

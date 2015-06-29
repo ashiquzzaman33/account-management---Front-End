@@ -57,8 +57,9 @@ public class EditAccountController implements Initializable {
                     int parent_id = Integer.parseInt(obj.get("parent").toString());
                     
                     acc = new Account(id,name,parent_id,desc,0f);
-                    account_select.getItems().add(acc);
-                    parent_select.getItems().add(acc);
+                    if(i >= 57) account_select.getItems().add(acc);
+                    if(i>=6) parent_select.getItems().add(acc);
+                    
                 }
                 
                 
@@ -74,12 +75,13 @@ public class EditAccountController implements Initializable {
 
     @FXML
     private void onUpdateButtonClick(ActionEvent event) {
+        
     }
 
     @FXML
     private void onAccountSelect(ActionEvent event) {
         Account selected_acc = this.account_select.getSelectionModel().getSelectedItem();
-        List<Account> acc_lists = account_select.getItems();
+        List<Account> acc_lists = this.parent_select.getItems();
         for (Account acc_list : acc_lists) {
             if (acc_list.getId() == selected_acc.getParent()) {
                 parent_select.getSelectionModel().select(acc_list);
