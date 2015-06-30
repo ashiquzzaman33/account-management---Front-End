@@ -59,24 +59,15 @@ public class CreateAccountController implements Initializable {
     @FXML
     private ComboBox<Location> select_location;
     @FXML
-    private ImageView parent_preloader;
-    @FXML
-    private ImageView location_preloader;
-    @FXML
-    private Pane title_pane;
-    @FXML
-    private Label title_label;
-    @FXML
-    private AnchorPane main_container;
-    @FXML
     private ComboBox<AccountType> select_account_type;
+    @FXML
+    private Button cancel;
     
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        parent_preloader.setImage(new Image("/pre_loader.gif",true));
-        location_preloader.setImage(new Image("/pre_loader.gif",true));
+
         location = FXCollections.observableArrayList();
         
         // account type
@@ -111,7 +102,6 @@ public class CreateAccountController implements Initializable {
                     if(id != 1) location.add(new Location(id, name,details));
                 }
                 select_location.getItems().addAll(location);
-                location_preloader.setVisible(false);
             } catch (UnirestException ex) {
                 
             }
@@ -125,7 +115,7 @@ public class CreateAccountController implements Initializable {
                 */
                 select_dr_cr.setItems(FXCollections.observableArrayList("Dr","Cr"));
                 HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl +"get/accounts").asJson();
-                parent_preloader.setVisible(false);
+
                 JSONArray array = response.getBody().getArray();
                 for(int i=6; i<array.length();i++){
                     
@@ -172,6 +162,11 @@ public class CreateAccountController implements Initializable {
             Logger.getLogger(CreateAccountController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+
+    @FXML
+    private void onCancelButtonClick(ActionEvent event) {
+        this.cancel.getScene().getWindow().hide();
     }
 
 }

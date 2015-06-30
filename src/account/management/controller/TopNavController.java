@@ -86,11 +86,15 @@ public class TopNavController implements Initializable{
 
     @FXML
     private void onCreateAccountMenuClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "createAccount.fxml"));
-        Scene scene = top_navbar.getScene();
-        Stage stage = (Stage)top_navbar.getScene().getWindow();
-        scene.setRoot(root);
-        stage.setScene(scene);
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "CreateAccount2.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Create New Account");
+            stage.setScene(scene);
+            stage.showAndWait();
     }
 
     @FXML
