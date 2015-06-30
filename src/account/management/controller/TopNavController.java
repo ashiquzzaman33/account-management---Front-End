@@ -64,12 +64,15 @@ public class TopNavController implements Initializable{
 
     @FXML
     private void onAddLocationMenuClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "AddLocation.fxml"));
-        Scene scene = top_navbar.getScene();
-        Stage stage = (Stage)top_navbar.getScene().getWindow();
-        scene.setRoot(root);
-        stage.setScene(scene);
-        stage.setTitle("Add Location- Account Management (UniTech4U)");
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "AddLocation.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Add new location");
+            stage.setScene(scene);
+            stage.showAndWait();
     }
 
     @FXML

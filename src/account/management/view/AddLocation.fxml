@@ -1,89 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.AddLocationController">
+
+<AnchorPane id="AnchorPane" prefHeight="281.0" prefWidth="399.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.AddLocationController">
    <children>
-      <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <left>
-<fx:include source="layouts/layout_logo.fxml" />
-         </left>
-         <top>
-<fx:include source="layouts/layout_topnav.fxml" />
-         </top>
-         <center>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <top>
-                  <Pane fx:id="title_pane" prefHeight="101.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label fx:id="title_label" prefHeight="100.0" prefWidth="600.0" styleClass="title_label" text="Add Location">
-                           <padding>
-                              <Insets left="20.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </Pane>
-               </top>
-               <center>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <content>
-                        <AnchorPane fx:id="main_container">
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                           <children>
-                              <VBox alignment="TOP_RIGHT" layoutX="183.0" layoutY="114.0" spacing="10.0" style="-fx-background-color: #fff; -fx-border-width: 3px; -fx-border-color: #ccc;" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
-                                 <children>
-                                    <HBox spacing="40.0">
-                                       <children>
-                                          <Label text="Location" textFill="#333333">
-                                             <font>
-                                                <Font name="System Bold" size="14.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets top="8.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <TextField fx:id="input_name" layoutX="183.0" layoutY="114.0" prefHeight="35.0" prefWidth="285.0" promptText="Enter Location Name">
-                                             <font>
-                                                <Font name="System Bold Italic" size="16.0" />
-                                             </font>
-                                          </TextField>
-                                       </children>
-                                    </HBox>
-                                    <HBox spacing="20.0">
-                                       <children>
-                                          <Label text="Description" textFill="#333333">
-                                             <font>
-                                                <Font name="System Bold" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextArea fx:id="input_details" layoutX="183.0" layoutY="159.0" prefHeight="85.0" prefWidth="285.0" promptText="Enter Location Description">
-                                             <font>
-                                                <Font name="System Italic" size="14.0" />
-                                             </font>
-                                          </TextArea>
-                                       </children>
-                                    </HBox>
-                                    <Button fx:id="button_submit" layoutX="347.0" layoutY="277.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit" />
-                                 </children>
-                                 <padding>
-                                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-                                 </padding>
-                              </VBox>
-                           </children></AnchorPane>
-                     </content>
-                  </ScrollPane>
-               </center>
-            </BorderPane>
-         </center>
-      </BorderPane>
+      <Label layoutX="14.0" layoutY="14.0" text="Add Location">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="45.0" prefHeight="6.0" prefWidth="376.0" />
+      <Label layoutX="26.0" layoutY="74.0" text="Location" />
+      <TextField fx:id="input_name" layoutX="101.0" layoutY="70.0" prefHeight="25.0" prefWidth="267.0" />
+      <Label layoutX="26.0" layoutY="107.0" text="Note" />
+      <TextArea fx:id="input_details" layoutX="100.0" layoutY="107.0" prefHeight="111.0" prefWidth="267.0" />
+      <Button fx:id="button_submit" layoutX="264.0" layoutY="242.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Save" />
+      <Button fx:id="cancel" layoutX="316.0" layoutY="242.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
    </children>
 </AnchorPane>

@@ -33,6 +33,8 @@ public class AddLocationController implements Initializable {
     private TextArea input_details;
     @FXML
     private Button button_submit;
+    @FXML
+    private Button cancel;
 
 
     @Override
@@ -55,6 +57,11 @@ public class AddLocationController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(AddLocationController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void onCancelButtonClick(ActionEvent event) {
+        this.cancel.getScene().getWindow().hide();
     }
     
 }

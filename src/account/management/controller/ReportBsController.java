@@ -62,15 +62,40 @@ public class ReportBsController implements Initializable {
             JSONArray bs = res.getBody().getArray();
             HashMap params = new HashMap();
             Vector v = new Vector();
+            float total_non_current_asset = 0, total_current_asset = 0, total_revenue = 0, total_expense = 0;
             for(int i=0; i<bs.length(); i++){
                 JSONObject obj = bs.getJSONObject(i);
                 String id = obj.get("id").toString();
-                String balance = obj.get("totalBalance").toString();
-                v.add(new BS(getAccountName(id), balance));
+                String balance = String.valueOf(Float.parseFloat(obj.get("totalBalance").toString()));
+                v.add(new BS(id, balance));
+                params.put(id, balance);
+                
+                // total non current asset
+                if(Integer.parseInt(id) >=9 && Integer.parseInt(id) <=12){
+                    total_non_current_asset += Float.parseFloat(balance);
+                }
+                // total current asset
+                if(Integer.parseInt(id) >=13 && Integer.parseInt(id) <= 27){
+                    total_current_asset += Float.parseFloat(balance);
+                }
+                // total revenue
+                if(Integer.parseInt(id) >=38 && Integer.parseInt(id) <= 40){
+                    total_revenue += Float.parseFloat(balance);
+                }
+                // total expense
+                if((Integer.parseInt(id) >=42 && Integer.parseInt(id) <= 44) || (Integer.parseInt(id) >=46 && Integer.parseInt(id) <= 48) || (Integer.parseInt(id) >=50 && Integer.parseInt(id) <= 57)){
+                    total_expense += Float.parseFloat(balance);
+                }
+                
             }
-            //params.put("date", "22-06-2015");
+            params.put("date", "22-06-2015");
+            params.put("total_non_current_asset", String.valueOf(total_non_current_asset));
+            params.put("total_current_asset", String.valueOf(total_current_asset));
+            params.put("total_revenue", String.valueOf(total_revenue));
+            params.put("total_expense", String.valueOf(total_expense));
             Report r = new Report();
-            r.getReport("src\\report\\bs.jrxml", new JRBeanCollectionDataSource(v), params);
+            r.getReport("src\\report\\bs3.jrxml", new JRBeanCollectionDataSource(v), params);
+            r.getReport("src\\report\\pl.jrxml", new JRBeanCollectionDataSource(v), params);
         } catch (UnirestException ex) {
             Logger.getLogger(TopNavController.class.getName()).log(Level.SEVERE, null, ex);
         }

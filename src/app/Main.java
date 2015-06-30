@@ -11,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "AddLocation.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "newVoucher.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/style.css");
         stage.setScene(scene);
@@ -20,6 +20,7 @@ public class Main extends Application {
         stage.show();
         stage.setTitle("Login- Account Management (UniTech4U)");
         stage.getIcons().setAll(new Image("/unitech4u.png"));
+        
     }
 
 
