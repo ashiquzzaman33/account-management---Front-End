@@ -35,7 +35,8 @@
                 <Menu mnemonicParsing="false" text="Report">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#onLedgerReportClick" text="Ledger" />
-            <MenuItem mnemonicParsing="false" onAction="#onBsReportClick" text="BS" />
+            <MenuItem mnemonicParsing="false" onAction="#onBsReportClick" text="Financial statement" />
+            <MenuItem mnemonicParsing="false" onAction="#onTrialBalanceReportClick" text="Trial Balance" />
                   </items>
                 </Menu>
               </menus>

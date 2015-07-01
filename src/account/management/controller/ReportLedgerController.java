@@ -15,6 +15,8 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.Vector;
@@ -88,11 +90,14 @@ public class ReportLedgerController implements Initializable {
                     .queryString("end_date", end_date)
                     .asJson();
             JSONArray array = res.getBody().getArray();
-            
             for(int i=0; i<array.length(); i++){
-                if(i == 0) continue;
                 JSONObject obj = array.getJSONObject(i);
-                v.add(new Ledger(obj.get("date").toString(),obj.get("voucher_id").toString(),getAccountName(Integer.parseInt(obj.get("against_account_id").toString())),obj.get("remark").toString(),obj.get("dr").toString(),obj.get("cr").toString(),obj.get("balance").toString()));
+                if(obj.get("voucher_id").toString().equals("1")){
+                    v.add(new Ledger("","","","Opening balance","","",obj.get("balance").toString()));
+                    continue;
+                }
+                String date = new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(obj.get("date").toString()));
+                v.add(new Ledger(date,obj.get("voucher_id").toString(),getAccountName(Integer.parseInt(obj.get("against_account_id").toString())),obj.get("remark").toString(),obj.get("dr").toString(),obj.get("cr").toString(),obj.get("balance").toString()));
             }
             HashMap params = new HashMap();
             params.put("ledger_name", "Ledger of " + this.account.getSelectionModel().getSelectedItem().getName());
@@ -100,6 +105,8 @@ public class ReportLedgerController implements Initializable {
             Report report = new Report();
             report.getReport("src\\report\\ledger.jrxml", new JRBeanCollectionDataSource(v), params);
         } catch (UnirestException ex) {
+            Logger.getLogger(ReportLedgerController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
             Logger.getLogger(ReportLedgerController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

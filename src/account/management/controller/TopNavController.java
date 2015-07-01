@@ -222,5 +222,18 @@ public class TopNavController implements Initializable{
             stage.setScene(scene);
             stage.showAndWait();
     }
+
+    @FXML
+    private void onTrialBalanceReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "ReportTrialBalance.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Trial Balance");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
     
 }
