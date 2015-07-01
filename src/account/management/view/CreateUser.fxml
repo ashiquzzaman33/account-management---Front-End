@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="464.0" prefWidth="770.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.CreateUserController">
+   <children>
+      <Label layoutX="14.0" layoutY="26.0" text="Create New USer">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="56.0" prefHeight="0.0" prefWidth="731.0" />
+      <Label layoutX="14.0" layoutY="72.0" text="Username" />
+      <Label layoutX="14.0" layoutY="101.0" text="Password" />
+      <Label layoutX="13.0" layoutY="132.0" text="Confirm Password" />
+      <Label layoutX="13.0" layoutY="163.0" text="Authorization Password" />
+      <Label layoutX="14.0" layoutY="195.0" text="User Type" />
+      <TextField layoutX="146.0" layoutY="68.0" prefHeight="25.0" prefWidth="226.0" />
+      <PasswordField layoutX="146.0" layoutY="97.0" prefHeight="25.0" prefWidth="226.0" />
+      <PasswordField layoutX="146.0" layoutY="128.0" prefHeight="25.0" prefWidth="226.0" />
+      <PasswordField layoutX="146.0" layoutY="159.0" prefHeight="25.0" prefWidth="226.0" />
+      <ComboBox layoutX="146.0" layoutY="193.0" prefHeight="25.0" prefWidth="226.0" />
+      <Label layoutX="20.0" layoutY="239.0" text="Previleges Selection">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <HBox layoutX="20.0" layoutY="270.0" spacing="45.0">
+         <children>
+            <VBox spacing="20.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" text="Inventory" />
+                  <CheckBox mnemonicParsing="false" text="Project" />
+                  <CheckBox mnemonicParsing="false" text="LC" />
+                  <CheckBox mnemonicParsing="false" text="C&amp;F" />
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" spacing="20.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" text="Deposit Voucher" />
+                  <CheckBox mnemonicParsing="false" text="Expense Voucher" />
+                  <CheckBox mnemonicParsing="false" text="Sell" />
+                  <CheckBox mnemonicParsing="false" text="Purchase" />
+               </children>
+            </VBox>
+            <VBox layoutX="131.0" layoutY="10.0" spacing="20.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" text="Party Create" />
+                  <CheckBox mnemonicParsing="false" text="Ledger Create" />
+                  <CheckBox mnemonicParsing="false" text="Voucher" />
+                  <CheckBox mnemonicParsing="false" text="Bank" />
+               </children>
+            </VBox>
+            <VBox layoutX="293.0" layoutY="10.0" spacing="20.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" text="Inventory Report" />
+                  <CheckBox mnemonicParsing="false" text="Trial Balance" />
+                  <CheckBox mnemonicParsing="false" text="Balance Sheet" />
+                  <CheckBox mnemonicParsing="false" text="Financial Statement" />
+               </children>
+            </VBox>
+            <VBox layoutX="439.0" layoutY="10.0" spacing="20.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" text="Employee Management" />
+                  <CheckBox mnemonicParsing="false" text="Database Maintanance" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Button layoutX="623.0" layoutY="425.0" mnemonicParsing="false" text="Save" />
+      <Button layoutX="682.0" layoutY="425.0" mnemonicParsing="false" text="Cancel" />
+      <CheckBox layoutX="434.0" layoutY="241.0" mnemonicParsing="false" text="Check All" />
+      <CheckBox layoutX="603.0" layoutY="241.0" mnemonicParsing="false" text="Uncheck All" />
+      <Separator layoutX="20.0" layoutY="263.0" prefHeight="0.0" prefWidth="731.0" />
+      <Separator layoutX="25.0" layoutY="415.0" prefHeight="0.0" prefWidth="731.0" />
+   </children>
+</AnchorPane>

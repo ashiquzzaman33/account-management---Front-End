@@ -21,15 +21,7 @@
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <top>
-                  <Pane fx:id="title_pane" prefHeight="101.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label fx:id="title_label" prefHeight="100.0" prefWidth="600.0" styleClass="title_label" text="New Voucher">
-                           <padding>
-                              <Insets left="20.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </Pane>
+                  <Pane fx:id="title_pane" prefHeight="101.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
                </top>
                <center>
                   <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">

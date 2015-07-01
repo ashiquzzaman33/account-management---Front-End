@@ -30,6 +30,8 @@
             <MenuItem mnemonicParsing="false" onAction="#onCreateLCMenuClick" text="Create LC" />
             <MenuItem mnemonicParsing="false" onAction="#onCreateCNFMenuClick" text="Create CNF" />
             <MenuItem mnemonicParsing="false" onAction="#onCreateVoucherType" text="Create Voucher type" />
+            <MenuItem mnemonicParsing="false" onAction="#onCreateBank" text="Create Bank" />
+            <MenuItem mnemonicParsing="false" onAction="#onDisplaySettingClick" text="Display Settings" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Report">

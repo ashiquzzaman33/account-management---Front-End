@@ -9,6 +9,7 @@ import account.management.model.Account;
 import account.management.model.Location;
 import account.management.model.MetaData;
 import account.management.model.Project;
+import account.management.model.Settings;
 import account.management.model.VoucherType;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -35,6 +36,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -42,6 +44,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -90,6 +93,18 @@ public class NewVoucherController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         account_list = FXCollections.observableArrayList();
+//        //get settings
+//        new Thread(()->{
+//            System.out.println(Settings.bg);
+//            String red = String.valueOf(Color.valueOf(Settings.bg).getRed()*255);
+//            String green = String.valueOf(Color.valueOf(Settings.bg).getGreen()*255);
+//            String blue = String.valueOf(Color.valueOf(Settings.bg).getBlue()*255);
+//            System.out.println(red);
+//            System.out.println(green);
+//            System.out.println(blue);
+//            this.title_pane.setStyle("-fx-background-color:rgb("+ red +","+ green +","+ blue +");");
+//        }).start();
+       
         /*
         *   voucher type
         */
@@ -150,7 +165,7 @@ public class NewVoucherController implements Initializable {
 
                 HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/accounts").asJson();
                 JSONArray account = response.getBody().getArray();
-                for(int i=57; i<account.length(); i++){
+                for(int i=1; i<account.length(); i++){
                     JSONObject obj = account.getJSONObject(i);
                     int id = Integer.parseInt(obj.get("id").toString());
                     String name = obj.get("name").toString();

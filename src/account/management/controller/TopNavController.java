@@ -235,5 +235,31 @@ public class TopNavController implements Initializable{
             stage.setScene(scene);
             stage.showAndWait();
     }
+
+    @FXML
+    private void onCreateBank(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "BankAccount.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Create Bank Account");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onDisplaySettingClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "DisplaySettings.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Display Settings");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
     
 }

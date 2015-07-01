@@ -8,31 +8,185 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Accordion fx:id="sidenav_container" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<Accordion fx:id="sidenav_container" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.view.layouts.Layout_sidenavController">
                           <panes>
-                            <TitledPane animated="false" text="untitled 1">
+                            <TitledPane animated="false" text="Bank Account">
                               <content>
-                                <AnchorPane maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="137.0" prefWidth="200.0">
+                                <AnchorPane maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefWidth="200.0">
                                        <children>
-                                          <VBox prefHeight="180.0" prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
-                                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Button" />
-                                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Button" />
-                                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Button" />
+                                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="New Bank Account" />
+                                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Edit Bank Account" />
+                                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View All Bank Account" />
                                              </children>
                                           </VBox>
                                        </children></AnchorPane>
                               </content>
                             </TitledPane>
-                            <TitledPane animated="false" text="untitled 2">
+                            <TitledPane animated="false" text="Party">
                               <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="85.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Add New Party" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Edit Party" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View All Party" />
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
                               </content>
                             </TitledPane>
-                            <TitledPane animated="false" text="untitled 3">
+                            <TitledPane animated="false" text="Sell Voucher">
                               <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Create New Voucher" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View All Vouchers" />
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
                               </content>
                             </TitledPane>
+      <TitledPane animated="false" text="Purchase Voucher">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Create New Voucher" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View All Vouchers" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="10.0" layoutY="110.0" text="Inventory">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Add Product" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Edit Product" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View Stock" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="10.0" layoutY="135.0" text="Project">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Add New Project" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Edit Project" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View Project" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="10.0" layoutY="160.0" text="LC">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Add New LC" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Edit LC" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View LC" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="10.0" layoutY="185.0" text="C&amp;F">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Add New C&amp;F" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Edit C&amp;F" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View C&amp;F" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="10.0" layoutY="210.0" text="Ledger">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Add New Ledger" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Edit Ledger" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View All Ledger" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="10.0" layoutY="235.0" text="Employee">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Add New Employee" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Edit Employee" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View All Employees" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="10.0" layoutY="235.0" text="Settings">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="User Control" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Display Settings" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Database Backup" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="64.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Database Restore" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="91.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Customize menu" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="10.0" layoutY="260.0" text="Report">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="Show Ledger" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Trial Balance" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Financial Statement" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="64.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View Others Reports" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
                           </panes>
                         </Accordion>
