@@ -5,14 +5,15 @@
  */
 package account.management.controller;
 
-import account.management.model.Account;
 import account.management.model.BS;
-import account.management.model.LC;
+import account.management.model.CNF;
 import account.management.model.MetaData;
+import account.management.model.Project;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import static com.sun.javafx.scene.CameraHelper.project;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,6 +28,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.json.JSONArray;
@@ -38,36 +40,65 @@ import report.Report;
  *
  * @author mohar
  */
-public class ReportBsController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
-    public List<Account> account = FXCollections.observableArrayList();
+public class CNFReportController implements Initializable {
     @FXML
-    private Button cancel;
+    private ComboBox<CNF> select_cnf;
     @FXML
     private DatePicker start;
     @FXML
     private DatePicker end;
+    @FXML
+    private Button show;
+    @FXML
+    private Button cancel;
     
+    private List<CNF> cnf;
+    
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        cnf = FXCollections.observableArrayList();
+        new Thread(()->{
+            try {
+                HttpResponse<JsonNode> res = Unirest.get(MetaData.baseUrl + "get/cnf/all").asJson();
+                JSONArray array = res.getBody().getArray();
+                
+                
+                
+                for(int i=0; i<array.length(); i++){
+                    JSONObject obj = array.getJSONObject(i);
+                    long id = obj.getLong("id");
+                    String name = obj.getString("party_name");
+                    String address = obj.getString("party_address");
+                    cnf.add(new CNF(String.valueOf(id), name, address));
+                    
+                }
+                
+            } catch (UnirestException ex) {
+                Logger.getLogger(LCReportController.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{
+                this.select_cnf.getItems().addAll(cnf);
+            }
+        }).start();
     }    
 
     @FXML
-    private void onShowBalanceSheetClick(ActionEvent event) {
+    private void onShowReportButtonClick(ActionEvent event) {
         String start_date,end_date;
         try {
+            String lc_id = this.select_cnf.getSelectionModel().getSelectedItem().getId();
             start_date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.start.getValue().toString()));
             end_date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.end.getValue().toString()));
             HttpResponse<JsonNode> res = Unirest.get(MetaData.baseUrl + "report/balancesheet")
                     .queryString("date","\""+ start_date +"\"")
+                    .queryString("plc",lc_id)
                     .asJson();
             
             HttpResponse<JsonNode> res2 = Unirest.get(MetaData.baseUrl + "report/balancesheet")
                     .queryString("date","\""+ end_date +"\"")
+                    .queryString("plc",lc_id)
                     .asJson();
             
             JSONArray bs = res.getBody().getArray();
@@ -107,30 +138,23 @@ public class ReportBsController implements Initializable {
             params.put("total_current_asset", String.valueOf(total_current_asset));
             params.put("total_revenue", String.valueOf(total_revenue));
             params.put("total_expense", String.valueOf(total_expense));
-            
+            CNF c = this.select_cnf.getSelectionModel().getSelectedItem();
+            params.put("party_name", "Party Name: " + c.getParty_name());
+            params.put("party_address", "Party Address: " + c.getParty_address());
             
             
             Report r = new Report();
-            r.getReport("src\\report\\bs3.jrxml", new JRBeanCollectionDataSource(v), params);
-            r.getReport("src\\report\\pl.jrxml", new JRBeanCollectionDataSource(v), params);
+            r.getReport("src\\report\\CNF.jrxml", new JRBeanCollectionDataSource(v), params);
         } catch (ParseException ex) {
             Logger.getLogger(LCReportController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnirestException ex) {
             Logger.getLogger(LCReportController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }
-    
-    public String getAccountName(String id){
-        int acc_id = Integer.parseInt(id);
-        for(int i=0; i<account.size(); i++){
-            if(account.get(i).getId() == acc_id) return account.get(i).getName();
-        }
-        return "";
     }
 
     @FXML
     private void onCancelButtonClick(ActionEvent event) {
+        this.cancel.getScene().getWindow().hide();
     }
     
 }

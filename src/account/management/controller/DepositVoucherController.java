@@ -7,9 +7,13 @@ package account.management.controller;
 
 import account.management.model.Location;
 import account.management.model.MetaData;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,75 +38,81 @@ import org.json.JSONObject;
  */
 public class DepositVoucherController implements Initializable {
     @FXML
-    private Pane title_pane;
+    private DatePicker date;
     @FXML
-    private Label title_label;
+    private TextArea details;
     @FXML
-    private AnchorPane main_container;
+    private TextField via;
     @FXML
-    private DatePicker input_date;
+    private TextField bank_ac;
     @FXML
-    private TextArea input_desc;
+    private TextField branch;
     @FXML
-    private TextField input_party;
+    private TextArea address;
     @FXML
-    private TextField input_bank_acc;
+    private TextField amount;
     @FXML
-    private TextField input_branch;
+    private TextArea note;
     @FXML
-    private TextArea input_address;
+    private TextField word;
     @FXML
-    private ComboBox<String> select_payment_type;
+    private Button save;
     @FXML
-    private TextField input_amount;
+    private Button cancel;
     @FXML
-    private TextField input_amount_word;
-    @FXML
-    private TextArea input_note;
-    @FXML
-    private Button button_submit;
-    @FXML
-    private ComboBox<Location> select_location;
+    private ComboBox<String> payment_type;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        new Thread(()->{
-            try {
-                JSONArray loc_array = Unirest.get(MetaData.baseUrl + "get/locations").asJson().getBody().getArray();
-                for(int i=0; i<loc_array.length(); i++){
-                    JSONObject obj = loc_array.getJSONObject(i);
-                    select_location.getItems().add(new Location(obj.getInt("id"), obj.getString("name"), obj.getString("details")));
-                }
-            } catch (UnirestException ex) {
-                Logger.getLogger(DepositVoucherController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }).start();
-        
+        //nogod, titi, online
+        this.payment_type.getItems().addAll("নগদ","টিটি","অনলাইন");
     }    
 
-    @FXML
     private void onSubmitButtonClick(ActionEvent event) {
-//validate every field like this        
-//String date =  !this.input_date.getEditor().getText().equals(null) ? this.input_date.getValue().toString() : "";
-        String date = this.input_date.getValue().toString();
-        int loc_id = this.select_location.getSelectionModel().getSelectedItem().getId();
-        String desc = this.input_desc.getText();
-        String party = this.input_party.getText();
-        String bank_acc = this.input_bank_acc.getText();
-        String branch = this.input_branch.getText();
-        String address = this.input_address.getText();
-        String payment_type = this.select_payment_type.getSelectionModel().getSelectedItem();
-        String amount = this.input_amount.getText();
-        String word = this.input_amount_word.getText();
-        String note = this.input_note.getText();
+        try {
+            String date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.date.getValue().toString()));
+            String details = this.details.getText();
+            String via = this.via.getText();
+            String bank_ac = this.bank_ac.getText();
+            String branch = this.branch.getText();
+            String address = this.address.getText();
+            String amount = this.amount.getText();
+            String method = this.payment_type.getSelectionModel().getSelectedItem();
+            String note = this.note.getText();
+            String word = this.word.getText();
+            
+            HttpResponse<String> res = Unirest.get(MetaData.baseUrl + "add/deposit/voucher")
+                    .queryString("date",date)
+                    .queryString("details",details)
+                    .queryString("via",via)
+                    .queryString("bank_ac",bank_ac)
+                    .queryString("branch",branch)
+                    .queryString("address",address)
+                    .queryString("amount",amount)
+                    .queryString("method",method)
+                    .queryString("note",note)
+                    .queryString("word",word)
+                    .asString();
+            String id = res.getBody();
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(DepositVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnirestException ex) {
+            Logger.getLogger(DepositVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void onSaveButtonClick(ActionEvent event) {
         
-        Unirest.post("");
-        
-        
+    }
+
+    @FXML
+    private void onCancelButtonClick(ActionEvent event) {
+        this.cancel.getScene().getWindow().hide();
     }
     
 }

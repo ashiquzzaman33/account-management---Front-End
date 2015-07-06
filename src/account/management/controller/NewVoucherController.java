@@ -6,10 +6,10 @@
 package account.management.controller;
 
 import account.management.model.Account;
+import account.management.model.AutoCompleteComboBoxListener;
 import account.management.model.Location;
 import account.management.model.MetaData;
 import account.management.model.Project;
-import account.management.model.Settings;
 import account.management.model.VoucherType;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -27,8 +27,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -40,11 +42,13 @@ import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -225,7 +229,16 @@ public class NewVoucherController implements Initializable {
             field_container.getChildren().removeAll(row);
             validateFields();
         });
-        
+        new AutoCompleteComboBoxListener<>(select_account);
+        select_account.setOnHiding((e)->{
+            Account a = select_account.getSelectionModel().getSelectedItem();
+            select_account.setEditable(false);
+            select_account.getSelectionModel().select(a);
+        });
+        select_account.setOnShowing((e)->{
+            select_account.setEditable(true);
+        });
+          
         validateFields();
         
     }
@@ -335,8 +348,9 @@ public class NewVoucherController implements Initializable {
             }
             transaction.put("transaction", transactionArray);
             System.out.println(transaction);
+            HttpResponse<String> res = null;
             try {
-                Unirest.post(MetaData.baseUrl + "add/voucher")
+                res = Unirest.post(MetaData.baseUrl + "add/voucher")
                         .field("location_id", loc)
                         .field("voucher_type", this.select_voucher_type.getSelectionModel().getSelectedItem().getId())
                         .field("projectOrCnf", project_id)
@@ -344,13 +358,30 @@ public class NewVoucherController implements Initializable {
                         .field("narration", narration)
                         .field("transaction", transaction)
                         .asString();
+                
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Voucher has been saved successfully!");
+                        alert.setGraphic(new ImageView(new Image("resources/success.jpg")));
+                        alert.showAndWait();
+                        
             } catch (UnirestException ex) {
-                Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Sorry!! there is an error in the server. Please try again.");
+                        alert.setGraphic(new ImageView(new Image("resources/error.jpg")));
+                        alert.showAndWait();
+            }finally{
+                System.out.println(res.getBody());
             }
             
             
-        } catch (ParseException ex) {
-            Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Sorry!! there is an error. Please try again.");
+            alert.setGraphic(new ImageView(new Image("resources/error.jpg")));
+            alert.showAndWait();
         }
 
     }
@@ -382,7 +413,7 @@ public class NewVoucherController implements Initializable {
                 JSONArray projects = response.getBody().getArray();
                 for(int i=0; i<projects.length(); i++){
                     JSONObject obj = projects.getJSONObject(i);
-                    this.select_type.getItems().add(new Project(obj.get("lc_number").toString(),obj.get("lc_number").toString() + " -- " + obj.get("party_name").toString()));
+                    this.select_type.getItems().add(new Project(obj.get("id").toString(),obj.get("lc_number").toString() + " -- " + obj.get("party_name").toString()));
                 }
             } catch (UnirestException ex) {
                 Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);

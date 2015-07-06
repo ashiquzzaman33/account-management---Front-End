@@ -118,11 +118,15 @@ public class TopNavController implements Initializable{
 
     @FXML
     private void onDepositVoucherClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "depositVoucher.fxml"));
-        Scene scene = top_navbar.getScene();
-        Stage stage = (Stage)top_navbar.getScene().getWindow();
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "depositVoucher.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
         scene.setRoot(root);
+        stage.setResizable(false);
+        stage.setTitle("জমা ভাউচার");
         stage.setScene(scene);
+        stage.showAndWait();
     }
 
     @FXML
@@ -218,7 +222,7 @@ public class TopNavController implements Initializable{
             Stage stage = new Stage();
             scene.setRoot(root);
             stage.setResizable(false);
-            stage.setTitle("Show Balance Sheet");
+            stage.setTitle("Show Financial Statement");
             stage.setScene(scene);
             stage.showAndWait();
     }
@@ -258,6 +262,149 @@ public class TopNavController implements Initializable{
             scene.setRoot(root);
             stage.setResizable(false);
             stage.setTitle("Display Settings");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onCreatePartyClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "CreateParty.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Create Party");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onAddItemClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.inventoryViewPath + "AddNewItem.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Add New Item");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onInsertStockClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.inventoryViewPath + "InsertStock.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Insert into Stock");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onStockReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.inventoryViewPath + "StockReport.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Stock Report");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onProductWiseInventoryReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.inventoryViewPath + "ProductWiseInventoryReport.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Stock Report");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onAllProductsReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.inventoryViewPath + "AllProductWiseReport.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Stock Report");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onPurchaseReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.inventoryViewPath + "PurchaseReport.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Purchase Report");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onSellReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.inventoryViewPath + "SellReport.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Sell Report");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onLCReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "LCReport.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("LC Report");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onProjectReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "ProjectReport.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Project Report");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
+
+    @FXML
+    private void onCNFReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "CNFReport.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("C&F Report");
             stage.setScene(scene);
             stage.showAndWait();
     }

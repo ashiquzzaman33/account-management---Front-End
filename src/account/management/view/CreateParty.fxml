@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.CreatePartyController">
+   <children>
+      <Button fx:id="choose_file" layoutX="202.0" layoutY="113.0" mnemonicParsing="false" onAction="#onChooseFileClick" text="Choose File" />
+      <ImageView fx:id="preview" fitHeight="150.0" fitWidth="200.0" layoutX="325.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="submit" layoutX="202.0" layoutY="200.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit" />
+   </children>
+</AnchorPane>

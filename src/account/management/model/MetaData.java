@@ -12,4 +12,5 @@ package account.management.model;
 public class MetaData {
     public static String baseUrl = "http://localhost/acc/public/";
     public static String viewPath = "/account/management/view/";
+    public static String inventoryViewPath = "/account/management/view/inventory/";
 }

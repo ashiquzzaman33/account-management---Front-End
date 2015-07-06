@@ -5,10 +5,10 @@
  */
 package account.management.controller;
 
-import account.management.model.Account;
 import account.management.model.BS;
 import account.management.model.LC;
 import account.management.model.MetaData;
+import account.management.model.Project;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -27,6 +27,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.json.JSONArray;
@@ -38,36 +39,69 @@ import report.Report;
  *
  * @author mohar
  */
-public class ReportBsController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
-    public List<Account> account = FXCollections.observableArrayList();
+public class ProjectReportController implements Initializable {
     @FXML
-    private Button cancel;
+    private ComboBox<Project> select_project;
     @FXML
     private DatePicker start;
     @FXML
     private DatePicker end;
+    @FXML
+    private Button show;
+    @FXML
+    private Button cancel;
     
+    private List<Project> project;
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        project = FXCollections.observableArrayList();
+        new Thread(()->{
+            try {
+                HttpResponse<JsonNode> res = Unirest.get(MetaData.baseUrl + "get/project/all").asJson();
+                JSONArray array = res.getBody().getArray();
+                
+                
+                
+                for(int i=0; i<array.length(); i++){
+                    JSONObject obj = array.getJSONObject(i);
+                    long id = obj.getLong("id");
+                    String name = obj.getString("name");
+                    String investment = String.valueOf(Float.parseFloat(obj.getString("investment")));
+                    String party = obj.getString("related_party");
+                    String operation_date = obj.getString("operation_date");
+                    String start_date = obj.getString("starting_date");
+                    String dimilish_date = obj.getString("dimilish_date");
+                    
+                    project.add(new Project(String.valueOf(id), name, investment, party, start_date, operation_date, dimilish_date));
+                    
+                }
+                
+            } catch (UnirestException ex) {
+                Logger.getLogger(LCReportController.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{
+                this.select_project.getItems().addAll(project);
+            }
+        }).start();
     }    
 
     @FXML
-    private void onShowBalanceSheetClick(ActionEvent event) {
+    private void onShowReportButtonClick(ActionEvent event) {
         String start_date,end_date;
         try {
+            String lc_id = this.select_project.getSelectionModel().getSelectedItem().getId();
             start_date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.start.getValue().toString()));
             end_date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.end.getValue().toString()));
             HttpResponse<JsonNode> res = Unirest.get(MetaData.baseUrl + "report/balancesheet")
                     .queryString("date","\""+ start_date +"\"")
+                    .queryString("plc",lc_id)
                     .asJson();
             
             HttpResponse<JsonNode> res2 = Unirest.get(MetaData.baseUrl + "report/balancesheet")
                     .queryString("date","\""+ end_date +"\"")
+                    .queryString("plc",lc_id)
                     .asJson();
             
             JSONArray bs = res.getBody().getArray();
@@ -107,30 +141,28 @@ public class ReportBsController implements Initializable {
             params.put("total_current_asset", String.valueOf(total_current_asset));
             params.put("total_revenue", String.valueOf(total_revenue));
             params.put("total_expense", String.valueOf(total_expense));
+            Project p = this.select_project.getSelectionModel().getSelectedItem();
+            params.put("name", "Name: " + p.getName());
+            params.put("investment", "Investment: " + p.getInvestment());
+            params.put("party", "Party: " + p.getParty());
+            params.put("operation_date","initialing_date: " + new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(p.getOperation_date())));
+            params.put("start_date","Starting Date: " + new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(p.getStart_date())));
+            params.put("dimilish_date","Dimilish Date: " + new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(p.getDimilish_date())));
             
             
             
             Report r = new Report();
-            r.getReport("src\\report\\bs3.jrxml", new JRBeanCollectionDataSource(v), params);
-            r.getReport("src\\report\\pl.jrxml", new JRBeanCollectionDataSource(v), params);
+            r.getReport("src\\report\\ProjectReport.jrxml", new JRBeanCollectionDataSource(v), params);
         } catch (ParseException ex) {
             Logger.getLogger(LCReportController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnirestException ex) {
             Logger.getLogger(LCReportController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }
-    
-    public String getAccountName(String id){
-        int acc_id = Integer.parseInt(id);
-        for(int i=0; i<account.size(); i++){
-            if(account.get(i).getId() == acc_id) return account.get(i).getName();
-        }
-        return "";
     }
 
     @FXML
     private void onCancelButtonClick(ActionEvent event) {
+        this.cancel.getScene().getWindow().hide();
     }
     
 }
