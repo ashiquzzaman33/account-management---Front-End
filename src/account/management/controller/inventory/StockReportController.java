@@ -50,9 +50,7 @@ public class StockReportController implements Initializable {
     
     private List<Product> product_list;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         product_list = FXCollections.observableArrayList();

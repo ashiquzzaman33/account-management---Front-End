@@ -408,5 +408,18 @@ public class TopNavController implements Initializable{
             stage.setScene(scene);
             stage.showAndWait();
     }
+
+    @FXML
+    private void onPartyDetailsReportClick(ActionEvent event) throws IOException {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource(MetaData.viewPath + "PartyDetailsReport.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            scene.setRoot(root);
+            stage.setResizable(false);
+            stage.setTitle("Party Wise Details Report");
+            stage.setScene(scene);
+            stage.showAndWait();
+    }
     
 }

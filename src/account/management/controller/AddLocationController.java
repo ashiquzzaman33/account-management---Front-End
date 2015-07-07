@@ -15,9 +15,12 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -54,8 +57,18 @@ public class AddLocationController implements Initializable {
                     .queryString("details", details)
                     .asJson();
             button_submit.setDisable(false);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Lovation has been added successfully!");
+            alert.setGraphic(new ImageView(new Image("resources/success.jpg")));
+            alert.showAndWait();
+            this.button_submit.getScene().getWindow().hide();
         } catch (UnirestException ex) {
-            Logger.getLogger(AddLocationController.class.getName()).log(Level.SEVERE, null, ex);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Sorry!! there is an error in the server. Please try again.");
+            alert.setGraphic(new ImageView(new Image("resources/error.jpg")));
+            alert.showAndWait();
         }
     }
 

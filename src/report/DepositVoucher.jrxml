@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DepositVoucher" pageWidth="595" pageHeight="360" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e4bef5c6-dc6b-406a-8309-551254d8c63f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="inch"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<pageHeader>
+		<band height="319" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="319" uuid="f93f04b0-aa4e-4497-829d-837dd32916ce"/>
+				<box>
+					<topPen lineWidth="0.6" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.6" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.6" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.6" lineStyle="Dashed"/>
+				</box>
+				<staticText>
+					<reportElement x="180" y="1" width="200" height="30" uuid="94b027cd-fa39-4672-9d02-ccc9615ce048"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Kalpurush" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[জমা ভাউচার]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+</jasperReport>

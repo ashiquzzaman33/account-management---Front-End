@@ -42,6 +42,7 @@
             <MenuItem mnemonicParsing="false" onAction="#onLCReportClick" text="LC Report" />
             <MenuItem mnemonicParsing="false" onAction="#onProjectReportClick" text="Project Report" />
             <MenuItem mnemonicParsing="false" onAction="#onCNFReportClick" text="C&amp;F Report" />
+            <MenuItem mnemonicParsing="false" onAction="#onPartyDetailsReportClick" text="Party wise details report" />
                   </items>
                 </Menu>
       <Menu mnemonicParsing="false" text="Party">

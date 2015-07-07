@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
-<!-- 2015-06-30T10:44:17 -->
+<!-- 2015-07-08T01:25:38 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_3" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b3d2a029-0420-4372-a99a-3816f490d1b9">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="7" class="java.lang.String"/>
@@ -61,6 +61,7 @@
 	<parameter name="6" class="java.lang.String"/>
 	<parameter name="total_revenue" class="java.lang.String"/>
 	<parameter name="total_expense" class="java.lang.String"/>
+	<parameter name="net_profit" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -68,7 +69,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="801" splitType="Stretch">
+		<band height="610" splitType="Stretch">
 			<staticText>
 				<reportElement x="230" y="0" width="100" height="30" uuid="fecde2f5-41f1-47a5-9f31-d5df29d8fda1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -339,6 +340,23 @@
 					<font size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{total_expense}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="590" width="380" height="20" uuid="536b3ad2-84a8-4776-ac1c-abddb80e40f7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Profit/Loss]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="580" width="510" height="1" uuid="0c7f712a-ed39-4d2b-8875-7455ebb76060"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="380" y="590" width="130" height="20" uuid="b945b280-b186-426b-996c-126dfa8f1abf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{net_profit}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

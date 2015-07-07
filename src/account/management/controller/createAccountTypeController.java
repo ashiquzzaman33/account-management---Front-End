@@ -15,9 +15,12 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import org.json.JSONArray;
@@ -45,18 +48,29 @@ public class createAccountTypeController implements Initializable{
 
     @FXML
     private void onSubmitButtonClick(ActionEvent event) {
-        String name = this.input_account_type_name.getText();
-        String note = this.input_note.getText();
+
         
         new Thread(()->{
             try { 
+                 String name = this.input_account_type_name.getText();
+                 String note = this.input_note.getText();
                 JSONArray response = Unirest.post(MetaData.baseUrl + "add/account_type")
                         .queryString("type_name", name)
                         .queryString("details", note)
                         .asJson().getBody().getArray();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("Account type has been created successfully!");
+                alert.setGraphic(new ImageView(new Image("resources/success.jpg")));
+                alert.showAndWait();
                 
-            } catch (UnirestException ex) {
-                System.out.println("error");
+                
+            } catch (Exception ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("Sorry!! there is an error. Please try again.");
+                alert.setGraphic(new ImageView(new Image("resources/error.jpg")));
+                alert.showAndWait();
             }
         }).start();
         

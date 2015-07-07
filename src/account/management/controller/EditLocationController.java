@@ -16,10 +16,13 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -74,18 +77,32 @@ public class EditLocationController implements Initializable {
 
     @FXML
     private void onUpdateButtonClick(ActionEvent event) {
-        int id = this.location_select.getSelectionModel().getSelectedItem().getId();
-        String name = this.name_input.getText();
-        String details = this.details_input.getText();
-        
         try {
+            
+            int id = this.location_select.getSelectionModel().getSelectedItem().getId();
+            String name = this.name_input.getText();
+            String details = this.details_input.getText();
+        
+        
             JSONArray response = Unirest.post(MetaData.baseUrl + "edit/location")
                     .queryString("id", id)
                     .queryString("name", name)
                     .queryString("details", details)
                     .asJson().getBody().getArray();
-        } catch (UnirestException ex) {
-            Logger.getLogger(EditLocationController.class.getName()).log(Level.SEVERE, null, ex);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Lovation has been updated successfully!");
+            alert.setGraphic(new ImageView(new Image("resources/success.jpg")));
+            alert.showAndWait();
+            this.update_button.getScene().getWindow().hide();
+            
+            
+        } catch (Exception ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Sorry!! there is an error in the server. Please try again.");
+            alert.setGraphic(new ImageView(new Image("resources/error.jpg")));
+            alert.showAndWait();
         }
  
     }

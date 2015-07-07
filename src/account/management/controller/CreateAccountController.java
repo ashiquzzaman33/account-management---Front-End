@@ -23,6 +23,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -158,8 +159,19 @@ public class CreateAccountController implements Initializable {
                     .field("opening_balance", String.valueOf(balance))
                     .field("location", loc).asString();
             
-        } catch (UnirestException ex) {
-            Logger.getLogger(CreateAccountController.class.getName()).log(Level.SEVERE, null, ex);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Account has been added successfully!");
+            alert.setGraphic(new ImageView(new Image("resources/success.jpg")));
+            alert.showAndWait();
+            this.button_submit.getScene().getWindow().hide();
+            
+        } catch (Exception ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Sorry!! there is an error. Please try again.");
+            alert.setGraphic(new ImageView(new Image("resources/error.jpg")));
+            alert.showAndWait();
         }
         
     }

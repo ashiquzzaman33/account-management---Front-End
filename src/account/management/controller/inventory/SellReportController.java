@@ -111,6 +111,7 @@ public class SellReportController implements Initializable {
             }
             Report report = new Report();
             report.getReport("src\\report\\SellPurchaseLedger.jrxml", new JRBeanCollectionDataSource(v), params);
+            report.getReport("src\\report\\DepositVoucher.jrxml", new JRBeanCollectionDataSource(v), params);
             this.show.setDisable(false);
         } catch (Exception e) {
             System.out.println("Exception in show report button click");

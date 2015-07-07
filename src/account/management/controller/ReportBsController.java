@@ -76,7 +76,7 @@ public class ReportBsController implements Initializable {
             System.out.println(bs2);
             HashMap params = new HashMap();
             Vector v = new Vector();
-            float total_non_current_asset = 0, total_current_asset = 0, total_revenue = 0, total_expense = 0;
+            float total_non_current_asset = 0, total_current_asset = 0, total_revenue = 0, total_expense = 0, equity = 0, long_term_liability = 0, current_liability = 0;
             for(int i=0; i<bs.length(); i++){
                 JSONObject obj = bs.getJSONObject(i);
                 JSONObject obj2 = bs2.getJSONObject(i);
@@ -101,22 +101,43 @@ public class ReportBsController implements Initializable {
                 if((Integer.parseInt(id) >=42 && Integer.parseInt(id) <= 44) || (Integer.parseInt(id) >=46 && Integer.parseInt(id) <= 48) || (Integer.parseInt(id) >=50 && Integer.parseInt(id) <= 57)){
                     total_expense += Float.parseFloat(balance);
                 }
+                if(Integer.parseInt(id) == 28){
+                    equity = Float.parseFloat(balance);
+                }
+                if(Integer.parseInt(id) == 29){
+                    equity = equity - Float.parseFloat(balance);
+                }
+                if(Integer.parseInt(id) == 30){
+                    long_term_liability = Float.parseFloat(balance);
+                }
+                if(Integer.parseInt(id) == 33){
+                    current_liability = Float.parseFloat(balance);
+                }
+            }
+            if(total_expense < 0){
+                total_expense *= -1;
             }
             params.put("date", new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.start.getValue().toString())) + "To " + new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.end.getValue().toString())));
             params.put("total_non_current_asset", String.valueOf(total_non_current_asset));
             params.put("total_current_asset", String.valueOf(total_current_asset));
+            params.put("total_asset", String.valueOf(total_current_asset + total_non_current_asset));
             params.put("total_revenue", String.valueOf(total_revenue));
             params.put("total_expense", String.valueOf(total_expense));
-            
-            
+            params.put("net_profit", String.valueOf(total_revenue - total_expense));
+            params.put("total_equity", String.valueOf(equity + total_revenue - total_expense));
+            System.out.println(long_term_liability);
+            System.out.println(current_liability);
+            params.put("total_liability", String.valueOf(long_term_liability + current_liability));
             
             Report r = new Report();
-            r.getReport("src\\report\\bs3.jrxml", new JRBeanCollectionDataSource(v), params);
+            r.getReport("src\\report\\bs.jrxml", new JRBeanCollectionDataSource(v), params);
             r.getReport("src\\report\\pl.jrxml", new JRBeanCollectionDataSource(v), params);
         } catch (ParseException ex) {
             Logger.getLogger(LCReportController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnirestException ex) {
             Logger.getLogger(LCReportController.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            this.cancel.getScene().getWindow().hide();
         }
         
     }
@@ -131,6 +152,7 @@ public class ReportBsController implements Initializable {
 
     @FXML
     private void onCancelButtonClick(ActionEvent event) {
+        this.cancel.getScene().getWindow().hide();
     }
     
 }
