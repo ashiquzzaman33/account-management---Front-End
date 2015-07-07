@@ -5,16 +5,17 @@
  */
 package account.management.controller;
 
-import account.management.model.Location;
+import account.management.model.EnglishNumberToWords;
 import account.management.model.MetaData;
 import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -23,13 +24,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import report.Report;
 
 /**
  * FXML Controller class
@@ -69,21 +67,43 @@ public class DepositVoucherController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //nogod, titi, online
         this.payment_type.getItems().addAll("নগদ","টিটি","অনলাইন");
+        
+        this.amount.setOnKeyReleased((e)->{
+            if(!this.amount.getText().equals(""))
+                this.word.setText(EnglishNumberToWords.convert(Long.parseLong(this.amount.getText())));
+        });
+        
     }    
-
-    private void onSubmitButtonClick(ActionEvent event) {
+    @FXML
+    private void onSaveButtonClick(ActionEvent event) {
+        String date = "",details = "",via = "",bank_ac = "",branch = "",address = "",amount = "",method = "",note = "",word = "";
+        if(!this.date.getValue().toString().equals("")){
+            try {
+                date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.date.getValue().toString()));
+            } catch (ParseException ex) {
+                
+            }
+        }
+        if(!this.details.getText().equals(""))
+            details = this.details.getText();
+        if(!this.via.getText().equals(""))
+            via = this.via.getText();
+        if(!this.bank_ac.getText().equals(""))
+            bank_ac = this.bank_ac.getText();
+        if(!this.branch.getText().equals(""))
+            branch = this.branch.getText();
+        if(!this.address.getText().equals(""))
+            address = this.address.getText();
+        if(!this.amount.getText().equals(""))
+            amount = this.amount.getText();
+        if(!this.payment_type.getSelectionModel().getSelectedItem().equals(""))
+            method = this.payment_type.getSelectionModel().getSelectedItem();
+        if(!this.note.getText().equals(""))
+            note = this.note.getText();
+        if(!this.word.getText().equals(""))
+            word = this.word.getText();
+        
         try {
-            String date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.date.getValue().toString()));
-            String details = this.details.getText();
-            String via = this.via.getText();
-            String bank_ac = this.bank_ac.getText();
-            String branch = this.branch.getText();
-            String address = this.address.getText();
-            String amount = this.amount.getText();
-            String method = this.payment_type.getSelectionModel().getSelectedItem();
-            String note = this.note.getText();
-            String word = this.word.getText();
-            
             HttpResponse<String> res = Unirest.get(MetaData.baseUrl + "add/deposit/voucher")
                     .queryString("date",date)
                     .queryString("details",details)
@@ -98,17 +118,28 @@ public class DepositVoucherController implements Initializable {
                     .asString();
             String id = res.getBody();
             
-        } catch (ParseException ex) {
-            Logger.getLogger(DepositVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+            Vector v = new Vector();
+            v.add("aaa");
+            HashMap params = new HashMap();
+            params.put("voucher_no", id);
+            params.put("date", date);
+            params.put("description", details);
+            params.put("received_from", via);
+            params.put("bank_account", bank_ac);
+            params.put("branch", branch);
+            params.put("address", address);
+            params.put("amount", amount);
+            params.put("word", word);
+            params.put("note", note);
+            
+            Report r = new Report();
+            r.getReport("src\\report\\DepositVoucher.jrxml", new JRBeanCollectionDataSource(v), params);
+            
         } catch (UnirestException ex) {
             Logger.getLogger(DepositVoucherController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    @FXML
-    private void onSaveButtonClick(ActionEvent event) {
-        
-    }
 
     @FXML
     private void onCancelButtonClick(ActionEvent event) {
