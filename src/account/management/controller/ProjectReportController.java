@@ -140,7 +140,8 @@ public class ProjectReportController implements Initializable {
             params.put("total_non_current_asset", String.valueOf(total_non_current_asset));
             params.put("total_current_asset", String.valueOf(total_current_asset));
             params.put("total_revenue", String.valueOf(total_revenue));
-            params.put("total_expense", String.valueOf(total_expense));
+            params.put("total_expense", String.valueOf(total_revenue - total_expense));
+            params.put("net_profit", String.valueOf(total_expense));
             Project p = this.select_project.getSelectionModel().getSelectedItem();
             params.put("name", "Name: " + p.getName());
             params.put("investment", "Investment: " + p.getInvestment());

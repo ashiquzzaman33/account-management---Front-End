@@ -6,9 +6,11 @@
 package account.management.controller;
 
 import account.management.model.Account;
+import account.management.model.AccountType;
 import account.management.model.AutoCompleteComboBoxListener;
 import account.management.model.Location;
 import account.management.model.MetaData;
+import account.management.model.Msg;
 import account.management.model.Project;
 import account.management.model.VoucherType;
 import com.mashape.unirest.http.HttpResponse;
@@ -73,8 +75,6 @@ public class NewVoucherController implements Initializable {
     @FXML
     private Pane title_pane;
     @FXML
-    private Label title_label;
-    @FXML
     private AnchorPane main_container;
     @FXML
     private DatePicker input_date;
@@ -93,10 +93,16 @@ public class NewVoucherController implements Initializable {
     @FXML
     private ComboBox<Project> select_type;
     private List<Account> account_list;
-
+    private List<Account> filter_acc;
+    private List<Account> filter_party_rec;
+    private List<Account> filter_party_pay;
+    @FXML
+    private RadioButton project1;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         account_list = FXCollections.observableArrayList();
+        filter_party_rec = FXCollections.observableArrayList();
+        filter_party_pay = FXCollections.observableArrayList();
 //        //get settings
 //        new Thread(()->{
 //            System.out.println(Settings.bg);
@@ -165,6 +171,7 @@ public class NewVoucherController implements Initializable {
         *   init account name
         */
         new Thread(()->{
+            final ComboBox<Account> a = (ComboBox<Account>) this.field_row.getChildren().get(0);
             try {
 
                 HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/accounts").asJson();
@@ -176,20 +183,47 @@ public class NewVoucherController implements Initializable {
                     String desc = obj.get("description").toString();
                     int parent_id = Integer.parseInt(obj.get("parent").toString());
 
-                    account_list.add(new Account(id,name,parent_id,desc,0f));
+                    account_list.add(new Account(id,name,parent_id,desc,0f, obj.get("account_type").toString()));
+                    if(parent_id == 21){
+                        this.filter_party_rec.add(new Account(id,name,parent_id,desc,0f, obj.get("account_type").toString()));
+                    }
+                    if(parent_id == 34){
+                        this.filter_party_pay.add(new Account(id,name,parent_id,desc,0f, obj.get("account_type").toString()));
+                    }
                 }
                 
-                ComboBox<Account> a = (ComboBox<Account>) this.field_row.getChildren().get(0);
                 a.getItems().addAll(account_list);
                 
             } catch (UnirestException ex) {
                 Logger.getLogger(NewVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{
+                new AutoCompleteComboBoxListener<>(a);
+                a.setOnHiding((e)->{
+                    Account acc = a.getSelectionModel().getSelectedItem();
+                    a.setEditable(false);
+                    a.getSelectionModel().select(acc);
+                });
+                a.setOnShowing((e)->{
+                    a.setEditable(true);
+                });
+                
+                a.setOnAction((e)->{
+                    if(!a.getSelectionModel().isEmpty() && a.getSelectionModel().getSelectedItem().getId() == 21){
+                        a.setPromptText("Select Party");
+                        a.getItems().clear();
+                        a.getItems().addAll(this.filter_party_rec);
+                    }
+                    if(!a.getSelectionModel().isEmpty() && a.getSelectionModel().getSelectedItem().getId() == 34){
+                        a.getItems().clear();
+                        a.getItems().addAll(this.filter_party_pay);
+                        a.setPromptText("Select Party");
+                    }
+                });
+                
+                
             }
         }).start();
-        
-        
-        
-        
+
     }    
 
     @FXML
@@ -198,7 +232,12 @@ public class NewVoucherController implements Initializable {
         HBox row = new HBox();
         row.setId("field_row");
         ComboBox<Account> select_account = new ComboBox<>();
-        select_account.getItems().addAll(this.account_list);
+        if(this.select_type.getSelectionModel().isEmpty()){
+            select_account.getItems().addAll(this.account_list);
+        }else{
+            select_account.getItems().addAll(this.filter_acc);
+        }
+        
         TextField dr        = new TextField();
         TextField cr        = new TextField();
         TextField remarks   = new TextField();
@@ -315,6 +354,7 @@ public class NewVoucherController implements Initializable {
                 project_id = "0";
             }else{
                 project_id = this.select_type.getSelectionModel().getSelectedItem().getId();
+                
             }   
             date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.input_date.getValue().toString())) + " 00:00:00";
             narration = this.input_narration.getText();
@@ -348,7 +388,7 @@ public class NewVoucherController implements Initializable {
             }
             transaction.put("transaction", transactionArray);
             System.out.println(transaction);
-            HttpResponse<String> res = null;
+            HttpResponse<JsonNode> res = null;
             try {
                 res = Unirest.post(MetaData.baseUrl + "add/voucher")
                         .field("location_id", loc)
@@ -357,13 +397,14 @@ public class NewVoucherController implements Initializable {
                         .field("date", date)
                         .field("narration", narration)
                         .field("transaction", transaction)
-                        .asString();
+                        .asJson();
                 
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setHeaderText(null);
-                        alert.setContentText("Voucher has been saved successfully!");
-                        alert.setGraphic(new ImageView(new Image("resources/success.jpg")));
-                        alert.showAndWait();
+                        JSONObject obj = res.getBody().getArray().getJSONObject(0);
+                        if(obj.getString("Status").equals("Success")){
+                            Msg.showInformation("Voucher has been saved successfully!!!");
+                        }else{
+                            Msg.showError("Sorry. Something is wrong. Please try again.");
+                        }
                         
             } catch (UnirestException ex) {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -438,6 +479,25 @@ public class NewVoucherController implements Initializable {
             }
         }).start();
     }
+
+    @FXML
+    private void onSelectType(ActionEvent event) {
+        filter_acc = FXCollections.observableArrayList();
+        for(int i=0; i<this.account_list.size(); i++){
+            if(this.account_list.get(i).getAccount_type().equals(this.select_type.getSelectionModel().getSelectedItem().getId()) && this.account_list.get(i).getId() > 57){
+               filter_acc.add(this.account_list.get(i));
+               
+            }
+        }
+        //this.account_list.clear();
+        for(int i=0; i<this.field_container.getChildren().size(); i++){
+            HBox row = (HBox) this.field_container.getChildren().get(i);
+            ComboBox<Account> combo = (ComboBox<Account>) row.getChildren().get(0);
+            combo.getItems().clear();
+            combo.getItems().addAll(filter_acc);
+        }
+    }
+
     
 }
 

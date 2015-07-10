@@ -15,6 +15,7 @@ public class Account {
     private int parent;
     private String description;
     private float openingBalance;
+    private String account_type;
     
     public Account(int id, String name, int parent, String description, float opening_balance){
         this.name = name;
@@ -22,6 +23,14 @@ public class Account {
         this.parent = parent;
         this.description = description;
         this.openingBalance = opening_balance;
+    }
+    public Account(int id, String name, int parent, String description, float opening_balance, String acc_type){
+        this.name = name;
+        this.id = id;
+        this.parent = parent;
+        this.description = description;
+        this.openingBalance = opening_balance;
+        this.account_type = acc_type;
     }
 
     public String getName() {
@@ -67,6 +76,14 @@ public class Account {
 
     public void setOpeningBalance(float openingBalance) {
         this.openingBalance = openingBalance;
+    }
+
+    public String getAccount_type() {
+        return account_type;
+    }
+
+    public void setAccount_type(String account_type) {
+        this.account_type = account_type;
     }
     
 }

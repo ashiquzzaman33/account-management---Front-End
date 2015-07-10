@@ -7,6 +7,7 @@ package account.management.controller;
 
 import account.management.model.Location;
 import account.management.model.MetaData;
+import account.management.model.Msg;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -90,14 +91,17 @@ public class BankAccountController implements Initializable {
                         bal = Float.parseFloat(balance);
                     }
                     System.out.println(bal);
-                    Unirest.post(MetaData.baseUrl + "add/account")
-                            .field("name",name)
-                            .field("parent","22")
-                            .field("account_type","1")
-                            .field("description",note)
-                            .field("opening_balance", String.valueOf(bal))
-                            .field("location",location.getSelectionModel().getSelectedItem().getId())
-                            .asString();
+                    HttpResponse<JsonNode> res = Unirest.get(MetaData.baseUrl + "add/account")
+                            .queryString("name",name)
+                            .queryString("parent","22")
+                            .queryString("account_type","0")
+                            .queryString("description",note)
+                            .queryString("opening_balance", String.valueOf(bal))
+                            .queryString("location",location.getSelectionModel().getSelectedItem().getId())
+                            .asJson();
+                    
+                    Msg.showInformation("Bank Account Has Been Added Successfully!!!");
+                    
                 } catch (UnirestException ex) {
                     Logger.getLogger(BankAccountController.class.getName()).log(Level.SEVERE, null, ex);
                 }

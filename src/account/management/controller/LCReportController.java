@@ -141,6 +141,7 @@ public class LCReportController implements Initializable {
             params.put("total_current_asset", String.valueOf(total_current_asset));
             params.put("total_revenue", String.valueOf(total_revenue));
             params.put("total_expense", String.valueOf(total_expense));
+            params.put("net_profit", String.valueOf(total_revenue - total_expense));
             LC lc = this.select_lc.getSelectionModel().getSelectedItem();
             params.put("lc_no", "LC No: " + lc.getLc_no());
             params.put("party_name", "Party Name: " + lc.getParty_name());

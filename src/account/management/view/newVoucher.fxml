@@ -69,7 +69,7 @@
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </RadioButton>
-                                          <ComboBox fx:id="select_type" prefWidth="150.0">
+                                          <ComboBox fx:id="select_type" onAction="#onSelectType" prefWidth="150.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>

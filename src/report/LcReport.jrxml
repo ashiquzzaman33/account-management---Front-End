@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
-<!-- 2015-07-06T23:50:51 -->
+<!-- 2015-07-09T06:52:46 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_3" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b3d2a029-0420-4372-a99a-3816f490d1b9">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="7" class="java.lang.String"/>
@@ -71,6 +71,7 @@
 	<parameter name="init_date" class="java.lang.String"/>
 	<parameter name="start_date" class="java.lang.String"/>
 	<parameter name="dimilish_date" class="java.lang.String"/>
+	<parameter name="net_profit" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -398,6 +399,23 @@
 					<pen lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
+			<line>
+				<reportElement x="0" y="670" width="480" height="1" uuid="e499c714-0882-456b-899d-ce4e32e98a02"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="680" width="380" height="20" uuid="c72f25ef-74e0-49cd-aebc-0d0a8688e359"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Profit/Loss]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="380" y="680" width="100" height="20" uuid="17dcf83b-d50c-456d-9de5-8a97eb1aa3fb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{net_profit}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 </jasperReport>

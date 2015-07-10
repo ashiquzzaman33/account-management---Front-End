@@ -48,8 +48,9 @@ public class ReportTrialBalanceController implements Initializable {
             Vector v = new Vector();
             HashMap params = new HashMap();
             float total_dr = 0, total_cr = 0;
-            for(int i=0; i<array.length(); i++){
+            for(int i=1; i<array.length(); i++){
                 JSONObject obj = array.getJSONObject(i);
+                String id = obj.get("id").toString();
                 String name = obj.getString("name");
                 String balance = obj.getString("balance");
                 String dr, cr;
@@ -64,14 +65,55 @@ public class ReportTrialBalanceController implements Initializable {
                 }
                 v.add(new TrialBalance(name,dr,cr));
             }
+            
+            Vector trialBalanceVector = getSortedTrialBalance(v,array);
+            
+            
             params.put("total_dr", String.valueOf(total_dr));
             params.put("total_cr", String.valueOf(total_cr));
             Report report = new Report();
-            report.getReport("src\\report\\trialBalance.jrxml", new JRBeanCollectionDataSource(v), params);
+            report.getReport("src\\report\\trialBalance.jrxml", new JRBeanCollectionDataSource(trialBalanceVector), params);
             
         } catch (UnirestException ex) {
             Logger.getLogger(ReportTrialBalanceController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public Vector getSortedTrialBalance(Vector in, JSONArray arrayIn){
+        
+        Vector out = new Vector();
+        try {
+            HttpResponse<JsonNode> res = Unirest.get(MetaData.baseUrl + "trialbalance/sorted").asJson();
+            JSONArray array = res.getBody().getArray();
+            System.out.println(array);
+            for(int i=0; i<array.length(); i++){
+                out.add(getBalanace(array.get(i).toString(), arrayIn));
+            }
+            
+        } catch (Exception e) {
+        }finally{
+            return out;
+        }
+        
+    }
+    public TrialBalance getBalanace(String id, JSONArray arrayIn){
+        for(int i=0; i<arrayIn.length(); i++){
+            JSONObject obj = arrayIn.getJSONObject(i);
+            if(obj.get("id").toString().equals(id)){
+                String name = obj.getString("name");
+                String balance = String.valueOf(Float.parseFloat(obj.getString("balance")));
+                String dr, cr;
+                if(Float.parseFloat(balance) < 0){
+                    cr = balance;
+                    dr = "";
+                }else{
+                    dr = balance;
+                    cr = "";
+                }
+                return new TrialBalance(name, dr, cr);
+            }
+        }
+        return null;
     }
     
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
-<!-- 2015-07-07T03:19:44 -->
+<!-- 2015-07-09T06:57:36 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_3" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b3d2a029-0420-4372-a99a-3816f490d1b9">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="7" class="java.lang.String"/>
@@ -64,6 +64,7 @@
 	<parameter name="report_name" class="java.lang.String"/>
 	<parameter name="party_name" class="java.lang.String"/>
 	<parameter name="party_address" class="java.lang.String"/>
+	<parameter name="net_profit" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -362,6 +363,23 @@
 			<textField>
 				<reportElement x="0" y="100" width="510" height="22" uuid="cc574445-aae2-41e1-9af2-2da7b36f7841"/>
 				<textFieldExpression><![CDATA[$P{party_address}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="670" width="480" height="1" uuid="50331026-fb34-4bdf-ac83-6aedfe446340"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="680" width="380" height="20" uuid="0404635b-4f0a-4ed5-86c0-0cbb27e5d45f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Profit]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="680" width="100" height="20" uuid="6eca23d4-e4bc-4fbf-90dc-6e9f81cfac58"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{net_profit}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

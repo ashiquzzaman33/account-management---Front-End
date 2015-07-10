@@ -138,6 +138,7 @@ public class CNFReportController implements Initializable {
             params.put("total_current_asset", String.valueOf(total_current_asset));
             params.put("total_revenue", String.valueOf(total_revenue));
             params.put("total_expense", String.valueOf(total_expense));
+            params.put("net_profit", String.valueOf(total_revenue - total_expense));
             CNF c = this.select_cnf.getSelectionModel().getSelectedItem();
             params.put("party_name", "Party Name: " + c.getParty_name());
             params.put("party_address", "Party Address: " + c.getParty_address());

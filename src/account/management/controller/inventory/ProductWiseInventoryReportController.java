@@ -89,13 +89,14 @@ public class ProductWiseInventoryReportController implements Initializable {
         
             start_date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.start.getValue().toString()));
             end_date = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.end.getValue().toString()));
-            
+            System.out.println(start_date + " - " + end_date);
             HttpResponse<JsonNode> res = Unirest.get(MetaData.baseUrl + "report/product/sellPurchase")
                     .queryString("id", id)
-                    .queryString("start", start)
-                    .queryString("end", end)
+                    .queryString("start", start_date)
+                    .queryString("end", end_date)
                     .asJson();
             JSONArray array = res.getBody().getArray();
+            System.out.println(array);
             Vector v = new Vector();
             HashMap params = new HashMap();
             params.put("date","From "+ new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(start_date)) +" To " + new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(end_date)));

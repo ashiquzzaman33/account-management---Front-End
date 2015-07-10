@@ -6,6 +6,7 @@
 package account.management.controller;
 
 import account.management.model.MetaData;
+import account.management.model.Msg;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.net.URL;
@@ -47,8 +48,18 @@ public class AddLocationController implements Initializable {
 
     @FXML
     private void onSubmitButtonClick(ActionEvent event) {
-        String name = input_name.getText();
-        String details = input_details.getText();
+        String name = "";
+        if(this.input_name.getText().equals("")){
+            Msg.showError("Please enter location name");
+            return;
+        }else{
+            name = this.input_name.getText();
+        }
+        String details = "";
+        if(!this.input_details.getText().equals("")){
+            details = input_details.getText();
+        }
+        
         
         button_submit.setDisable(true);
         try {
@@ -57,11 +68,7 @@ public class AddLocationController implements Initializable {
                     .queryString("details", details)
                     .asJson();
             button_submit.setDisable(false);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Lovation has been added successfully!");
-            alert.setGraphic(new ImageView(new Image("resources/success.jpg")));
-            alert.showAndWait();
+            Msg.showInformation("");
             this.button_submit.getScene().getWindow().hide();
         } catch (UnirestException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

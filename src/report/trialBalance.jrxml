@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
-<!-- 2015-07-01T11:20:45 -->
+<!-- 2015-07-10T15:14:33 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="trilaBalance" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="17432a46-f60c-4daf-a573-e898bfaf9121">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="total_dr" class="java.lang.String"/>
@@ -36,8 +36,8 @@
 		<band height="30" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="250" height="30" uuid="8daa9b80-26dd-40b8-a62b-ce89350ab2e9"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="16" isBold="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[name]]></text>
 			</staticText>
@@ -46,8 +46,8 @@
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="16" isBold="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[dr]]></text>
 			</staticText>
@@ -55,8 +55,8 @@
 				<reportElement x="400" y="0" width="150" height="30" uuid="791c1516-8491-4cbe-ae10-f69b14230108">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="16" isBold="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[cr]]></text>
 			</staticText>

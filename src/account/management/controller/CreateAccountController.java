@@ -7,12 +7,13 @@ package account.management.controller;
 
 import account.management.model.Account;
 import account.management.model.AccountType;
+import account.management.model.AutoCompleteComboBoxListener;
 import account.management.model.Location;
 import account.management.model.MetaData;
+import account.management.model.Msg;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.async.Callback;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.net.URL;
 import java.util.Collection;
@@ -23,16 +24,10 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -73,15 +68,26 @@ public class CreateAccountController implements Initializable {
         
         // account type
         new Thread(() -> {
+            this.select_account_type.getItems().add(new AccountType("0", "None"));
             try {
                 HttpResponse<JsonNode> response = Unirest.get(MetaData.baseUrl + "get/account_type").asJson();
                 JSONArray account_type = response.getBody().getArray();
                 for(int i = 0; i < account_type.length(); i++){
                     JSONObject obj = account_type.getJSONObject(i);
-                    select_account_type.getItems().add(new AccountType(Integer.parseInt(obj.get("id").toString()), obj.get("type_name").toString(), obj.get("details").toString()));
+                    select_account_type.getItems().add(new AccountType(obj.get("id").toString(), obj.getString("name")));
                 }
             } catch (UnirestException ex) {
                 
+            }finally{
+                new AutoCompleteComboBoxListener<>(this.select_account_type);
+                this.select_account_type.setOnHiding((e)->{
+                    AccountType a = this.select_account_type.getSelectionModel().getSelectedItem();
+                    this.select_account_type.setEditable(false);
+                    this.select_account_type.getSelectionModel().select(a);
+                });
+                this.select_account_type.setOnShowing((e)->{
+                    this.select_account_type.setEditable(true);
+                });
             }
         }).start();
         
@@ -132,6 +138,16 @@ public class CreateAccountController implements Initializable {
                 select_parent.getItems().addAll(account);
             } catch (UnirestException ex) {
                 Logger.getLogger(CreateAccountController.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{
+                new AutoCompleteComboBoxListener<>(this.select_parent);
+                this.select_parent.setOnHiding((e)->{
+                    Account a = this.select_parent.getSelectionModel().getSelectedItem();
+                    this.select_parent.setEditable(false);
+                    this.select_parent.getSelectionModel().select(a);
+                });
+                this.select_parent.setOnShowing((e)->{
+                    this.select_parent.setEditable(true);
+                });
             }
         }).start();
     }
@@ -151,27 +167,22 @@ public class CreateAccountController implements Initializable {
                 balance *= -1.0f;
             }   loc = String.valueOf(this.select_location.getSelectionModel().getSelectedItem().getId());
             
-            Unirest.post(MetaData.baseUrl + "add/account")
-                    .field("name", name)
-                    .field("parent", parent)
-                    .field("account_type", type)
-                    .field("description", desc)
-                    .field("opening_balance", String.valueOf(balance))
-                    .field("location", loc).asString();
-            
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Account has been added successfully!");
-            alert.setGraphic(new ImageView(new Image("resources/success.jpg")));
-            alert.showAndWait();
-            this.button_submit.getScene().getWindow().hide();
+            HttpResponse<JsonNode> res = Unirest.get(MetaData.baseUrl + "add/account")
+                    .queryString("name", name)
+                    .queryString("parent", parent)
+                    .queryString("account_type", type)
+                    .queryString("description", desc)
+                    .queryString("opening_balance", String.valueOf(balance))
+                    .queryString("location", loc).asJson();
+            if(res.getBody().getArray().getJSONObject(0).getString("Status").equals("Success")){
+                Msg.showInformation("Account has been created successfully!!!");
+                this.button_submit.getScene().getWindow().hide();
+            }else{
+                Msg.showError("");
+            }
             
         } catch (Exception ex) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Sorry!! there is an error. Please try again.");
-            alert.setGraphic(new ImageView(new Image("resources/error.jpg")));
-            alert.showAndWait();
+            Msg.showError("");
         }
         
     }

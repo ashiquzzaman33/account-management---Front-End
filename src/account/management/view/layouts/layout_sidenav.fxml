@@ -16,9 +16,9 @@
                                        <children>
                                           <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
-                                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="New Bank Account" />
-                                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Edit Bank Account" />
-                                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="View All Bank Account" />
+                                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#newBankAccount" prefHeight="27.0" prefWidth="185.0" text="New Bank Account" />
+                                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#editBankAccount" prefHeight="27.0" prefWidth="183.0" text="Edit Bank Account" />
+                                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onAction="#viewBankAccount" prefHeight="27.0" prefWidth="183.0" text="View All Bank Account" />
                                              </children>
                                           </VBox>
                                        </children></AnchorPane>

@@ -10,41 +10,31 @@ package account.management.model;
  * @author mohar
  */
 public class AccountType {
-    private int id;
-    private String accountTypeName;
-    private String note;
-    
-    public AccountType(int id, String name, String note){
+    private String id;
+    private String name;
+    public AccountType(String id, String name){
         this.id = id;
-        this.accountTypeName = name;
-        this.note = note;
+        this.name = name;
     }
-    
-    public int getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getName() {
+        return name;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-    @Override
+    
     public String toString(){
-        return this.accountTypeName;
+        return this.name;
     }
+    
 }
