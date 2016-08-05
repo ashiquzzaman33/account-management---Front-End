@@ -23,12 +23,12 @@
                <top>
                   <Pane fx:id="title_pane" prefHeight="101.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label layoutX="70.0" text="Hooghly Biscuit Company" textFill="#16a085">
+                        <Label layoutX="70.0" text="Utopia International" textFill="#16a085">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>
                         </Label>
-                        <Label layoutX="70.0" layoutY="60.0" text="BSCIC Shilpo-Nagori, Shiromony, Khulna" textFill="#ebe2e2">
+                        <Label layoutX="70.0" layoutY="60.0" text="Station bazar, Noapara, Jessore" textFill="#ebe2e2">
                            <font>
                               <Font name="System Bold Italic" size="14.0" />
                            </font>
