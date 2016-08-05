@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
-<!-- 2016-04-19T12:24:48 -->
+<!-- 2016-08-05T10:16:49 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DepositVoucher" pageWidth="595" pageHeight="360" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e4bef5c6-dc6b-406a-8309-551254d8c63f">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="inch"/>
@@ -242,14 +242,14 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font size="11" isItalic="true"/>
 					</textElement>
-					<text><![CDATA[BSCIC Shilpo-Nagori, Shiromony, Khulna]]></text>
+					<text><![CDATA[Station bazar, Noapara, Jessore]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="80" y="13" width="400" height="40" uuid="24172fb5-c88e-4ba9-8ca4-2306e72a8700"/>
 					<textElement textAlignment="Center">
 						<font size="22" isBold="true" isItalic="true"/>
 					</textElement>
-					<text><![CDATA[Hooghly Biscuit Company]]></text>
+					<text><![CDATA[Utopia International]]></text>
 				</staticText>
 			</frame>
 		</band>

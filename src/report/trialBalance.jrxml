@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
-<!-- 2016-04-19T12:31:05 -->
+<!-- 2016-08-05T10:22:39 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="trilaBalance" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="17432a46-f60c-4daf-a573-e898bfaf9121">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="total_dr" class="java.lang.String"/>
@@ -33,21 +33,21 @@
 				<textElement textAlignment="Center">
 					<font size="22" isBold="true" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[Hooghly Biscuit Company]]></text>
+				<text><![CDATA[Utopia International]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="80" y="45" width="400" height="20" uuid="5f662f66-c7c0-453a-9ada-a198ade47f42"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[BSCIC Shilpo-Nagori, Shiromony, Khulna]]></text>
+				<text><![CDATA[Station bazar, Noapara, Jessore]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="80" y="61" width="400" height="20" uuid="c2183a0e-8c7a-48fe-aef6-b2cd395e1ff2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[Phone: 041-786184, 786183]]></text>
+				<text><![CDATA[Phone: 01716-164708, 01911-124865, 04222-71389]]></text>
 			</staticText>
 		</band>
 	</title>
