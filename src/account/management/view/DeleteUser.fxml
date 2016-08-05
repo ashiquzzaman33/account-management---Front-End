@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="275.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.DeleteUserController">
+   <children>
+      <Label layoutX="33.0" layoutY="31.0" text="Delete User">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="33.0" layoutY="60.0" prefHeight="1.0" prefWidth="385.0" />
+      <Label layoutX="33.0" layoutY="92.0" text="Select User" />
+      <ComboBox fx:id="select_user" layoutX="172.0" layoutY="88.0" prefHeight="25.0" prefWidth="236.0" />
+      <Button layoutX="299.0" layoutY="182.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="36.0" prefWidth="109.0" text="Delete" />
+      <Label layoutX="33.0" layoutY="138.0" text="Authorization password" />
+      <PasswordField fx:id="auth_password" layoutX="172.0" layoutY="134.0" prefHeight="25.0" prefWidth="236.0" />
+   </children>
+</AnchorPane>

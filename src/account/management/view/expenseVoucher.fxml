@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.expenseVoucherController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Expense Voucher">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="36.0" prefHeight="8.0" prefWidth="602.0" />
+      <Label layoutX="14.0" layoutY="53.0" text="Date" />
+      <DatePicker fx:id="date" layoutX="57.0" layoutY="49.0" />
+      <Label layoutX="14.0" layoutY="82.0" text="Receiver's name/Account's name" />
+      <TextField fx:id="receivers_name" layoutX="14.0" layoutY="99.0" prefHeight="25.0" prefWidth="255.0" />
+      <Label layoutX="14.0" layoutY="136.0" text="Address" />
+      <TextArea fx:id="receivers_address" layoutX="14.0" layoutY="153.0" prefHeight="51.0" prefWidth="255.0" />
+      <Label layoutX="342.0" layoutY="80.0" text="Via" />
+      <TextField fx:id="via_name" layoutX="342.0" layoutY="97.0" prefHeight="25.0" prefWidth="255.0" />
+      <Label layoutX="342.0" layoutY="136.0" text="Address" />
+      <TextArea fx:id="via_address" layoutX="342.0" layoutY="153.0" prefHeight="51.0" prefWidth="255.0" />
+      <Separator layoutX="302.0" layoutY="39.0" orientation="VERTICAL" prefHeight="179.0" prefWidth="5.0" />
+      <Separator layoutX="14.0" layoutY="214.0" prefHeight="8.0" prefWidth="602.0" />
+      <Button fx:id="add_new" layoutX="13.0" layoutY="230.0" mnemonicParsing="false" onAction="#onAddNewButtonClick" text="Add new" />
+      <AnchorPane layoutX="14.0" layoutY="286.0" prefHeight="163.0" prefWidth="602.0">
+         <children>
+            <VBox fx:id="container" prefHeight="200.0" prefWidth="602.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox fx:id="row" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="desc" prefHeight="25.0" prefWidth="381.0" />
+                        <TextField fx:id="amount" prefHeight="25.0" prefWidth="135.0" />
+                        <Button fx:id="delete" mnemonicParsing="false" onAction="#onDeleteButtonClick" text="Delete" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <Label layoutX="14.0" layoutY="263.0" text="Description">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="405.0" layoutY="263.0" text="Amount">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="415.0" layoutY="449.0" text="Total" />
+      <TextField fx:id="total" editable="false" layoutX="453.0" layoutY="445.0" prefHeight="25.0" prefWidth="151.0" />
+      <Separator layoutX="14.0" layoutY="477.0" prefHeight="8.0" prefWidth="602.0" />
+      <Button fx:id="save" layoutX="497.0" layoutY="497.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save" />
+      <Button fx:id="cancel" layoutX="559.0" layoutY="497.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
+      <Label layoutX="13.0" layoutY="449.0" text="In Word" />
+      <TextField fx:id="in_word" editable="false" layoutX="67.0" layoutY="445.0" prefHeight="25.0" prefWidth="335.0" />
+      <Label layoutX="339.0" layoutY="53.0" text="Location" />
+      <ComboBox fx:id="location" layoutX="395.0" layoutY="49.0" prefHeight="25.0" prefWidth="198.0" />
+      <Label layoutX="550.0" layoutY="263.0" text="Delete">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

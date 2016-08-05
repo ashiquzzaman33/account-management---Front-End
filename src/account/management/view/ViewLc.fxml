@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="814.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.ViewLcController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="View All LC">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="41.0" prefHeight="4.0" prefWidth="579.0" />
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="45.0" prefHeight="347.0" prefWidth="793.0">
+        <columns>
+          <TableColumn fx:id="lc_no" prefWidth="75.0" text="LC No." />
+          <TableColumn fx:id="party_name" prefWidth="75.0" text="Party Name" />
+            <TableColumn fx:id="party_bank" prefWidth="105.0" text="Party Bank Name" />
+            <TableColumn fx:id="party_address" prefWidth="105.0" text="Party Address" />
+            <TableColumn fx:id="our_bank" prefWidth="102.0" text="Our Bank Name" />
+            <TableColumn fx:id="amount" prefWidth="63.0" text="Amount" />
+            <TableColumn fx:id="init_date" prefWidth="94.0" text="Initialing Date" />
+            <TableColumn fx:id="start_date" prefWidth="86.0" text="Starting Date" />
+            <TableColumn fx:id="dimilish_date" prefWidth="87.0" text="Dimilish Date" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

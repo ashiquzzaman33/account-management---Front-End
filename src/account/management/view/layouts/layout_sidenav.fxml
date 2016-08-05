@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Accordion fx:id="sidenav_container" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.view.layouts.Layout_sidenavController">
+                          <panes>
+      <TitledPane animated="false" layoutX="10.0" layoutY="210.0" text="Voucher">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#onNewVoucherClick" prefHeight="27.0" prefWidth="185.0" text="New Voucher" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDepositVoucherClick" prefHeight="27.0" prefWidth="185.0" text="Deposit Voucher" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onAction="#onExpenceVoucherClick" prefHeight="27.0" prefWidth="185.0" text="Expence Voucher" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="64.0" mnemonicParsing="false" onAction="#onSalarySlipClick" prefHeight="27.0" prefWidth="185.0" text="Salary &amp; OT Slip" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="91.0" mnemonicParsing="false" onAction="#onPOClick" prefHeight="27.0" prefWidth="185.0" text="Purchase Order" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="118.0" mnemonicParsing="false" onAction="#onSellOrderClick" prefHeight="27.0" prefWidth="185.0" text="Sell Order" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="10.0" layoutY="10.0" text="Report">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#onLedgerClick" prefHeight="27.0" prefWidth="185.0" text="Ledger" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onFinancialStatementClick" prefHeight="27.0" prefWidth="185.0" text="Financial Statement" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onAction="#onTrialBalanceClick" prefHeight="27.0" prefWidth="185.0" text="Trial Balance" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="64.0" mnemonicParsing="false" onAction="#onPartyWiseReportClick" prefHeight="27.0" prefWidth="185.0" text="Party wise report" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="91.0" mnemonicParsing="false" onAction="#onReceiptPaymentReportClick" prefHeight="27.0" prefWidth="185.0" text="Receipt payment report" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="settings" animated="false" layoutX="10.0" layoutY="235.0" text="Settings">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="114.4" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-9.599999999999994" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="118.0" mnemonicParsing="false" onAction="#onCreateUserButtonClick" prefHeight="27.0" prefWidth="183.0" text="Create User" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDeleteUserButtonClick" prefHeight="27.0" prefWidth="183.0" text="Delete User" />
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="27.0" prefWidth="185.0" text="User Control" visible="false" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Display Settings" visible="false" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Database Backup" visible="false" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="64.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Database Restore" visible="false" />
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="91.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="183.0" text="Customize menu" visible="false" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+                          </panes>
+                        </Accordion>

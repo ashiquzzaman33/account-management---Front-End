@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="369.0" prefWidth="451.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.EditAccountController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Edit Account">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="33.0" prefHeight="10.0" prefWidth="429.0" />
+      <Label layoutX="14.0" layoutY="57.0" text="Select Account" />
+      <ComboBox fx:id="account" layoutX="130.0" layoutY="53.0" onAction="#onAccountSelect" prefHeight="25.0" prefWidth="261.0" />
+      <Label layoutX="14.0" layoutY="94.0" text="Account name" />
+      <TextField fx:id="name" layoutX="130.0" layoutY="90.0" prefHeight="25.0" prefWidth="261.0" />
+      <Label layoutX="15.0" layoutY="135.0" text="Select new Parent" />
+      <ComboBox fx:id="parent" layoutX="130.0" layoutY="131.0" prefHeight="25.0" prefWidth="261.0" />
+      <Label layoutX="16.0" layoutY="164.0" text="Note" />
+      <TextArea fx:id="note" layoutX="130.0" layoutY="164.0" prefHeight="99.0" prefWidth="261.0" />
+      <Label layoutX="18.0" layoutY="275.0" text="Account type" />
+      <ComboBox fx:id="account_type" layoutX="130.0" layoutY="271.0" prefHeight="25.0" prefWidth="261.0" />
+      <Separator layoutX="14.0" layoutY="308.0" prefHeight="10.0" prefWidth="429.0" />
+      <Button fx:id="update" layoutX="276.0" layoutY="327.0" mnemonicParsing="false" onAction="#onUpdateButtonClick" text="Update" />
+      <Button fx:id="cancel" layoutX="339.0" layoutY="327.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
+   </children>
+</AnchorPane>

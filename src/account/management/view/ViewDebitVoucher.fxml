@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="548.0" prefWidth="1067.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.ViewDebitVoucherController">
+   <children>
+      <Label layoutX="14.0" layoutY="26.0" text="View Debit Voucher">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="55.0" prefHeight="0.0" prefWidth="1040.0" />
+      <TableView fx:id="table" layoutX="14.0" layoutY="117.0" prefHeight="410.0" prefWidth="1040.0">
+        <columns>
+          <TableColumn fx:id="no" prefWidth="46.0" text="No." />
+          <TableColumn fx:id="date" prefWidth="86.0" text="Date" />
+            <TableColumn fx:id="details" prefWidth="96.0" text="Details" />
+            <TableColumn fx:id="debitors" prefWidth="84.0" text="Debitors" />
+            <TableColumn fx:id="bank" prefWidth="92.0" text="Bank Acc." />
+            <TableColumn fx:id="branch" prefWidth="72.0" text="Branch" />
+            <TableColumn fx:id="address" prefWidth="119.0" text="Address" />
+            <TableColumn fx:id="amount" prefWidth="88.0" text="Amount" />
+            <TableColumn fx:id="type" prefWidth="87.0" text="Payment Type" />
+            <TableColumn fx:id="note" prefWidth="127.0" text="Note" />
+            <TableColumn fx:id="word" prefWidth="141.0" text="Amount in words" />
+        </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="76.0" text="Start Date" />
+      <DatePicker fx:id="start" layoutX="89.0" layoutY="72.0" />
+      <Label layoutX="299.0" layoutY="76.0" text="End Date" />
+      <DatePicker fx:id="end" layoutX="374.0" layoutY="72.0" />
+      <Button layoutX="589.0" layoutY="72.0" mnemonicParsing="false" onAction="#onShowButtonClick" text="Show" />
+   </children>
+</AnchorPane>

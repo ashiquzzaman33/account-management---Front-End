@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<MenuBar fx:id="top_navbar" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.TopNavController">
+              <menus>
+      <Menu mnemonicParsing="false" text="Account">
+         <items>
+            <MenuItem fx:id="ledger_create" mnemonicParsing="false" onAction="#onCreateAccountMenuClick" text="create account" />
+            <MenuItem mnemonicParsing="false" onAction="#onEditAccountMenuClick" text="edit account" />
+         </items>
+      </Menu>
+      <Menu fx:id="bank" mnemonicParsing="false" text="Bank">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onCreateBankClick" text="Create Bank" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewAllBanksMenuClick" text="View All Banks" />
+         </items>
+      </Menu>
+      <Menu mnemonicParsing="false" text="Location">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onAddLocationMenuClick" text="Add Location" />
+            <MenuItem mnemonicParsing="false" onAction="#onEditLocationMenuClick" text="edit locations" />
+         </items>
+      </Menu>
+      <Menu fx:id="voucher" mnemonicParsing="false" text="Vouchers">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onNewVoucherMenuClick" text="new voucher">
+               <accelerator>
+                  <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator></MenuItem>
+            <MenuItem mnemonicParsing="false" onAction="#onViewVoucherClick" text="View Voucher" />
+            <MenuItem fx:id="depositVoucher" mnemonicParsing="false" onAction="#onDepositVoucherClick" text="Deposit Voucher" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewDebitVoucherClick" text="View Depositt Voucher" />
+            <MenuItem fx:id="expense_voucher" mnemonicParsing="false" onAction="#onExpenseVoucherClick" text="Expense Voucher" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewExpenseVoucherClick" text="View Expense Voucher" />
+            <MenuItem fx:id="salary_voucher" mnemonicParsing="false" onAction="#onSalaryVoucherClick" text="Salary &amp; OT Slip">
+               <accelerator>
+                  <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator></MenuItem>
+            <MenuItem fx:id="view_salary_voucher" mnemonicParsing="false" onAction="#onViewSalaryVoucherClick" text="View Salary &amp; OT Slip" />
+            <MenuItem mnemonicParsing="false" onAction="#onCreateVoucherType" text="Create Voucher type" />
+            <MenuItem mnemonicParsing="false" onAction="#onPurchaseOrederVoucherClick" text="Purchase Order Voucher" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewPurchaseOrederVoucherClick" text="View Purchase Order Voucher" />
+            <MenuItem mnemonicParsing="false" onAction="#onSellVoucherClick" text="Sell Voucher" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewSellOrederVoucherClick" text="View Sell Voucher" />
+            <MenuItem mnemonicParsing="false" onAction="#onCNFBillclick" text="CNF Bill" />
+         </items>
+      </Menu>
+      <Menu fx:id="project" mnemonicParsing="false" text="Project">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onCreateProjectMenuClick" text="Create Project" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewProjectsMenuClick" text="View Projects" />
+         </items>
+      </Menu>
+      <Menu fx:id="lc" mnemonicParsing="false" text="LC">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onCreateLCMenuClick" text="Create LC" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewAllLcMenuClick" text="View All LC" />
+         </items>
+      </Menu>
+      <Menu fx:id="cnf" mnemonicParsing="false" text="C&amp;F">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onCreateCNFMenuClick" text="Create C&amp;F" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewAllCNFMenuClcik" text="View All C&amp;F" />
+         </items>
+      </Menu>
+      <Menu mnemonicParsing="false" text="Party">
+         <items>
+            <MenuItem fx:id="party_create" mnemonicParsing="false" onAction="#onCreatePartyClick" text="Create Party" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewAllPartyClick" text="View All Parties" />
+         </items>
+      </Menu>
+      <Menu fx:id="inventory" mnemonicParsing="false" text="Inventory">
+         <items>
+            <MenuItem fx:id="purchase" mnemonicParsing="false" onAction="#onAddItemClick" text="Add Item" />
+            <MenuItem fx:id="sell" mnemonicParsing="false" onAction="#onInsertStockClick" text="Inventory Voucher" />
+            <Menu fx:id="inventory_report" mnemonicParsing="false" text="Report">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onStockReportClick" text="Stock Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#onProductWiseInventoryReportClick" text="Product wise inventory report" />
+                  <MenuItem mnemonicParsing="false" onAction="#onAllProductsReportClick" text="All Products report" />
+                  <MenuItem mnemonicParsing="false" onAction="#onPurchaseReportClick" text="Purchase Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#onSellReportClick" text="Sell Report" />
+              </items>
+            </Menu>
+         </items>
+      </Menu>
+                <Menu mnemonicParsing="false" text="Report">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onLedgerReportClick" text="Ledger" />
+            <MenuItem fx:id="balance_sheet" mnemonicParsing="false" onAction="#onBsReportClick" text="Financial statement" />
+            <MenuItem fx:id="trial_balance" mnemonicParsing="false" onAction="#onTrialBalanceReportClick" text="Trial Balance" />
+            <MenuItem mnemonicParsing="false" onAction="#onLCReportClick" text="LC Report" />
+            <MenuItem mnemonicParsing="false" onAction="#onProjectReportClick" text="Project Report" />
+            <MenuItem mnemonicParsing="false" onAction="#onCNFReportClick" text="C&amp;F Report" />
+            <MenuItem mnemonicParsing="false" onAction="#onPartyDetailsReportClick" text="Party wise details report" />
+            <MenuItem mnemonicParsing="false" onAction="#onReceiptPaymentReportClick" text="Receipt Payment Report" />
+                  </items>
+                </Menu>
+                <Menu disable="true" mnemonicParsing="false" text="File" visible="false">
+                  <items>
+            <MenuItem fx:id="expense_voucher" mnemonicParsing="false" onAction="#onExpenseVoucherClick" text="খরচের ভাউচার" />
+            <MenuItem fx:id="depositVoucher1" mnemonicParsing="false" onAction="#onCreateAccountTypeClick" text="create account type" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="User" visible="false">
+                  <items>
+                    <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#onLogoutMenuClick" text="Logout" visible="false" />
+                    <MenuItem disable="true" mnemonicParsing="false" text="Delete" visible="false" />
+            <MenuItem disable="true" mnemonicParsing="false" onAction="#onCreateBank" text="Create Bank" visible="false" />
+            <MenuItem disable="true" mnemonicParsing="false" onAction="#onDisplaySettingClick" text="Display Settings" visible="false" />
+            <MenuItem mnemonicParsing="false" onAction="#onCreateUserClick" text="Create User" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>

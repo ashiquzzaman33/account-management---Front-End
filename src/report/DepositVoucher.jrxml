@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2016-04-19T12:24:48 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DepositVoucher" pageWidth="595" pageHeight="360" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e4bef5c6-dc6b-406a-8309-551254d8c63f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="inch"/>
+	<parameter name="voucher_no" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="description" class="java.lang.String"/>
+	<parameter name="received_from" class="java.lang.String"/>
+	<parameter name="bank_account" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="amount" class="java.lang.String"/>
+	<parameter name="word" class="java.lang.String"/>
+	<parameter name="note" class="java.lang.String"/>
+	<parameter name="branch" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.Object"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<pageHeader>
+		<band height="319" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="319" uuid="f93f04b0-aa4e-4497-829d-837dd32916ce"/>
+				<box>
+					<topPen lineWidth="0.6" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.6" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.6" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.6" lineStyle="Dashed"/>
+				</box>
+				<staticText>
+					<reportElement x="180" y="1" width="200" height="19" uuid="94b027cd-fa39-4672-9d02-ccc9615ce048"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Deposit Voucher]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="61" width="69" height="19" uuid="6315a8dd-dc0f-4253-89de-167dd4fffc08">
+						<property name="com.jaspersoft.studio.unit.x" value="inch"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Voucher No:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="391" y="62" width="29" height="19" uuid="3232fcfd-76d5-43f7-a2d8-2caf387df4bf"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="81" width="68" height="19" uuid="e7388097-19ee-4497-b0b9-edf7c03730fb">
+						<property name="local_mesure_unitx" value="inch"/>
+						<property name="local_mesure_unity" value="inch"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Description:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="101" width="85" height="19" uuid="9072d8f4-9c42-4b4f-97df-5c5feab93076"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Received From:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="121" width="86" height="19" uuid="d2cf700b-0b7e-4437-bf94-2275f888368b">
+						<property name="local_mesure_unitx" value="inch"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Bank Account No:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="393" y="122" width="39" height="19" uuid="9b61e1f6-d4ed-438b-a887-6c4d3947859c"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Branch:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="142" width="65" height="18" uuid="652089ab-b2f6-422f-b7ca-019dd8b9f102">
+						<property name="local_mesure_unitx" value="inch"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Address:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="161" width="65" height="18" uuid="c5c75644-903f-407d-97a2-3e4867cdb4a5">
+						<property name="local_mesure_unitx" value="inch"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Amount:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="181" width="90" height="18" uuid="286f8514-1217-4d3e-9598-94c84a3cc0b9"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Amount (in word):]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="11" y="201" width="49" height="18" uuid="a54b4731-c0aa-4fb3-8179-224d073e6d00">
+						<property name="local_mesure_unitx" value="inch"/>
+						<property name="com.jaspersoft.studio.unit.x" value="inch"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Note:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="41" y="291" width="109" height="18" uuid="9ca098e9-27da-4a2a-a825-e5e85e60839f">
+						<property name="local_mesure_unitx" value="inch"/>
+						<property name="com.jaspersoft.studio.unit.x" value="inch"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Signature of Authority]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="392" y="291" width="109" height="18" uuid="98f5a74e-e238-41c8-ba64-a00a0141d82c">
+						<property name="local_mesure_unitx" value="inch"/>
+						<property name="com.jaspersoft.studio.unit.x" value="inch"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Signature of Client]]></text>
+				</staticText>
+				<line>
+					<reportElement x="20" y="291" width="150" height="1" uuid="8942fee7-ddea-4e6d-89e8-da0ceee7379f"/>
+				</line>
+				<line>
+					<reportElement x="371" y="292" width="150" height="1" uuid="6434a255-dbfb-4b6c-a3bf-ff303e40956b"/>
+				</line>
+				<textField>
+					<reportElement x="80" y="61" width="260" height="19" uuid="c2cf5b8b-4793-4e9f-aa71-28e54c179ce3"/>
+					<box>
+						<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{voucher_no}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="421" y="63" width="134" height="18" uuid="518c688b-e380-4718-9068-0b51c7a083bd"/>
+					<box>
+						<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="81" y="82" width="474" height="19" uuid="059d04fb-8834-404f-a534-9b2cd770bb09"/>
+					<box>
+						<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{description}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="97" y="101" width="243" height="19" uuid="5776e317-9f67-4c0d-94d0-2e1b9c488288"/>
+					<box>
+						<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{received_from}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="98" y="122" width="242" height="17" uuid="734df05c-41be-47f7-958e-e032cfbca2df"/>
+					<box>
+						<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{bank_account}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="79" y="142" width="461" height="18" uuid="815461a6-98fb-4926-b4d7-1394150c3c4f"/>
+					<box>
+						<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="79" y="161" width="351" height="17" uuid="6c075bba-e7d9-4840-a0df-b6f3a7610c75"/>
+					<box>
+						<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{amount}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="101" y="182" width="439" height="17" uuid="739b28df-8208-44cf-998a-172e5830f0b8"/>
+					<box>
+						<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{word}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="61" y="201" width="479" height="18" uuid="17b35f3b-54c4-4587-988c-ff3d6de87b49"/>
+					<box>
+						<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{note}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="433" y="123" width="122" height="18" uuid="5a15bdae-331a-483c-a452-2314a6ecacba"/>
+					<box>
+						<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{branch}]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="10" y="10" width="170" height="41" uuid="31179b8b-4b76-47e8-ac8c-bac5f4b8b82f"/>
+					<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="80" y="40" width="400" height="20" uuid="987169b9-c8d4-402e-a882-cecd93e2e987"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="11" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[BSCIC Shilpo-Nagori, Shiromony, Khulna]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="80" y="13" width="400" height="40" uuid="24172fb5-c88e-4ba9-8ca4-2306e72a8700"/>
+					<textElement textAlignment="Center">
+						<font size="22" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Hooghly Biscuit Company]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+</jasperReport>

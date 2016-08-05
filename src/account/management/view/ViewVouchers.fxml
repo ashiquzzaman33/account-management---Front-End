@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="454.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.ViewVouchersController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="View Vouchers">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="38.0" prefHeight="3.0" prefWidth="781.0" />
+      <Label layoutX="14.0" layoutY="50.0" text="Start Date" />
+      <DatePicker fx:id="start_date" layoutX="14.0" layoutY="67.0" />
+      <Label layoutX="196.0" layoutY="50.0" text="End Date" />
+      <DatePicker fx:id="end_date" layoutX="196.0" layoutY="67.0" />
+      <Label layoutX="382.0" layoutY="50.0" text="Location" />
+      <ComboBox fx:id="select_location" layoutX="382.0" layoutY="67.0" prefWidth="150.0" />
+      <Label layoutX="542.0" layoutY="50.0" text="Voucher Type" />
+      <ComboBox fx:id="select_voucher_type" layoutX="540.0" layoutY="67.0" prefWidth="150.0" />
+      <Button fx:id="search" layoutX="638.0" layoutY="100.0" mnemonicParsing="false" onAction="#onSearchButtonClick" text="Search" />
+      <Separator layoutX="18.0" layoutY="131.0" prefHeight="3.0" prefWidth="781.0" />
+      <TableView fx:id="table" layoutX="18.0" layoutY="142.0" prefHeight="296.0" prefWidth="781.0">
+        <columns>
+          <TableColumn fx:id="c_id" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="c_date" prefWidth="99.0" text="Date" />
+            <TableColumn fx:id="c_location" prefWidth="97.0" text="Location" />
+            <TableColumn fx:id="c_narration" prefWidth="411.0" text="Narration" />
+            <TableColumn fx:id="c_voucher_type" prefWidth="97.0" text="Voucher Type" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

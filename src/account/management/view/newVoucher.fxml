@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.NewVoucherController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+<fx:include source="layouts/layout_logo.fxml" />
+         </left>
+         <top>
+<fx:include source="layouts/layout_topnav.fxml" />
+         </top>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Pane fx:id="title_pane" prefHeight="101.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="70.0" text="Hooghly Biscuit Company" textFill="#16a085">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="60.0" text="BSCIC Shilpo-Nagori, Shiromony, Khulna" textFill="#ebe2e2">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+               </top>
+               <center>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <AnchorPane fx:id="main_container" style="-fx-background-color: #e0e0e0;">
+                           <children>
+                              <AnchorPane layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" minHeight="50.0" prefHeight="75.0" prefWidth="578.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-width: 3px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <DatePicker fx:id="input_date" layoutX="14.0" layoutY="23.0" promptText="Select Date" />
+                                    <ComboBox fx:id="select_voucher_type" layoutX="329.0" layoutY="23.0" prefWidth="150.0" promptText="Voucher Type" />
+                                    <ComboBox fx:id="select_location" layoutX="384.0" layoutY="23.0" prefWidth="150.0" promptText="Select Location" AnchorPane.rightAnchor="20.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="20.0" layoutY="110.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="180.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-width: 3px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Narration">
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <TextArea fx:id="input_narration" layoutX="14.0" layoutY="32.0" prefHeight="128.0" prefWidth="526.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="20.0" layoutY="305.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="578.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-width: 3px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="285.0">
+                                 <children>
+                                    <HBox prefHeight="40.0" prefWidth="558.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button fx:id="button_add_new_field" mnemonicParsing="false" onAction="#onAddNewFieldButtonClick" text="Add">
+                                             <HBox.margin>
+                                                <Insets left="10.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <RadioButton fx:id="project" mnemonicParsing="false" onAction="#onProjectSelect" text="Project">
+                                             <HBox.margin>
+                                                <Insets top="10.0" />
+                                             </HBox.margin>
+                                          </RadioButton>
+                                          <RadioButton fx:id="lc" mnemonicParsing="false" onAction="#onLcSelect" text="LC">
+                                             <HBox.margin>
+                                                <Insets top="10.0" />
+                                             </HBox.margin>
+                                          </RadioButton>
+                                          <RadioButton fx:id="cnf" mnemonicParsing="false" onAction="#onCNFSelect" text="C&amp;F">
+                                             <HBox.margin>
+                                                <Insets top="10.0" />
+                                             </HBox.margin>
+                                          </RadioButton>
+                                          <ComboBox fx:id="select_type" onAction="#onSelectType" prefWidth="150.0">
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="20.0" layoutY="340.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-width: 3px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="330.0">
+                                 <children>
+                                    <VBox fx:id="field_container" spacing="10.0" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="20.0">
+                                       <children>
+                                          <HBox fx:id="field_row" layoutX="194.0" layoutY="244.0" spacing="10.0">
+                                             <children>
+                                                <ComboBox layoutX="51.0" layoutY="245.0" prefHeight="25.0" prefWidth="275.0" promptText="Select Account" />
+                                                <TextField layoutX="230.0" layoutY="245.0" prefHeight="25.0" prefWidth="115.0" promptText="Dr" />
+                                                <TextField layoutX="328.0" layoutY="245.0" prefHeight="25.0" prefWidth="115.0" promptText="Cr" />
+                                                <TextField layoutX="437.0" layoutY="245.0" prefHeight="25.0" prefWidth="245.0" promptText="remarks" />
+                                                <Button fx:id="button_delete_row" mnemonicParsing="false" onMouseClicked="#onDeleteRowButtonClick" text="Delete" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="button_submit" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Submit" translateY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="715.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="70.0" />
+                                 </padding>
+                              </AnchorPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding></AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

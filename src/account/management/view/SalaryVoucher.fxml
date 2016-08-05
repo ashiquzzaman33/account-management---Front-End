@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.SalaryVoucherController">
+   <children>
+      <Label layoutX="31.0" layoutY="22.0" text="Salary &amp; OT Slip">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="31.0" layoutY="51.0" prefHeight="5.0" prefWidth="682.0" />
+      <Label layoutX="31.0" layoutY="73.0" text="Date" />
+      <DatePicker fx:id="date" layoutX="144.0" layoutY="71.0" />
+      <Label layoutX="31.0" layoutY="107.0" text="Section" />
+      <TextField fx:id="section" layoutX="145.0" layoutY="105.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="name" layoutX="144.0" layoutY="136.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="30.0" layoutY="138.0" text="Name / Party" />
+      <Label layoutX="30.0" layoutY="172.0" text="Basis On / Date" />
+      <TextField fx:id="basis_date" layoutX="144.0" layoutY="170.0" prefHeight="25.0" prefWidth="174.0" />
+      <Separator layoutX="339.0" layoutY="61.0" orientation="VERTICAL" prefHeight="326.0" prefWidth="3.0" />
+      <Label layoutX="381.0" layoutY="73.0" text="Basic Slary Wages (Daily)" />
+      <TextField fx:id="basic_salary" layoutX="533.0" layoutY="71.0" onKeyReleased="#autoCalculate" prefHeight="25.0" prefWidth="154.0" text="0" />
+      <Label layoutX="381.0" layoutY="105.0" text="Days / Hour" />
+      <TextField fx:id="presence" layoutX="533.0" layoutY="103.0" onKeyReleased="#autoCalculate" prefHeight="25.0" prefWidth="154.0" text="0" />
+      <Label layoutX="381.0" layoutY="141.0" text="Total" />
+      <TextField fx:id="total1" editable="false" layoutX="533.0" layoutY="134.0" prefHeight="25.0" prefWidth="154.0" text="0" />
+      <Label layoutX="380.0" layoutY="174.0" text="Others" />
+      <TextField fx:id="others" layoutX="532.0" layoutY="168.0" onKeyReleased="#autoCalculate" prefHeight="25.0" prefWidth="154.0" text="0" />
+      <TextField fx:id="total2" editable="false" layoutX="533.0" layoutY="202.0" prefHeight="25.0" prefWidth="154.0" text="0" />
+      <Label layoutX="380.0" layoutY="206.0" text="Total" />
+      <TextField fx:id="advance" layoutX="533.0" layoutY="236.0" onKeyReleased="#autoCalculate" prefHeight="25.0" prefWidth="154.0" text="0" />
+      <Label layoutX="380.0" layoutY="240.0" text="Advance" />
+      <TextField fx:id="fine" layoutX="533.0" layoutY="270.0" onKeyReleased="#autoCalculate" prefHeight="25.0" prefWidth="154.0" text="0" />
+      <Label layoutX="380.0" layoutY="274.0" text="Fine" />
+      <Label layoutX="380.0" layoutY="307.0" text="Apron / Mask" />
+      <TextField fx:id="apron" layoutX="533.0" layoutY="303.0" onKeyReleased="#autoCalculate" prefHeight="25.0" prefWidth="154.0" text="0" />
+      <Label layoutX="380.0" layoutY="340.0" text="Others Deduction" />
+      <TextField fx:id="deduction" layoutX="533.0" layoutY="336.0" onKeyReleased="#autoCalculate" prefHeight="25.0" prefWidth="154.0" text="0" />
+      <Label layoutX="380.0" layoutY="372.0" text="Grand Total" />
+      <TextField fx:id="grand_total" editable="false" layoutX="533.0" layoutY="368.0" prefHeight="25.0" prefWidth="154.0" text="0" />
+      <Separator layoutX="361.0" layoutY="129.0" prefHeight="5.0" prefWidth="348.0" />
+      <Separator layoutX="360.0" layoutY="196.0" prefHeight="5.0" prefWidth="348.0" />
+      <Separator layoutX="360.0" layoutY="363.0" prefHeight="5.0" prefWidth="348.0" />
+      <Label layoutX="30.0" layoutY="215.0" text="Amount (In Words)" />
+      <TextField fx:id="amount_words" editable="false" layoutX="31.0" layoutY="236.0" prefHeight="25.0" prefWidth="287.0" />
+      <Button layoutX="573.0" layoutY="424.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" prefHeight="36.0" prefWidth="114.0" text="Submit" />
+   </children>
+</AnchorPane>

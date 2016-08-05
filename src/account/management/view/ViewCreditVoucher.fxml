@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="1061.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.ViewCreditVoucherController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="View Credit Voucher">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="43.0" prefHeight="4.0" prefWidth="1002.0" />
+      <Label layoutX="14.0" layoutY="64.0" text="Start Date" />
+      <DatePicker fx:id="start" layoutX="92.0" layoutY="60.0" />
+      <Label layoutX="322.0" layoutY="64.0" text="End Date" />
+      <DatePicker fx:id="end" layoutX="400.0" layoutY="60.0" />
+      <Button layoutX="623.0" layoutY="60.0" mnemonicParsing="false" onAction="#onShowButtonClick" text="Show" />
+      <TableView fx:id="table" layoutX="14.0" layoutY="104.0" prefHeight="455.0" prefWidth="1002.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="44.0" text="No." />
+          <TableColumn fx:id="date" prefWidth="78.0" text="Date" />
+            <TableColumn fx:id="location" prefWidth="54.0" text="Location" />
+            <TableColumn fx:id="rcv_name" prefWidth="98.0" text="Receiver's Name" />
+            <TableColumn fx:id="rcv_address" prefWidth="109.0" text="Receiver's Address" />
+            <TableColumn fx:id="via" prefWidth="67.0" text="Via" />
+            <TableColumn fx:id="via_address" prefWidth="88.0" text="Via Address" />
+            <TableColumn fx:id="total" prefWidth="60.0" text="Total" />
+            <TableColumn fx:id="word" prefWidth="151.0" text="In Words" />
+            <TableColumn fx:id="details" prefWidth="252.0" text="Details" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

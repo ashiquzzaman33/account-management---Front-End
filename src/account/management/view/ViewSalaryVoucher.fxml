@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.ViewSalaryVoucherController">
+   <children>
+      <Label layoutX="23.0" layoutY="27.0" text="Salary &amp; OT Slip" />
+      <Separator layoutX="23.0" layoutY="53.0" prefHeight="0.0" prefWidth="719.0" />
+      <Label layoutX="23.0" layoutY="72.0" text="Start Date" />
+      <DatePicker fx:id="start" layoutX="101.0" layoutY="68.0" />
+      <Label layoutX="314.0" layoutY="72.0" text="End Date" />
+      <DatePicker fx:id="end" layoutX="392.0" layoutY="68.0" />
+      <Button layoutX="611.0" layoutY="68.0" mnemonicParsing="false" onAction="#onShowButtonClick" text="Show" />
+      <TableView fx:id="table" layoutX="23.0" layoutY="108.0" prefHeight="371.0" prefWidth="719.0">
+        <columns>
+          <TableColumn fx:id="voucher_no" prefWidth="81.0" text="Voucher No" />
+          <TableColumn fx:id="date" prefWidth="96.0" text="Date" />
+            <TableColumn fx:id="section" prefWidth="159.0" text="Section" />
+            <TableColumn fx:id="name" prefWidth="152.0" text="Name / Party" />
+            <TableColumn fx:id="basis" prefWidth="131.0" text="Basis On / Date" />
+            <TableColumn fx:id="amount" prefWidth="97.0" text="Amount" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

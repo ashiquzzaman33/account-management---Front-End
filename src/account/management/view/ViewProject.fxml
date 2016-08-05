@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.ViewProjectController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="View All Projects">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="42.0" prefHeight="3.0" prefWidth="569.0" />
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="60.0" prefHeight="326.0" prefWidth="569.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="investment" prefWidth="85.0" text="Investment" />
+            <TableColumn fx:id="party" prefWidth="112.0" text="Party" />
+            <TableColumn fx:id="start_date" prefWidth="93.0" text="Starting Date" />
+            <TableColumn fx:id="operation_date" prefWidth="101.0" text="Operation Date" />
+            <TableColumn fx:id="dimilish_date" prefWidth="102.0" text="Dimilish Date" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

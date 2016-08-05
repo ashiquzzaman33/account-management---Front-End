@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="432.0" prefWidth="455.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.CreateAccountController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Create Account">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="48.0" prefHeight="3.0" prefWidth="430.0" />
+      <Label layoutX="14.0" layoutY="97.0" text="Account name" />
+      <TextField fx:id="input_account_name" layoutX="129.0" layoutY="93.0" prefHeight="25.0" prefWidth="285.0" />
+      <Label layoutX="14.0" layoutY="134.0" text="Account type" />
+      <ComboBox fx:id="select_account_type" layoutX="129.0" layoutY="130.0" prefHeight="25.0" prefWidth="285.0" />
+      <ComboBox fx:id="select_parent" layoutX="129.0" layoutY="168.0" prefHeight="25.0" prefWidth="285.0" />
+      <Label layoutX="14.0" layoutY="172.0" text="Immediate parent" />
+      <Label layoutX="14.0" layoutY="206.0" text="Location" />
+      <ComboBox fx:id="select_location" layoutX="129.0" layoutY="202.0" prefHeight="25.0" prefWidth="285.0" />
+      <Label layoutX="14.0" layoutY="239.0" text="Opening balance" />
+      <TextField fx:id="input_opening_balance" layoutX="129.0" layoutY="235.0" prefHeight="25.0" prefWidth="171.0" />
+      <ComboBox fx:id="select_dr_cr" layoutX="305.0" layoutY="235.0" prefHeight="25.0" prefWidth="109.0" />
+      <Label layoutX="17.0" layoutY="269.0" text="Note" />
+      <TextArea fx:id="input_description" layoutX="129.0" layoutY="269.0" prefHeight="91.0" prefWidth="285.0" />
+      <Button fx:id="button_submit" layoutX="313.0" layoutY="380.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" text="Save" />
+      <Button fx:id="cancel" layoutX="362.0" layoutY="380.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
+      <Label layoutX="17.0" layoutY="60.0" text="Id" />
+      <TextField fx:id="id" editable="false" layoutX="129.0" layoutY="56.0" prefHeight="25.0" prefWidth="285.0" />
+   </children>
+</AnchorPane>

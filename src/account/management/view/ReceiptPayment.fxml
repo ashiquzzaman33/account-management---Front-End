@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="305.0" prefWidth="493.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.ReceiptPaymentController">
+   <children>
+      <Label layoutX="25.0" layoutY="27.0" text="Receipt Payment">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="25.0" layoutY="59.0" prefHeight="0.0" prefWidth="445.0" />
+      <Label layoutX="25.0" layoutY="94.0" text="Start Date" />
+      <DatePicker fx:id="start" layoutX="128.0" layoutY="90.0" prefHeight="25.0" prefWidth="221.0" />
+      <DatePicker fx:id="end" layoutX="128.0" layoutY="128.0" prefHeight="25.0" prefWidth="221.0" />
+      <Label layoutX="25.0" layoutY="132.0" text="End Date" />
+      <Button fx:id="show" layoutX="255.0" layoutY="192.0" mnemonicParsing="false" onAction="#onShowButtonClick" prefHeight="35.0" prefWidth="94.0" text="Show" />
+   </children>
+</AnchorPane>

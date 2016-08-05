@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="627.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.CNFBillController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="C&amp;F Bill">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="42.0" prefHeight="0.0" prefWidth="706.0" />
+      <ScrollPane layoutX="14.0" layoutY="45.0" prefHeight="574.0" prefViewportHeight="1162.0" prefViewportWidth="701.0" prefWidth="714.0">
+         <content>
+            <AnchorPane layoutX="14.0" layoutY="45.0" prefHeight="1183.0" prefWidth="701.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Bill no" />
+                  <TextField fx:id="t1" layoutX="55.0" layoutY="10.0" />
+                  <Label layoutX="481.0" layoutY="14.0" text="Date" />
+                  <DatePicker fx:id="t2" layoutX="517.0" layoutY="10.0" />
+                  <Label layoutX="14.0" layoutY="41.0" text="Goods Name" />
+                  <TextField fx:id="t3" layoutX="95.0" layoutY="37.0" prefHeight="25.0" prefWidth="321.0" />
+                  <Label layoutX="461.0" layoutY="41.0" text="Quantity" />
+                  <TextField fx:id="t4" layoutX="517.0" layoutY="37.0" prefHeight="25.0" prefWidth="175.0" />
+                  <Label layoutX="14.0" layoutY="69.0" text="Bill of entry no" />
+                  <TextField fx:id="t5" layoutX="95.0" layoutY="65.0" />
+                  <Label layoutX="262.0" layoutY="69.0" text="Port" />
+                  <TextField fx:id="t6" layoutX="292.0" layoutY="65.0" />
+                  <Label layoutX="481.0" layoutY="69.0" text="Date" />
+                  <DatePicker fx:id="t7" layoutX="518.0" layoutY="65.0" />
+                  <Label layoutX="16.0" layoutY="96.0" text="M/S" />
+                  <TextField fx:id="t8" layoutX="47.0" layoutY="92.0" prefHeight="25.0" prefWidth="196.0" />
+                  <Label layoutX="255.0" layoutY="96.0" text="LC no" />
+                  <TextField fx:id="t9" layoutX="291.0" layoutY="92.0" prefHeight="25.0" prefWidth="151.0" />
+                  <DatePicker fx:id="t10" layoutX="518.0" layoutY="92.0" />
+                  <Label layoutX="481.0" layoutY="96.0" text="Date" />
+                  <Label layoutX="17.0" layoutY="126.0" text="Address" />
+                  <TextField fx:id="t11" layoutX="72.0" layoutY="122.0" prefHeight="25.0" prefWidth="618.0" />
+                  <Label layoutX="17.0" layoutY="156.0" text="Clearing forwarding charge on C &amp; F value taka" />
+                  <TextField fx:id="t12" layoutX="275.0" layoutY="152.0" prefHeight="25.0" prefWidth="413.0" />
+                  <Separator layoutX="17.0" layoutY="186.0" prefHeight="3.0" prefWidth="675.0" />
+                  <Label layoutX="13.0" layoutY="197.0" text="GOVT. ACCOUNT">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="13.0" layoutY="224.0" text="Import Duty" />
+                  <TextField fx:id="t13" layoutX="130.0" layoutY="220.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="13.0" layoutY="253.0" text="Export Duty" />
+                  <TextField fx:id="t14" layoutX="130.0" layoutY="249.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="14.0" layoutY="284.0" text="RD" />
+                  <Label layoutX="15.0" layoutY="315.0" text="SD" />
+                  <Label layoutX="16.0" layoutY="437.0" text="PSI" />
+                  <Label layoutX="14.0" layoutY="346.0" text="VAT" />
+                  <Label layoutX="15.0" layoutY="406.0" text="ATV" />
+                  <Label layoutX="14.0" layoutY="375.0" text="AIT" />
+                  <Label layoutX="15.0" layoutY="495.0" text="Demmarage Charge" />
+                  <Label layoutX="16.0" layoutY="526.0" text="C &amp; F Vat" />
+                  <Label layoutX="14.0" layoutY="464.0" text="Fine" />
+                  <Separator layoutX="10.0" layoutY="213.0" prefHeight="3.0" prefWidth="229.0" />
+                  <Separator layoutX="355.0" layoutY="212.0" prefHeight="3.0" prefWidth="304.0" />
+                  <Label layoutX="358.0" layoutY="196.0" text="CUSTOMS EXPENSES">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="358.0" layoutY="224.0" text="Expenses for shorting and handing" />
+                  <Label layoutX="358.0" layoutY="253.0" text="Manifest" />
+                  <Label layoutX="358.0" layoutY="284.0" text="Entry and Noting" />
+                  <Label layoutX="358.0" layoutY="315.0" text="Examine fee" />
+                  <Label layoutX="358.0" layoutY="346.0" text="Others" />
+                  <TextField fx:id="t15" layoutX="130.0" layoutY="280.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t16" layoutX="130.0" layoutY="311.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t17" layoutX="130.0" layoutY="342.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t18" layoutX="130.0" layoutY="371.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t19" layoutX="130.0" layoutY="402.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t20" layoutX="130.0" layoutY="433.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t21" layoutX="130.0" layoutY="460.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t22" layoutX="130.0" layoutY="491.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t23" layoutX="130.0" layoutY="522.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t24" layoutX="551.0" layoutY="220.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t25" layoutX="551.0" layoutY="249.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t26" layoutX="552.0" layoutY="280.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t27" layoutX="552.0" layoutY="311.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t28" layoutX="552.0" layoutY="342.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="357.0" layoutY="374.0" text="APPREISEMENT">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="354.0" layoutY="390.0" prefHeight="3.0" prefWidth="304.0" />
+                  <TextField fx:id="t29" layoutX="551.0" layoutY="394.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t30" layoutX="552.0" layoutY="425.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t31" layoutX="552.0" layoutY="460.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t32" layoutX="552.0" layoutY="491.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t33" layoutX="552.0" layoutY="521.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="358.0" layoutY="398.0" text="Appraisement Purpose" />
+                  <Label layoutX="358.0" layoutY="429.0" text="Principal Appraser" />
+                  <Label layoutX="358.0" layoutY="464.0" text="Expense to pass from A.C. office" />
+                  <Label layoutX="360.0" layoutY="495.0" text="Audit" />
+                  <Label layoutX="360.0" layoutY="525.0" text="A.C + J.C + Commissioner" />
+                  <Separator layoutX="10.0" layoutY="586.0" prefHeight="3.0" prefWidth="304.0" />
+                  <Label layoutX="13.0" layoutY="570.0" text="WARE HOUSE EXP">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="t34" layoutX="202.0" layoutY="596.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t35" layoutX="202.0" layoutY="627.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t36" layoutX="202.0" layoutY="660.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t37" layoutX="202.0" layoutY="691.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t38" layoutX="202.0" layoutY="723.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t39" layoutX="202.0" layoutY="754.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t40" layoutX="202.0" layoutY="785.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="16.0" layoutY="599.0" text="Bill Section" />
+                  <Label layoutX="16.0" layoutY="630.0" text="Store Keeper" />
+                  <Label layoutX="16.0" layoutY="663.0" text="Gate Pass" />
+                  <Label layoutX="16.0" layoutY="694.0" text="Godown Customs" />
+                  <Label layoutX="16.0" layoutY="726.0" text="Lebour Charge" />
+                  <Label layoutX="16.0" layoutY="757.0" text="Swinping Charge" />
+                  <Label layoutX="16.0" layoutY="788.0" text="Carpenter for opening &amp; repacking" />
+                  <Separator layoutX="10.0" layoutY="834.0" prefHeight="3.0" prefWidth="304.0" />
+                  <Label layoutX="13.0" layoutY="818.0" text="CLEARING COMMISION">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="t41" layoutX="202.0" layoutY="843.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t42" layoutX="202.0" layoutY="874.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t43" layoutX="202.0" layoutY="905.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="17.0" layoutY="847.0" text="Commission" />
+                  <Label layoutX="15.0" layoutY="878.0" text="Bill of entry charge" />
+                  <Label layoutX="15.0" layoutY="909.0" text="Actual wival see 81/82" />
+                  <Separator layoutX="354.0" layoutY="585.0" prefHeight="3.0" prefWidth="304.0" />
+                  <Label layoutX="357.0" layoutY="569.0" text="OTHER CHARGES">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="t44" layoutX="551.0" layoutY="595.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t45" layoutX="552.0" layoutY="626.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t46" layoutX="552.0" layoutY="659.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t47" layoutX="552.0" layoutY="690.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t48" layoutX="552.0" layoutY="722.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t49" layoutX="551.0" layoutY="753.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t50" layoutX="552.0" layoutY="784.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t51" layoutX="552.0" layoutY="814.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t52" layoutX="552.0" layoutY="843.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="352.0" layoutY="600.0" text="Surves" />
+                  <Label layoutX="352.0" layoutY="630.0" text="Nill mark/wrong mark" />
+                  <Label layoutX="352.0" layoutY="663.0" text="Chemical testing/VTR expenses" />
+                  <Label layoutX="352.0" layoutY="695.0" text="Conveyance" />
+                  <Label layoutX="352.0" layoutY="726.0" text="Document collection &amp; delivery exp" />
+                  <Label layoutX="352.0" layoutY="757.0" text="Truck freight/Sunndry creditor" />
+                  <Label layoutX="352.0" layoutY="788.0" text="Mice incidental charge" />
+                  <Label layoutX="352.0" layoutY="818.0" text="Quarentine certificate" />
+                  <Label layoutX="352.0" layoutY="847.0" text="quarentine IP" />
+                  <Separator layoutX="15.0" layoutY="938.0" prefHeight="3.0" prefWidth="675.0" />
+                  <Label layoutX="486.0" layoutY="955.0" text="Total Tk" />
+                  <TextField fx:id="t53" layoutX="552.0" layoutY="951.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="471.0" layoutY="986.0" text="B/F Balance Tk" />
+                  <TextField fx:id="t54" layoutX="552.0" layoutY="982.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="470.0" layoutY="1017.0" text="Gross total Tk" />
+                  <TextField fx:id="t55" layoutX="552.0" layoutY="1013.0" prefHeight="25.0" prefWidth="107.0" />
+                  <TextField fx:id="t58" layoutX="199.0" layoutY="1022.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="163.0" layoutY="1026.0" text="Tk" />
+                  <Label layoutX="453.0" layoutY="1079.0" text="Neet Balanace Tk" />
+                  <TextField fx:id="t57" layoutX="552.0" layoutY="1075.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="196.0" layoutY="1058.0" text="Less deposited by" />
+                  <Button layoutX="589.0" layoutY="1123.0" mnemonicParsing="false" onAction="#onCreateBillButtonClick" text="Create Bill" />
+                  <Separator layoutX="15.0" layoutY="1114.0" prefHeight="3.0" prefWidth="675.0" />
+                  <TextField fx:id="t56" layoutX="554.0" layoutY="1046.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Label layoutX="518.0" layoutY="1050.0" text="Tk" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

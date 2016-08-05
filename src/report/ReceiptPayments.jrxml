@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2016-04-19T12:29:25 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReceiptPayments" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9b7385d5-b1b3-43a3-be35-c99e60fca5f5">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="title1" class="java.lang.String"/>
+	<parameter name="title2" class="java.lang.String"/>
+	<parameter name="total_payments" class="java.lang.String"/>
+	<parameter name="receipt_from_trade_debtors" class="java.lang.String"/>
+	<parameter name="other_income" class="java.lang.String"/>
+	<parameter name="total_receipts" class="java.lang.String"/>
+	<parameter name="excess_of_payments" class="java.lang.String"/>
+	<parameter name="cash_in_hand_opening_title" class="java.lang.String"/>
+	<parameter name="cash_in_hand_opening" class="java.lang.String"/>
+	<parameter name="cash_at_bank_opening_title" class="java.lang.String"/>
+	<parameter name="cash_at_bank_opening" class="java.lang.String"/>
+	<parameter name="cash_in_hand_closing_title" class="java.lang.String"/>
+	<parameter name="cash_in_hand_closing" class="java.lang.String"/>
+	<parameter name="cash_at_bank_closing_title" class="java.lang.String"/>
+	<parameter name="cash_at_bank_closing" class="java.lang.String"/>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.Object"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="particulars" class="java.lang.String"/>
+	<field name="taka" class="java.lang.String"/>
+	<field name="total_taka" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="270" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="0" width="400" height="30" uuid="7772948b-7a5e-46c9-b6be-9b9916acf6a0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Receipt Payments]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="83" width="555" height="17" uuid="6eb56fe7-8920-44ad-bccd-eb87b136b3ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="100" width="555" height="20" uuid="1bd3844f-9739-4e7d-a222-ad7787dcee70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="130" width="310" height="20" uuid="eb9329e0-da20-44ad-aa16-cfc6ca3d152f"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Perticulars]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="130" width="120" height="20" uuid="83ad687d-18cb-4aff-b05e-db7c6b4b9e63"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Taka]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="130" width="125" height="20" uuid="8f599ad8-e264-4ff4-bcb0-4fb618cd2829"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Total Taka]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="150" width="310" height="20" uuid="9c38df1f-6340-4e15-990e-754278c3e060"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Receipts:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="181" width="310" height="20" uuid="6e9e8145-98e5-4cc6-8a80-0d6fa3dd2384"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Receipts from trade debtors]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="201" width="310" height="20" uuid="65efc07e-4122-4512-9dc2-bfe037bb78a2"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Other income]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="221" width="310" height="20" uuid="63602d17-da4e-425b-b6a5-6f765727f2b6"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Total Receipts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="250" width="310" height="20" uuid="fcce7549-7ec4-4c97-be3b-7aa33776f36f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Payments:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="310" y="181" width="120" height="20" uuid="2260eb6a-49c8-4875-bfe0-0acb1fb6da91"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{receipt_from_trade_debtors}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="310" y="201" width="120" height="20" uuid="de09d7bd-93bf-48f0-a644-5d34d9b5a229"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{other_income}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="430" y="221" width="125" height="20" uuid="a1f3c9f8-d3cb-49d7-ba9f-f3b83c0ee98c"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_receipts}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="310" y="150" width="1" height="120" uuid="d0c02f0a-c1b6-4cec-9ba5-d5a7f23c8a6e"/>
+			</line>
+			<line>
+				<reportElement x="430" y="150" width="1" height="120" uuid="5c0c5902-c4b8-4197-a740-0acf94a04e55"/>
+			</line>
+			<line>
+				<reportElement x="555" y="149" width="1" height="121" uuid="c8e8a1af-3b23-424e-af9d-0cb8a046505e"/>
+			</line>
+			<line>
+				<reportElement x="0" y="149" width="1" height="121" uuid="e7c8248c-9bb7-4652-87e0-29249b885ecf"/>
+			</line>
+			<image>
+				<reportElement x="1" y="0" width="139" height="83" uuid="bb928640-215a-458f-80b4-635b80e705dd"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="80" y="20" width="400" height="30" uuid="3bcfbd28-bb76-4ad0-8ec2-4e3b3964139f"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Hooghly Biscuit Company]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="47" width="400" height="20" uuid="94c505fd-5d0a-47f7-82c5-9e1bfc1423e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[BSCIC Shilpo-Nagori, Shiromony, Khulna]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="63" width="400" height="20" uuid="53141f93-7886-4bd8-9c9a-b0d867297542"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Phone: 041-786184, 786183]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="310" height="20" uuid="69b14b6a-e23e-4d77-ac1c-bb7843183be5"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{particulars}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="310" y="0" width="120" height="20" uuid="c3170fe3-01be-4aa5-91c9-7d858e01175e"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{taka}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="430" y="0" width="125" height="20" uuid="970788b9-53d8-4494-9c94-25090889ba74"/>
+				<box>
+					<topPen lineWidth="0.2" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_taka}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="310" y="0" width="1" height="20" uuid="b33a9d97-5604-4bba-bd3c-00dc02af6662"/>
+			</line>
+			<line>
+				<reportElement x="430" y="0" width="1" height="20" uuid="9404171e-bab2-406c-b8c9-c8e9eb6583d9"/>
+			</line>
+			<line>
+				<reportElement x="555" y="0" width="1" height="20" uuid="b4d2132e-5d34-40ab-ae81-0893bdaa9d8a"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="20" uuid="f51d5e1e-fde7-44c9-a2e3-7b87798e46b0"/>
+			</line>
+		</band>
+	</detail>
+	<summary>
+		<band height="242" splitType="Stretch">
+			<line>
+				<reportElement x="310" y="0" width="1" height="167" uuid="d81b77d6-4b55-411c-b3cb-4674c5912e55"/>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="430" y="108" width="125" height="20" uuid="d2c3bcd8-f670-4e95-b52d-aa07f3f730c4"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cash_in_hand_closing}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="167" width="555" height="1" uuid="38334143-b58a-4959-90ca-3b34adfde211"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="204" width="150" height="26" uuid="c0b7c175-32fd-4a9a-a517-f7c8a399c18c"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Prepared By]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="430" y="20" width="125" height="20" uuid="311a0b4c-475a-4d7a-bef5-5faadb27e344"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{excess_of_payments}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="555" y="0" width="1" height="167" uuid="19eaef7f-407e-4a4d-9ac1-f2201c89d811"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="20" width="310" height="20" uuid="bd40d42b-db90-4b26-8930-34539e80ddc7"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Excess of payments over receipts / payment]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="430" y="0" width="125" height="20" uuid="4c037bf4-bcc5-46fc-aa0d-9e7e3a73a496"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_payments}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="430" y="128" width="125" height="20" uuid="1095011c-02fe-4cac-a446-110bc4426190"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cash_at_bank_closing}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="60" width="310" height="20" uuid="deb5faf5-6cef-4983-99a8-f360bf60560b"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cash_at_bank_opening_title}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="40" width="310" height="20" uuid="a23a993c-8687-4efb-af44-e17ea5d57ae9"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cash_in_hand_opening_title}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="401" y="204" width="150" height="26" uuid="d9f44507-206a-4d88-8398-d345480fa3ca"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Authorized By]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="109" width="310" height="20" uuid="e5b5a81a-c7b8-4493-bb2c-784d9d943536"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cash_in_hand_closing_title}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="430" y="40" width="125" height="20" uuid="bbb866de-e2cc-4266-906d-229881962b3d"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cash_in_hand_opening}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="310" height="20" uuid="f1cf75c2-6ced-4b09-a905-e1627d6a3ee3"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+					<paragraph leftIndent="0"/>
+				</textElement>
+				<text><![CDATA[Total Payments]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="204" width="150" height="26" uuid="98598fb5-1259-4971-8a0c-cfb4477b4d89"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Reviewed By]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="430" y="60" width="125" height="20" uuid="ff00fd16-8261-4841-a0a2-4a2ffbded31c"/>
+				<box>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cash_at_bank_opening}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="430" y="0" width="1" height="167" uuid="350ef6fe-72b5-471d-a231-ef48cbef0027"/>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="129" width="310" height="20" uuid="7111503c-a517-45b9-8b60-477b06b9238c"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cash_at_bank_closing_title}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="1" height="167" uuid="2593a5b9-80e6-4a6c-8203-7acc838e2878"/>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="431" y="80" width="124" height="20" uuid="79d24062-1742-41c5-ba58-61344ce616c5"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="311" y="0" width="119" height="20" uuid="9b2b366a-dbd7-4b02-acc3-1e33b6010f20"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2015-09-13T14:11:44 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="do" pageWidth="595" pageHeight="425" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cf7b25db-33de-456f-a0ef-3d327ae4e953">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="logo" class="java.lang.Object"/>
+	<parameter name="do_no" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="goods" class="java.lang.String"/>
+	<parameter name="qty" class="java.lang.String"/>
+	<parameter name="word" class="java.lang.String"/>
+	<parameter name="place" class="java.lang.String"/>
+	<parameter name="trak" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="382" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="210" y="5" width="130" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="a718cc3e-8108-41fa-9674-b483ce7e1335"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Delivery Copy]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="5" width="115" height="30" uuid="56727cc9-a361-4e09-9898-074b33aa1182"/>
+				<text><![CDATA[Mobile: 01716-164708
+           : 01911-124865]]></text>
+			</staticText>
+			<image>
+				<reportElement x="180" y="26" width="200" height="54" uuid="15093813-9f61-4ef3-b7aa-8211241ff4fc"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="80" y="80" width="400" height="20" uuid="0a170d59-638d-46cd-9c4a-e3d3fc8edb14"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Station Bazar, golden goli, Noapara, Jessore]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="93" width="400" height="20" uuid="3ee1b103-a6b6-44a7-bbf4-7496d6ab4791"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Email : utopia_raju@yahoo.com,  mail.utopiabd.com]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="3" y="0" width="550" height="110" uuid="2497d6e0-1cbe-453c-b79f-00440bd28ede"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="3" y="113" width="37" height="17" uuid="d184e86d-b15d-4254-86be-6968ac863077"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[DO No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="113" width="30" height="17" uuid="8c4c9863-88e5-4c55-8213-f9976b6f86e4"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement mode="Transparent" x="2" y="133" width="551" height="47" uuid="023ada55-6689-4670-9c83-6c3dfe419500"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="140" width="100" height="14" uuid="3ab65c6a-2e54-4797-a034-9bcb1d2b9d13"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Customer's Name : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="160" width="100" height="14" uuid="d6b2d4b7-1c95-4974-8a91-3a3856a3fcc3"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Address : ]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement mode="Transparent" x="5" y="187" width="551" height="113" uuid="2eba954f-de86-4ccb-934b-b9c86202e93c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="200" width="100" height="14" uuid="5ed4516f-49c2-4237-950d-41dbc8c23fd0"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Good's Description : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="220" width="100" height="14" uuid="48f88268-f0ad-420f-bc83-e27ddb8478fa"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Good's Quantity : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="240" width="100" height="14" uuid="49380377-2db3-4519-98b4-abd2eed6b325"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[In Words : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="260" width="100" height="14" uuid="38914391-aadd-4e24-ac09-6ebc1e31014c"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Delivery Place : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="280" width="100" height="14" uuid="ca848c95-3c95-43ff-b646-9084ba59d5c6"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Trak No : ]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement mode="Transparent" x="5" y="310" width="551" height="60" uuid="cb97ef0d-d0b9-472b-b361-93814040738b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="17" y="350" width="100" height="20" uuid="9b2cbb94-05d5-4d7b-bdd7-9fca113071d9"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Receiver's Sign.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="225" y="350" width="100" height="20" uuid="4a36de0a-5f8d-4ab2-b30f-505ca93ae855"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Manufacturer Sign.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="350" width="100" height="20" uuid="33302621-d6d7-490e-bb20-3e0d5d5364b2"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Authority Sign.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="40" y="113" width="120" height="17" uuid="56f870f0-5929-4632-b054-4156b274684f"/>
+				<box>
+					<bottomPen lineWidth="0.3" lineStyle="Dotted"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{do_no}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="453" y="113" width="92" height="17" uuid="ad5bcacb-f1b0-4c14-9171-bbd6a2f98692"/>
+				<box>
+					<bottomPen lineWidth="0.3" lineStyle="Dotted"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="140" width="434" height="14" uuid="e20eea13-6d66-44fd-84b6-0ccc02128a54"/>
+				<box>
+					<bottomPen lineWidth="0.3" lineStyle="Dotted"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="160" width="434" height="14" uuid="01c5a46f-7ead-4027-86ad-5fddec53e49f"/>
+				<box>
+					<bottomPen lineWidth="0.3" lineStyle="Dotted"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="200" width="434" height="13" uuid="e59ce7e6-5114-4d66-a2cc-48f464b3edc0"/>
+				<box>
+					<bottomPen lineWidth="0.3" lineStyle="Dotted"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{goods}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="220" width="434" height="14" uuid="505d8c8d-43f0-4233-b0f0-d81ba5763142"/>
+				<box>
+					<bottomPen lineWidth="0.3" lineStyle="Dotted"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{qty}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="240" width="434" height="14" uuid="e4a5c314-0855-4e7f-8dbd-46acbe019ea3"/>
+				<box>
+					<bottomPen lineWidth="0.3" lineStyle="Dotted"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{word}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="260" width="434" height="14" uuid="0b821bed-06ec-4596-a335-ca065b71c7bd"/>
+				<box>
+					<bottomPen lineWidth="0.3" lineStyle="Dotted"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{place}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="280" width="434" height="14" uuid="77e4ad56-e6ff-4797-a337-978343a6ea5f"/>
+				<box>
+					<bottomPen lineWidth="0.3" lineStyle="Dotted"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{trak}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

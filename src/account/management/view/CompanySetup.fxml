@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="720.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="account.management.controller.CompanySetupController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Company Setup">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="46.0" prefHeight="0.0" prefWidth="686.0" />
+      <Label layoutX="14.0" layoutY="56.0" text="Company Name" />
+      <Label layoutX="14.0" layoutY="85.0" text="Company Slogan" />
+      <Label layoutX="14.0" layoutY="114.0" text="Address" />
+      <Label layoutX="19.0" layoutY="224.0" text="Phone" />
+      <Label layoutX="21.0" layoutY="284.0" text="Email" />
+      <Label layoutX="21.0" layoutY="315.0" text="Fax" />
+      <Label layoutX="17.0" layoutY="255.0" text="Cell Phone" />
+      <Label layoutX="572.0" layoutY="56.0" text="Logo">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="493.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="565.0" layoutY="247.0" mnemonicParsing="false" text="Browse">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Separator layoutX="17.0" layoutY="426.0" prefHeight="0.0" prefWidth="686.0" />
+      <Separator layoutX="17.0" layoutY="435.0" prefHeight="0.0" prefWidth="686.0" />
+      <Button layoutX="576.0" layoutY="449.0" mnemonicParsing="false" text="Cancel" />
+      <Button layoutX="483.0" layoutY="449.0" mnemonicParsing="false" text="Update" />
+      <TextField layoutX="148.0" layoutY="52.0" prefHeight="25.0" prefWidth="252.0" />
+      <TextField layoutX="148.0" layoutY="83.0" prefHeight="25.0" prefWidth="252.0" />
+      <TextField layoutX="148.0" layoutY="250.0" prefHeight="25.0" prefWidth="252.0" />
+      <TextField layoutX="148.0" layoutY="219.0" prefHeight="25.0" prefWidth="252.0" />
+      <TextField layoutX="148.0" layoutY="311.0" prefHeight="25.0" prefWidth="252.0" />
+      <TextField layoutX="148.0" layoutY="280.0" prefHeight="25.0" prefWidth="252.0" />
+      <TextArea layoutX="148.0" layoutY="117.0" prefHeight="92.0" prefWidth="252.0" />
+      <Separator layoutX="430.0" layoutY="46.0" orientation="VERTICAL" prefHeight="378.0" prefWidth="0.0" />
+   </children>
+</AnchorPane>

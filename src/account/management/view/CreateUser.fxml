@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="863.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.CreateUserController">
+   <children>
+      <Label layoutX="14.0" layoutY="26.0" text="Create New USer">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="56.0" prefHeight="3.0" prefWidth="819.0" />
+      <Label layoutX="14.0" layoutY="72.0" text="Username" />
+      <Label layoutX="14.0" layoutY="101.0" text="Password" />
+      <Label layoutX="13.0" layoutY="132.0" text="Confirm Password" />
+      <Label layoutX="13.0" layoutY="163.0" text="Authorization Password" />
+      <TextField fx:id="username" layoutX="146.0" layoutY="68.0" prefHeight="25.0" prefWidth="226.0" />
+      <PasswordField fx:id="password" layoutX="146.0" layoutY="97.0" prefHeight="25.0" prefWidth="226.0" />
+      <PasswordField fx:id="confirm_password" layoutX="146.0" layoutY="128.0" prefHeight="25.0" prefWidth="226.0" />
+      <PasswordField fx:id="auth_password" layoutX="146.0" layoutY="159.0" prefHeight="25.0" prefWidth="226.0" />
+      <Label layoutX="20.0" layoutY="239.0" text="Previleges Selection">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <HBox layoutX="20.0" layoutY="270.0" spacing="45.0">
+         <children>
+            <VBox spacing="20.0">
+               <children>
+                  <CheckBox fx:id="inventory" mnemonicParsing="false" text="Inventory" />
+                  <CheckBox fx:id="project" mnemonicParsing="false" text="Project" />
+                  <CheckBox fx:id="lc" mnemonicParsing="false" text="LC" />
+                  <CheckBox fx:id="cnf" mnemonicParsing="false" text="C&amp;F" />
+                  <CheckBox fx:id="party_wise_report" layoutX="10.0" layoutY="121.0" mnemonicParsing="false" text="Party wise details report" />
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" spacing="20.0">
+               <children>
+                  <CheckBox fx:id="deposit_voucher" mnemonicParsing="false" text="Deposit Voucher" />
+                  <CheckBox fx:id="expense_voucher" mnemonicParsing="false" text="Expense Voucher" />
+                  <CheckBox fx:id="sell" mnemonicParsing="false" text="Sell" />
+                  <CheckBox fx:id="purchase" mnemonicParsing="false" text="Purchase" />
+                  <CheckBox fx:id="receipt_payment_report" layoutX="10.0" layoutY="121.0" mnemonicParsing="false" text="Receipt Payment Report" />
+               </children>
+            </VBox>
+            <VBox layoutX="131.0" layoutY="10.0" spacing="20.0">
+               <children>
+                  <CheckBox fx:id="party" mnemonicParsing="false" text="Party" />
+                  <CheckBox fx:id="ledger" mnemonicParsing="false" text="Ledger" />
+                  <CheckBox fx:id="voucher" mnemonicParsing="false" text="Voucher" />
+                  <CheckBox fx:id="bank" mnemonicParsing="false" text="Bank" />
+               </children>
+            </VBox>
+            <VBox layoutX="293.0" layoutY="10.0" spacing="20.0">
+               <children>
+                  <CheckBox fx:id="inventory_report" mnemonicParsing="false" text="Inventory Report" />
+                  <CheckBox fx:id="trial_balance" mnemonicParsing="false" text="Trial Balance" />
+                  <CheckBox fx:id="balance_sheet" mnemonicParsing="false" text="Balance Sheet" />
+                  <CheckBox fx:id="financal_statement" mnemonicParsing="false" text="Financial Statement" />
+               </children>
+            </VBox>
+            <VBox layoutX="439.0" layoutY="10.0" spacing="20.0">
+               <children>
+                  <CheckBox fx:id="database_maintanance" mnemonicParsing="false" text="Database Maintanance" />
+                  <CheckBox fx:id="salary_voucher" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Salary Voucher" />
+                  <CheckBox fx:id="purchase_order" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" text="Purchase Order" />
+                  <CheckBox fx:id="sell_voucher" layoutX="10.0" layoutY="84.0" mnemonicParsing="false" text="Sell Voucher" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Button fx:id="save" layoutX="623.0" layoutY="516.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save" />
+      <Button fx:id="cancel" layoutX="682.0" layoutY="516.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
+      <CheckBox fx:id="check_all" layoutX="404.0" layoutY="241.0" mnemonicParsing="false" onAction="#onCheckAllClick" text="Check All" />
+      <CheckBox fx:id="uncheck_all" layoutX="573.0" layoutY="241.0" mnemonicParsing="false" onAction="#onUncheckAllClick" text="Uncheck All" />
+      <Separator layoutX="20.0" layoutY="263.0" prefHeight="3.0" prefWidth="810.0" />
+      <Separator layoutX="25.0" layoutY="506.0" prefHeight="3.0" prefWidth="810.0" />
+   </children>
+</AnchorPane>

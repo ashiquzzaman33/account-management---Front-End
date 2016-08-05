@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="account.management.controller.ViewSellVoucherController">
+   <children>
+      <Label layoutX="21.0" layoutY="29.0" text="View Sell Voucher">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="21.0" layoutY="56.0" prefHeight="3.0" prefWidth="749.0" />
+      <Label layoutX="21.0" layoutY="76.0" text="Start Date" />
+      <DatePicker fx:id="start" layoutX="104.0" layoutY="72.0" />
+      <DatePicker fx:id="end" layoutX="408.0" layoutY="72.0" />
+      <Label layoutX="325.0" layoutY="76.0" text="End Date" />
+      <Button layoutX="619.0" layoutY="72.0" mnemonicParsing="false" onAction="#onShowButtonClick" prefHeight="25.0" prefWidth="73.0" text="Show" />
+      <TableView fx:id="table" layoutX="21.0" layoutY="112.0" prefHeight="371.0" prefWidth="749.0">
+        <columns>
+          <TableColumn fx:id="no" prefWidth="53.0" text="No." />
+          <TableColumn fx:id="date" prefWidth="78.0" text="Date" />
+            <TableColumn fx:id="name" prefWidth="119.0" text="Name" />
+            <TableColumn fx:id="address" prefWidth="122.0" text="Address" />
+            <TableColumn fx:id="total_amount" prefWidth="85.0" text="Total Amount" />
+            <TableColumn fx:id="opening" prefWidth="63.0" text="Opening" />
+            <TableColumn fx:id="total" prefWidth="73.0" text="Total" />
+            <TableColumn fx:id="cash" prefWidth="75.0" text="TT/DD/Cash" />
+            <TableColumn fx:id="balance" prefWidth="77.0" text="Balance" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

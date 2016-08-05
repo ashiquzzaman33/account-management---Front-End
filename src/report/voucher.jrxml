@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2015-09-12T21:38:03 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="voucher" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a7134fe-c6f8-40c4-9afa-755274f2b65f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="location" class="java.lang.String"/>
+	<parameter name="narration" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.Object"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="account" class="java.lang.String"/>
+	<field name="dr" class="java.lang.Float"/>
+	<field name="cr" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="180" height="60" uuid="3e263163-548d-48f5-ae2d-c26e1401e2c0"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="440" y="0" width="40" height="17" uuid="01a49ae0-0db9-4a51-8f75-defa2b43a10c"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="17" width="60" height="23" uuid="818109d4-d24e-425e-ae81-67d6bbe85cb3"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Location:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="60" width="553" height="1" uuid="d1284648-db37-4a71-a32d-fa01ffc7e2d5"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="553" height="1" uuid="e0433bd1-f997-4d6e-b25e-ed7d6e0f7ade"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="87" uuid="0c3e2602-57e6-4e9c-8ab9-a418a28cafbb"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="64" width="61" height="23" uuid="6fc78c34-722a-4039-97fe-46c20d103d78"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Narration:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="480" y="1" width="73" height="16" uuid="f8ba73af-52a6-44d1-adbd-cb0f309aeb78"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="17" width="73" height="23" uuid="54bf57ec-2e50-4e01-9301-6a6899462a80"/>
+				<textElement verticalAlignment="Top">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{location}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="60" y="64" width="493" height="16" uuid="9b90f183-7969-482b-a3f9-42c7eaf56c00"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{narration}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="553" y="2" width="1" height="85" uuid="986f6b15-0cda-44cf-955d-f1253bd65f89"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="200" y="10" width="160" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="522b898f-0e5d-4600-8c3d-050f1b237698"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Voucher]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23">
+			<staticText>
+				<reportElement x="0" y="0" width="320" height="20" uuid="0f2f277d-6ae8-422e-bbe5-213fb12d0d82"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Account Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="0" width="130" height="20" uuid="3a8939a2-c1fc-4ec7-bbf5-ab1c23dad1ef"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="105" height="20" uuid="30f548c1-4494-44c5-989c-4788cd1635d1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cr]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="1" height="20" uuid="1c16aa78-c65a-4bb3-aecf-bc7352c761ed"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="20" width="554" height="3" uuid="769e4762-a165-4d96-9bae-541e4b910663"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-1" y="0" width="554" height="3" uuid="919bc3e6-ac76-4840-8711-e0c0072ce51c"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="319" height="20" uuid="1dadc1f9-4954-4998-bede-9470e246b038"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{account}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="0" width="130" height="20" uuid="755b32f2-1f6e-475c-ad19-83c62b42fe43"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="103" height="20" uuid="b8256807-8328-4caf-8aec-362301b6cd49"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cr}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="-3" width="1" height="25" uuid="07b08115-555b-4f7e-9ca9-e0607a8a4902"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="553" y="0" width="1" height="20" uuid="954578d3-7036-4008-97f6-a825a836c311"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="553" y="-28" width="1" height="28" uuid="1c6af4b2-d3f4-49e6-ba23-53983cd7e0a0"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="1" y="21" width="553" height="1" uuid="7cfa0d04-5cb7-48b8-910d-1a1cb94bacb4"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
