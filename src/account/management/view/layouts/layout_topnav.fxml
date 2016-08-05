@@ -50,7 +50,6 @@
             <MenuItem mnemonicParsing="false" onAction="#onViewPurchaseOrederVoucherClick" text="View Purchase Order Voucher" />
             <MenuItem mnemonicParsing="false" onAction="#onSellVoucherClick" text="Sell Voucher" />
             <MenuItem mnemonicParsing="false" onAction="#onViewSellOrederVoucherClick" text="View Sell Voucher" />
-            <MenuItem mnemonicParsing="false" onAction="#onCNFBillclick" text="CNF Bill" />
          </items>
       </Menu>
       <Menu fx:id="project" mnemonicParsing="false" text="Project">
